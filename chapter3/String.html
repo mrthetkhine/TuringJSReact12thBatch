@@ -1,0 +1,33 @@
+<html>
+    <script>
+        let str = "Hello 'hi'";
+        console.log(str);
+        console.log('Type of str: ', typeof str);
+
+        str = 'Hello "hi"';
+        console.log(str);
+
+        str = "Hello \"hi\"";
+        console.log(str);
+
+        str = "First line \n"
+            +"Second line \n"
+            +"Third line";
+        console.log(str);
+
+        let price = 100;
+        let qty = 2;
+        str = "Price is: " + price + ", Qty is: " + qty + " Total is "+(price * qty);
+        console.log(str);
+
+        str = `Price is: ${price}, Qty is: ${qty}  Total is ${price * qty}`;
+        console.log(str);
+
+        str= `First line
+second line
+third line`;
+        console.log(str);
+
+        console.log('Length of str: ', str.length);
+    </script>
+</html>

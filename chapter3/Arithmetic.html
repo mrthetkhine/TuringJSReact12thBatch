@@ -1,0 +1,38 @@
+<html>
+    <script>
+        let a = 3;
+        let b = 2;
+
+        console.log('a + b = ', a + b);
+        console.log('a - b = ', a - b);
+        console.log('a * b = ', a * b);
+        console.log('a / b = ', a / b);
+        console.log('a % b = ', a % b);
+        console.log('a ** b = ', a ** b); // Exponentiation
+
+        console.log('Math.round ',Math.round(4.6));
+        console.log('Math.min ',Math.min(12,1,20,3));
+
+        let maxValue = Number.MAX_VALUE;
+        //maxValue = maxValue + 4;
+        console.log('Max Value ',maxValue);
+
+        let minValue = Number.MIN_VALUE;
+        console.log('Min Value ',minValue);
+
+        let result = 4 / 0;
+        console.log('Result of 4/0: ', result); // Infinity
+
+        let posZero = 0;
+        let negZero = -0;
+        console.log('Pos Zero: ', posZero);
+        console.log('Neg Zero: ', negZero);
+
+        console.log('Is Pos Zero equal to Neg Zero? ', posZero == negZero); // true
+
+        let posInfinity = 1 / posZero;
+        let negInfinity = 1 / negZero;
+        console.log('Positive Infinity: ', posInfinity); // Infinity
+        console.log('Negative Infinity: ', negInfinity); // -Infinity
+    </script>
+</html>
