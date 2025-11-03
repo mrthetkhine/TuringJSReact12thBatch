@@ -1,0 +1,61 @@
+<html>
+    <script>
+
+        let obj = {
+            name: "TK",
+            valueOf()
+            {
+                console.log('valueOf called');
+                return "100";
+            },
+            toString()
+            {
+                console.log('toString called');
+                return "Hello";
+            }
+        };
+        //console.log('obj.toString() ', obj.toString());
+        console.log('obj+"" ', obj+"");
+        console.log('+obj ', +obj);
+        console.log('!!obj ',!!obj);
+
+        let obj2 ={};
+        //console.log('obj2+"" ', obj2+"");
+        console.log('+obj2 ', +obj2);
+        /*
+        obj2.toString() ->"[object Object]"
+        +"[object Object]"=>NaN
+        */
+       let obj3 = {
+            name: "TK",
+            valueOf()
+            {
+                console.log('valueOf called');
+                return {};
+            },
+            toString()
+            {
+                console.log('toString called');
+                return "100";
+            }
+    };
+    console.log('===');
+    console.log('+obj3 ', +obj3);
+
+    let obj4 = {
+            name: "TK",
+            valueOf()
+            {
+                console.log('valueOf called');
+                return {};
+            },
+            toString()
+            {
+                console.log('toString called');
+                return {};
+            }
+    };
+    console.log('===');
+    console.log('+obj4 ', +obj4);
+    </script>
+</html>
