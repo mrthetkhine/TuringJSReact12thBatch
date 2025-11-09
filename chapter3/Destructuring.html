@@ -1,0 +1,27 @@
+<html>
+    <script>
+        let arr = [10,20,30,40];
+        
+        /*
+        let a = arr[0];
+        let b = arr[1];
+        */
+        let [a,b,...c]= arr;
+
+        console.log('a is ',a);
+        console.log('b is ',b);    
+        console.log('c is ',c);
+
+        let obj = {
+            name : "John",
+            age  : 30
+        };
+        let {name:name1, age} = obj;//let name1=obj.name;
+        /*
+        let name =obj.name;
+        let age = obj.age;
+        */
+        console.log('name is ',name1);
+        console.log('age is ',age);
+    </script>
+</html>

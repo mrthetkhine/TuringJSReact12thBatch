@@ -1,0 +1,53 @@
+<html>
+    <script>
+        let data = "2" + 3;//string concatenation
+        data = 2 + "3";
+        console.log('Data ',data);//23
+        console.log('Type of data ',typeof data);//string
+
+        /*
+        object-> object to primiritive conversion
+        one of the operand string
+            string conact
+        else 
+            convert to number
+            arithmetic operation
+        */
+       let obj = {
+            valueOf()
+            {
+                console.log('valueOf called');
+                return '4';
+            }
+        };
+        let res = obj + 2;//6
+        console.log('Res ',res);
+        
+        obj = {
+            valueOf()
+            {
+                console.log('valueOf called');
+                return false;
+            }
+        };
+        res = obj + 2;
+        console.log('Res ',res);
+
+        let a = -10;
+        let b = +a;
+
+        console.log('a ',a);
+        console.log('b ',b);
+
+        let c = 10;
+        let d = c ++;//post increment
+        console.log('c ',c);
+        console.log('d ',d);    
+
+        let e = ++ c;//pre increment
+        console.log('c ',c);
+        console.log('e ',e);
+        //c++;
+        
+    </script>    
+</html>

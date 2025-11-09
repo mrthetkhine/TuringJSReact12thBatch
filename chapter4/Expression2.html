@@ -1,0 +1,30 @@
+<html>
+    <script>
+        let obj = {
+            name :"John",
+            age: 30,
+            /*
+            address : {
+                city:"New York",
+            }*/
+        };
+        console.log('Name ',obj.name);
+        console.log('Name ',obj['name']);
+        console.log('City ',obj?.address?.city);
+
+        let arr = [10,20];
+        console.log('First Element ',arr[0]);
+
+
+        let fun = function() {
+            console.log('Hello world');
+        };
+        fun();//invocation
+        fun = undefined;
+
+        fun?.();//conditional invocation
+
+        let date = new Date();
+        console.log('Date ',date.toDateString());
+    </script>    
+</html>
