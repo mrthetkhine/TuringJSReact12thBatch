@@ -1,0 +1,38 @@
+<html>
+    <script>
+        console.log('2 ==="2" ', 2 === "2" );
+        console.log('"2" ==="2" ', "2" === "2" );
+        console.log('3 ===3 ', 3 === 3 );
+
+        console.log('2 =="2" ', 2 == "2" );
+        console.log('null == undefined ', null == undefined );
+
+        console.log('true =="1" ', true == "1" );
+        /*
+            true => +true = 1
+            1 == "1"
+            "1" => +"1" =1
+            1 == 1 =>true
+        */
+       console.log(' "" ==false ', "" == false );
+       /* 
+       false => +false = 0
+       "" == 0
+       +"" ==0 
+       0 ==0 => true
+       */
+      let obj = {
+        valueOf()
+        {
+            console.log('value of ');
+            return "120";
+        }
+      };
+      console.log(' obj == 120 ', obj == 120 );
+      console.log('null == false ', null == false );
+      console.log('null == undefined ', undefined == false);
+      console.log('null ==0 ', null ==0 );
+      console.log('undefined ==0 ', undefined ==0 );
+      console.log('NaN ==NaN ', NaN == NaN );
+    </script>    
+</html>

@@ -1,0 +1,60 @@
+<html>
+    <script>
+        /*
+        AND 
+        0 0 => 0
+        0 1 => 0
+        1 0 => 0
+        1 1 => 1
+        */
+       /*
+       OR
+       0 0 => 0
+       0 1 => 1     
+       1 0 => 1
+       1 1 => 1 
+       */
+      console.log(' false && false ', false && false);
+      console.log(' true && true ', true && true);
+
+      let obj = {};
+      /*
+        AND 
+        0 0 => 0
+        0 1 => 0
+
+        1 0 => 0
+        1 1 => 1
+        */
+       /*
+       LHS && RHS => 
+       if LHS is falsy return LHS
+       else return RHS
+       */
+      console.log(' obj && "hello" ', obj && "hello");
+      console.log(' true && "hello" ', true && "hello");
+      console.log(' [] && "hello" ', [] && "hello")
+      console.log(' "" && "hello" ', "" && "hello");
+      console.log(' 0 && "hello" ', 0 && "hello");
+      console.log(' null && "hello" ', null && "hello");
+
+      console.log();
+        /*
+       OR
+       0 0 => 0
+       0 1 => 1     
+       1 0 => 1
+       1 1 => 1 
+       if LHS is falsy return RHS
+       else return LHS
+       */
+      console.log(' obj || "hello" ', obj || "hello");
+      console.log(' "" || "hello" ', "" || "hello");
+
+      console.log();
+      console.log(' !true ', !true);
+      console.log(' !false ', !false);
+      console.log(' !obj ', !obj);
+      console.log(' !null ', !null);
+    </script>    
+</html>

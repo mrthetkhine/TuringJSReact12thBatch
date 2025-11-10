@@ -1,0 +1,15 @@
+<html>
+    <script>
+        let obj = {
+            name: 'Turing',
+            age: 15
+        };
+        console.log('name in obj','name' in obj);//true
+        console.log('toString in obj ', 'toString' in obj);//true
+        console.log('"another" in obj','another' in obj);//false
+
+        let arr = [10,20,30];
+        console.log('0 in arr ',0 in arr);//true
+        console.log('3 in arr ',3 in arr);//false
+    </script>    
+</html>
