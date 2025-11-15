@@ -1,0 +1,18 @@
+<html>
+    <script>
+        let num = Number.parseInt(Math.random()*10)+1;//1-10
+        //console.log('Num ',num);
+        let guess;
+        do
+        {
+            guess = + window.prompt("Enter a num");
+            if(guess < num)
+                console.log('Too low');
+            else if(guess > num)
+                console.log('Too high');
+            else
+                console.log('Congrats');
+        }while(num != guess);
+        
+    </script>
+</html>

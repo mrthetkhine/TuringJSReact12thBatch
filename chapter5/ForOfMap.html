@@ -1,0 +1,34 @@
+<html>
+    <script>
+        let set = new Set([1,2,3,1,1,2,3]);
+        console.log('set ',set);
+
+        for(const item of set)
+        {
+            console.log('Item ',item);
+        }
+        let map = new Map([
+            [1, "one"],
+            [2,'Two']
+        ]);
+         for(const item of map)
+        {
+            console.log('Item =>',item);
+        }
+
+        let obj ={
+            x:10,
+            y: 20,
+            z : 30
+        };
+        for(const key in obj)// for(const key of Object.keys(obj))
+        {
+            console.log('Key ',key, ' Value ',obj[key]);
+        }
+        let arr =[10,20,30];
+        for(const index in arr)
+        {
+            console.log('Array ',arr[index]);
+        }
+    </script>
+</html>
