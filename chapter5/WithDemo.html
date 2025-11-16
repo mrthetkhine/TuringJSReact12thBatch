@@ -1,0 +1,22 @@
+<html>
+    <script>
+        //debugger;
+        let obj ={
+            x: 10,
+            y : 20,
+        }
+        /*
+        obj.x = 100;
+        obj.y = 200
+        */
+       with(obj)
+       {
+        x = 100;
+        y = 200;
+        z = 300;
+       }
+       console.log('Obj ',obj);
+       console.log('Z ',z); 
+        
+    </script>
+</html>

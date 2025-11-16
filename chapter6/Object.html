@@ -1,0 +1,27 @@
+<html>
+    <script>
+        
+        let book1 = {
+            title :'Fast and Slow thinking',
+            author: {
+                name: 'Daniel Kahneman',
+                gender:'Male'
+            },
+            year : 2011,
+        };
+        let book2 = {
+            title :'how to win friends and influence people',
+            author: 'Danel Carnegie',
+            year : 1936,
+        };
+        let books = [book1,book2];
+        for(const book of books)
+        {
+            console.log('Book ',book.title);
+            console.log('Author ',book.author);
+            console.log('Year ',book.year);
+        }
+        book1.price = 100;
+        console.log('Book1 ',book1);
+    </script>
+</html>

@@ -1,0 +1,42 @@
+<html>
+    <script>
+        "use strict";
+        let obj ={
+            x: 10,
+            y : 20,
+            x : 30,
+        }
+        console.log('Obj ',obj);
+       function hello()
+       {
+        console.log('This ',this);
+        console.log('Arguments ',arguments);
+       }
+       hello();
+
+       function demo(a,b)
+       //function demo(a,a)//work in non-strict mode
+       {
+        console.log('This ',this);
+        console.log('Arguments ',arguments);
+       }
+        /*
+       with(obj)
+       {
+        x = 100;
+        y = 200;
+        z = 300;
+       }
+        */
+       //data = 100;
+       //top = 10;
+       eval("var a = 10;var b = 20;");
+       //console.log('a ',a, ' b ',b );
+       let x = 100;
+       //delete x;
+       console.log('x is ',x);
+       //delete window.top;
+       //eval = undefined;
+       //undefined = 100;
+    </script>
+</html>

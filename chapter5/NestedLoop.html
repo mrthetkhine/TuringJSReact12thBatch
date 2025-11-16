@@ -1,0 +1,29 @@
+<html>
+    <script>
+        
+        /*
+        for(let i=0;i<4;i++)
+        {
+            console.log('Outer i --->',i);
+            for(let j=0;j<3;j++)
+            {
+                console.log('Inner j ',j);
+            }
+        }
+        */ 
+       let matrix = [
+            [1,2,3],
+            [4,5,6,100,200],
+            [7,8,9,90],
+       ];
+       for(let i=0;i< matrix.length;i++)
+       {
+            console.log('Matrix [',i,'] ',matrix[i]);
+            //let arr = matrix[i];
+            for(let j=0;j< matrix[i].length;j++)
+            {
+                console.log('Ele ',matrix[i][j]);
+            }
+       }
+    </script>
+</html>
