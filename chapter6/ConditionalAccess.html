@@ -1,0 +1,37 @@
+<html>
+    <script>
+
+        let obj = {
+            name: 'Jhon Wick',
+            age : 45,
+            
+            address: {
+                city : "YGN",
+                no : 0
+            }
+        }
+        console.log('City ',obj?.address?.city);
+        //console.log('Adress' ,(obj && obj.address && obj.address.city));
+       delete obj.address;
+       console.log('Obj ',obj);
+       console.log('City ',obj?.address?.city);
+       console.log('city in obj ','city' in obj); 
+       console.log('toString in obj ','toString' in obj); 
+
+       console.log('hasOwnProperty name ',obj.hasOwnProperty('name'));
+       console.log('hasOwnProperty toString ',obj.hasOwnProperty('toString'));
+
+       console.log('isEnumerable name ',obj.propertyIsEnumerable('name'));
+       console.log('isEnumerable toString ',obj.propertyIsEnumerable('toString'));
+       let arr = [10,20];
+       delete arr[0];
+       console.log('Arr ',arr);
+
+       let obj2 = {
+         x: undefined,
+         y : 20
+       };
+       console.log('x in obj2 ','x' in obj2);
+       console.log('x !== undefined ',obj2.x !== undefined);
+    </script>
+</html>

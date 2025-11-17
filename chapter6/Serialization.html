@@ -1,0 +1,30 @@
+<html>
+    <script>
+
+        let obj = {
+            name : 'Jhon',
+            age : 45,
+            address : "YGN",
+            items: [1,2,3],
+            display()
+            {
+                console.log('Name ',this.name);
+                console.log('Age ',this.age);
+                console.log('Address ',this.address);   
+            }
+        };
+        let clone = {... obj};
+        console.log('Clone.items ==s obj.items ',clone.items === obj.items);
+        let str = JSON.stringify(obj);//serialization
+        console.log('Str ',str);
+
+        let obj2 = JSON.parse(str);//deserialization
+        console.log('Obj2 ',obj2);
+        obj.items.push(100);
+
+        console.log('Obj.items ',obj.items);
+        console.log('Obj2.items ',obj2.items);
+
+        console.log('obj === obj2 ',obj === obj2);
+    </script>
+</html>

@@ -1,0 +1,18 @@
+<html>
+    <script>
+
+        for(let p in window)
+        {
+            //console.log('Property ',p, ' value ',window[p]);
+        }
+        let obj = {
+            name : 'Jhon',
+            age : 45,
+            address : "YGN",
+            
+        }
+        console.log('Keys ',Object.keys(obj));
+        console.log('GetOwnProperty Name ',Object.getOwnPropertyNames(obj));
+        console.log('Reflect.ownKeys ',Reflect.ownKeys(obj));
+    </script>
+</html>

@@ -1,0 +1,27 @@
+<html>
+    <script>
+
+        let obj = {
+            name: 'Jhon Wick',
+            age : 45,
+            "another name":"Jhon"
+        }
+        let propName = 'name';
+        console.log('Obj["name"]',obj[propName]);
+        console.log('Obj["another name"]',obj['another name']);
+
+        let obj2 = {
+            x : 100,
+            y : 200,
+            z : 300
+        };
+        for(let pro in obj2)
+        {
+            console.log("Pro ",pro, "obj2[pro] ",obj2[pro]);
+        }
+        obj2.another = "Hello";
+        console.log('Obj2 ',obj2);
+
+        //obj2.address.city = "YGN";
+    </script>
+</html>

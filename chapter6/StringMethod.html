@@ -1,0 +1,30 @@
+<html>
+    <script>
+
+        let obj = {
+            name : 'Jhon',
+            secret:'admin',
+            age : 45,
+            address : "YGN",
+            items: [1,2,3],
+            toJSON()
+            {
+                console.log('toJSON called');
+                return {
+                    username : this.name,
+                    age : this.age
+                }
+            },
+            display()
+            {
+                console.log('Name ',this.name);
+                console.log('Age ',this.age);
+                console.log('Address ',this.address);   
+            }
+        };
+        obj.display();
+
+        let str = JSON.stringify(obj);
+        console.log('Str ',str);
+    </script>
+</html>

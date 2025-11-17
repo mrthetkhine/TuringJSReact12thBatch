@@ -1,0 +1,39 @@
+<html>
+    <script>
+
+        let name = "Jhon";
+        let age  = 45;
+
+        /*
+        let obj = {
+            name :name,
+            age : age
+        };
+        */ 
+       const extension = Symbol("my extension symbol");
+       let obj = {
+            name , 
+            age,
+            "address_0":"Somewhere",
+            "address_1":"Another",
+            [extension]: "Hello",
+            /*
+            display: function()
+            {
+                console.log('Name ',this.name);
+                console.log('Age ',this.age);
+            }*/ 
+           display()
+           {
+                console.log('Name ',this.name);
+                console.log('Age ',this.age);
+           }
+       };
+       obj.display();
+        console.log('Obj ',obj);
+        let fieldName = 'address_';
+        console.log(obj[fieldName+"0"]);
+        console.log(obj[fieldName+"1"]);
+        console.log('Obj[symbol ]',obj[extension]);
+    </script>
+</html>

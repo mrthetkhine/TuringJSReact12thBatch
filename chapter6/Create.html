@@ -1,0 +1,25 @@
+<html>
+    <script>
+
+        let parent = {
+            x : 10,
+            y : 20,
+            items: [10]
+        };
+        let obj1 = Object.create(parent);
+        let obj2 = Object.create(parent);
+
+        obj1.items.push(20);//read //obj1.items = [];
+        obj2.items.push(30);
+
+        console.log('Parent ',parent.items);
+        console.log('Obj1 ',obj1.items);
+        console.log('Obj2 ',obj2.items);
+
+        obj2.items = [100];//write
+        console.log();
+        console.log('Obj1 ',obj1.items);
+        console.log('Obj2 ',obj2.items);
+
+    </script>
+</html>

@@ -1,0 +1,31 @@
+<html>
+    <script>
+        
+        let date = new Date();
+        console.log('Date ',date);
+        console.log('date.prototype ',date.__proto__);
+
+        let obj = new Object();
+        console.log('Object ',obj);
+
+        let parent = {
+            x : 10,
+            y : 20,
+        };
+        let obj2 = Object.create(parent);
+        console.log('obj2 ',obj2);
+
+        Object.prototype.toString = function()
+        {
+            return "Hello World";
+        }
+        console.log('Obj2.x ',obj2.x);
+        console.log('Obj2.toString ',obj2.toString());
+        console.log('Object ',{}.toString());
+
+        obj2.x = 100;//write
+        console.log('Obj2.x ',obj2);
+        console.log('Obj2.z ',obj2.z);
+        console.log('Parent.x ',parent.x);
+    </script>
+</html>

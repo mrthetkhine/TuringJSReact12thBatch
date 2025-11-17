@@ -1,0 +1,19 @@
+<html>
+    <script>
+
+        let first = {
+            x : 10,
+            items: [100],
+        };
+        let second = {
+            y : 20,
+            items: [200],
+        };
+        let obj = { ... first, ... second};
+        obj.items.push(50);
+
+        console.log('first ',first.items);
+        console.log('second ',second.items);
+        console.log('obj.items ',obj.items);
+    </script>
+</html>
