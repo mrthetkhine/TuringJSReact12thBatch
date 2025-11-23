@@ -1,0 +1,19 @@
+<html>
+    <script>
+
+        let arr = [];
+        
+        arr.push(10);//[10]
+        arr.push(20,40,50); //[10,20,40,50];
+        arr[arr.length] = 30; //[10,20,40,50,30];
+        console.log("Array is ",arr);
+
+        console.log('Pop ',arr.pop());//30
+        console.log("Array after pop is ",arr);
+
+        arr.unshift(100);
+        console.log("Array after unshift is ",arr);
+        console.log("Array after shift is ",arr.shift());
+        
+    </script>    
+</html>

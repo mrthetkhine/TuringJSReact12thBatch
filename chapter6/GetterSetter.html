@@ -1,0 +1,31 @@
+<html>
+    <script>
+
+        let obj = {
+            name : 'Alice',
+            _age : 30,
+
+            set age (newValue) //setter
+            {
+                if(newValue > 0 && newValue < 100)
+                {
+                    console.log("Setting age to ",newValue);
+                    this._age = newValue;
+                }
+                else
+                {
+                    console.log("Invalid age");
+                }
+            },
+            get age() //getter
+            {
+                console.log("Getting age");
+                return this._age;
+            }
+        }
+        obj.age = 120;
+        obj.age = 35;
+        console.log("Obj ",obj); // 
+        console.log("Age is ",obj.age);
+    </script>
+</html>

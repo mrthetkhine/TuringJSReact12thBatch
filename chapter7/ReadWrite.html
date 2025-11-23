@@ -1,0 +1,20 @@
+<html>
+    <script>
+
+        let arr = [1,2,3,4,5];
+        
+        console.log('Arr[0 ] ',arr[0]);
+        arr[0] = 100;
+
+        console.log('Arr ',arr);
+
+        arr.length = 10;
+        console.log('Arr after length change ',arr);
+        console.log('Arr[9] ',arr[9]);
+        arr[9] = 500;
+        console.log('9 in arr ',9 in arr);
+
+        arr.length = 3;
+        console.log('Arr after length reduce ',arr);
+    </script>
+</html>

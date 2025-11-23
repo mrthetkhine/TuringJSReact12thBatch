@@ -1,0 +1,28 @@
+<html>
+    <script>
+
+        let arr = [1,2,3];
+        
+        for(const item of arr)
+        {
+            console.log("Item is ",item);
+            //item *= 2;
+        }
+        console.log("Array after for..of ",arr);
+
+        for(const [index,value] of arr.entries())
+        {
+            console.log(`Index ${index} Value ${value}`);
+            arr[index] = value * 2;
+        }
+        console.log("Array after entries ",arr);
+
+        arr.forEach((item,index,array)=>{
+            console.log(`ForEach Index ${index} Value ${item}`);
+            array[index] = item + 5;
+        });
+        arr.forEach((item)=>{
+            console.log(`ForEach Value ${item}`);
+        });
+    </script>    
+</html>

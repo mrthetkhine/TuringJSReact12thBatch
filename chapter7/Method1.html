@@ -1,0 +1,16 @@
+<html>
+    <script>
+
+        let arr = [1,2,3];
+
+        arr.forEach((value,index,array)=>console.log('Item is ',value));
+            
+        arr.forEach(x=>x *= 2); // won't change original array
+        console.log("Array after forEach ",arr);
+
+        arr.forEach((value,index,array)=>{
+            array[index] = value * 2;
+        });
+        console.log("Array after forEach with modification ",arr);
+    </script>    
+</html>

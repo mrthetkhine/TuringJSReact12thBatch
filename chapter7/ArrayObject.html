@@ -1,0 +1,27 @@
+<html>
+    <script>
+
+        let arr = [1,2,3];
+        arr['5'] = 200;//element
+        arr.another = "Hello";//property
+
+        arr[1.1] = 400;
+        console.log("Array is ",arr);
+        console.log("Length is ",arr.length);
+
+        for(const item of arr)
+        {
+            console.log("Item is ",item);
+        }
+        console.log('Arr.another ',arr.another);
+
+        let arr2 = new Array(100);
+        arr2[0]= 10;
+        arr2[99]= 100;
+
+        console.log("Arr2 length ",arr2.length);
+        console.log("Arr2 ",arr2);
+
+        
+    </script>    
+</html>

@@ -10,6 +10,11 @@
             items: [200],
         };
         let obj = { ... first, ... second};
+        /*
+            obj.x = first.x;
+            obj.y = second.y;
+            obj.items = first.items = second.items];
+        */
         obj.items.push(50);
 
         console.log('first ',first.items);

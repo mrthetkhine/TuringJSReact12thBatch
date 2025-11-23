@@ -1,0 +1,24 @@
+<html>
+    <script>
+
+        let item = {
+            price : 50,
+            qty : 10,
+            get total()
+            {
+                return this.price * this.qty;
+            }
+        }
+        console.log("Item is ",item);
+        //item.total = 10;
+        console.log("Total is ",item.total);
+        let obj = {
+            radius : 100,
+            get area()
+            {
+                return Math.PI * this.radius * this.radius;
+            }
+        }
+        console.log("Area is ",obj.area);
+    </script>
+</html>
