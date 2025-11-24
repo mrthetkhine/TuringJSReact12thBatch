@@ -1,0 +1,19 @@
+<html>
+    <script>
+
+        let arr = [1,2,3,4,5];
+
+        console.log("Original Array ",arr);
+        let sum = arr.reduceRight( (a,b)=>{
+            console.log("a ",a," b ",b);
+            return a +b;
+        });
+        console.log("Sum of array elements ",sum);
+
+        arr = [10,2,3,11,1,5];
+        let min = arr.reduce((a,b)=>{
+            return a < b ? a : b;
+        });
+        console.log("Minimum element in array ",min);
+    </script>    
+</html>

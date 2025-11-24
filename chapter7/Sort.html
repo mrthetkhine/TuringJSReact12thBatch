@@ -1,0 +1,16 @@
+<html>
+    <script>
+
+        let arr = [1,11,2,100,205];
+
+        arr.sort();
+        console.log("After default sort ",arr);
+
+        //comparator 0,1,-1
+        arr.sort( (a,b) => a-b );
+        console.log("After ascending sort ",arr);
+
+        arr.sort( (a,b) => b-a );
+        console.log("After ascending sort ",arr);
+    </script>    
+</html>

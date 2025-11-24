@@ -1,0 +1,21 @@
+<html>
+    <script>
+
+        let arr = [1,2,3,4,5,6,7,1,2,3,NaN];
+
+        let index = arr.indexOf('5');
+        console.log("Index of '5' is ",index);
+
+        index = arr.lastIndexOf(3);
+        console.log("Last index of 3 is ",index);
+
+        index = arr.indexOf(NaN);//===
+        console.log("Index of NaN is ",index);
+
+        let include= arr.includes(4);//===
+        console.log("Includes 5 ? ",include);
+
+        include = arr.includes(NaN);//===
+        console.log("Includes NaN ? ",include);
+    </script>    
+</html>

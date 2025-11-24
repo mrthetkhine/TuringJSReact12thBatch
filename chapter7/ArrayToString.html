@@ -1,0 +1,22 @@
+<html>
+    <script>
+
+        let arr = [1,2,3];
+        let str = arr.join();
+
+        console.log("Array to String ",str);
+        console.log('isArray ', Array.isArray(arr) );
+        console.log('isArray {} ', Array.isArray({}) );
+
+        let obj = {};
+        obj[0] = 10;
+        obj[1] = 20;
+        obj.length = 2;
+
+        console.log("is Array obj ",Array.isArray(obj));
+
+        let str2 = "Hello";
+        console.log('Str2[0] ',str2[0]);
+        console.log('Str2[1] ',str2[1]);
+    </script>    
+</html>

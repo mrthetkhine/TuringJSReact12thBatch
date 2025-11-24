@@ -1,0 +1,55 @@
+<html>
+    <script>
+
+        let students = [
+            {
+                name : "Aung Myint",
+                gender : "Male",
+                age : 20,
+            },
+             {
+                name : "Mya Mya",
+                gender : "Female",
+                age : 14,
+            },
+            {
+                name : "Hla Hla",
+                gender : "Female",
+                age : 24,
+            },
+            {
+                name : "Aye Mya",
+                gender : "Female",
+                age : 14,
+            },
+            {
+                name : "Aung Win",
+                gender : "Male",
+                age : 34,
+            },
+            {
+                name : "Tint Tint",
+                gender : "Female",
+                age : 20,
+            },
+            {
+                name : "Soe Win",
+                gender : "Male",
+                age : 23,
+            },
+        ];
+        students.sort( (studA,studB) => {
+            if(studA.age == studB.age) 
+            {
+                return studA.name.localeCompare(studB.name);
+            }
+            else
+            {
+                return studA.age - studB.age;
+            }
+        });
+        students.reverse();
+        console.log("Students sorted by age ",students);
+        
+    </script>    
+</html>

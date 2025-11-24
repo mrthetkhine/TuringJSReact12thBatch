@@ -1,0 +1,29 @@
+<html>
+    <script>
+
+        let arr = [1,2,3,4,5,6];
+
+        let arr2 = arr.map(x=>x*2);//[2,4,6]
+        console.log("Original Array ",arr);
+        console.log("After map ",arr2);
+
+        let evenList = arr.filter(x=>x%2===0);
+        console.log("Even Numbers ",evenList);
+
+        let greatherThanThree = arr.find(x=>x>13);
+        console.log("Numbers greater than 3 ",greatherThanThree);
+
+        let index = arr.findIndex(x=>x>3);
+        console.log("Index of first number greater than 3 ",index);
+
+        let allGtZero = arr.every(x=>x>0);
+        console.log("Are all numbers greater than zero ? ",allGtZero);
+
+        let arr3 = [-1,2,12];
+        allGtZero = arr3.every(x=>x>0);
+        console.log("Are all numbers greater than zero ? ",allGtZero);
+
+        let someGtTen = arr3.some(x=>x>10);
+        console.log("Is there any number greater than 10 ? ",someGtTen);
+    </script>    
+</html>

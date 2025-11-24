@@ -1,0 +1,42 @@
+<html>
+    <script>
+
+        let students = [
+            {
+                name : "Aung Myint",
+                gender : "Male",
+                age : 20,
+            },
+             {
+                name : "Mya Mya",
+                gender : "Female",
+                age : 14,
+            },
+            {
+                name : "Hla Hla",
+                gender : "Female",
+                age : 24,
+            },
+            {
+                name : "Aung Win",
+                gender : "Male",
+                age : 34,
+            },
+            {
+                name : "Tint Tint",
+                gender : "Female",
+                age : 20,
+            },
+            {
+                name : "Soe Win",
+                gender : "Male",
+                age : 23,
+            },
+        ];
+        let femaleStudents = students.filter(stud=>stud.gender == 'Female')
+                                    .reduce((studA,studB)=>{
+                                        return studA.age < studB.age ? studA : studB;
+                                    });
+        console.log("Female Students ",femaleStudents);
+    </script>    
+</html>
