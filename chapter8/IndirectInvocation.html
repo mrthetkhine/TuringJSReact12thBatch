@@ -1,0 +1,25 @@
+<html>
+    <script>
+        //'use strict';
+        let obj = {
+            name:'Turing',
+            greet: function(message ){
+                console.log('this ',this);
+                console.log('Hello ',message, ' name ',this.name);
+            }
+        };
+        let obj2 = {
+            name:'Jhon'
+        }
+        let greet = obj.greet;
+        obj.greet('Welcome');//invoke as function
+
+        greet.call(obj,'hi');
+        greet.call(obj2,'Hello');
+
+        greet.apply(obj,['Good Morning']);
+
+        let fun = obj.greet.bind(obj2,'Howdy');
+        fun();
+    </script>    
+</html>

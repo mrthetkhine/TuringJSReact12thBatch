@@ -1,0 +1,16 @@
+<html>
+    <script>
+        function outer()
+        {
+            console.log('Inside outer');
+            let counter = 10;
+            function inner()
+            {
+                console.log('Inside inner ',counter );
+               
+            }
+            inner();    
+        }
+        outer();
+    </script>    
+</html>

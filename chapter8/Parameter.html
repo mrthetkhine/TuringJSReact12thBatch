@@ -1,0 +1,36 @@
+<html>
+    <script>
+        function add(x,y){//parameters
+            console.log('Arguments ',x , ' ',y);
+            return x + y;
+        }
+        let result = add(10,20);//arguments
+        console.log('Result ',result);
+
+        function inc(x)
+        {
+            x++;
+        }
+        let a = 10;
+        inc(a);//x = a
+        console.log('a ',a);
+
+        function incObj(obj)
+        {
+            obj.count++;
+        }
+        let counter = {count:10};
+        incObj(counter);//obj = counter
+        console.log('counter ',counter);
+
+        function incObj2(obj)
+        {
+            obj = {
+                count : 100
+            }
+        }
+        let counter2 = {count:10};
+        incObj2(counter2);//obj = counter
+        console.log('counter ',counter2);
+    </script>    
+</html>

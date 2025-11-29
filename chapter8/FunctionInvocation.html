@@ -1,0 +1,31 @@
+<html>
+    <script>
+        function hello()
+        {
+            console.log('Hello World');
+        }
+        hello();
+
+        let obj = {
+            name:'Turing',
+            greet: function(){
+                console.log('this ',this);
+                console.log('Hello ',this.name);
+            }
+        };
+        obj.greet();//invoke as method
+
+        function Human(name)
+        {
+            this.name = name;
+            console.log('this in Human ',this);
+
+            this.greet = function(){
+                console.log('Hello ',this.name);
+            }
+        }
+        let h = new Human('Jhon');//invoke as constructor
+        h.greet();
+        console.log('h ',h);
+    </script>    
+</html>

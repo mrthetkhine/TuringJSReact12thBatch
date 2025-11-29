@@ -1,0 +1,9 @@
+<html>
+
+    <script>
+        let fun = new Function('a', 'b', 'console.log("A is ",a);return a + b');
+        console.log('Function created using Function constructor');
+        let result = fun(10, 20);
+        console.log('Result ', result);
+    </script>    
+</html>

@@ -1,0 +1,27 @@
+<html>
+    <script>
+        //first class
+        function hello()
+        {
+            console.log('Hello World');
+        }
+        //Rule 1
+        let fun = hello;
+        fun();
+
+        function another(fn)
+        {
+            console.log('Inside another function');
+            fn();
+        }
+        //Rule 2
+        another(hello);
+        function returnFun()
+        {
+            console.log('Inside returnFun');
+            return hello;
+        }
+        //Rule 3
+        returnFun()();
+    </script>    
+</html>

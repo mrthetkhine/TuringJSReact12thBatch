@@ -1,0 +1,26 @@
+<html>
+
+    <script>
+        function hello()
+        {
+            console.log('Hello.name ',hello.name);
+            console.log('Hello.length ',hello.length);
+            console.log('Hello.prototype ',hello.prototype);
+        }
+        hello();
+       
+        function add(x,y)
+        {
+            console.log('add length ', arguments.length);
+            if(arguments.length != 2)
+            {
+                console.log('Invalid number of arguments');
+                return;
+            }
+            return x + y;
+        }
+        console.log('add ',add.length);
+        console.log('add ',add(19));
+        console.log( 'add(10,20) ', add(10,20));
+    </script>    
+</html>
