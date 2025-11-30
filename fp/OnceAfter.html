@@ -1,0 +1,38 @@
+<html>
+    <script>
+        function order(orderId)
+        {
+            console.log('Order Placed ',orderId);
+        }
+        function payment()
+        {
+            console.log('Processing Payment');
+        }
+
+        function once(fn,after)
+        {
+            let done = false;
+            return function(...args)
+            {
+                if(!done)
+                {
+                    done = true;
+                    return fn(...args);
+                }
+                else
+                {
+                    return after && after(...args);
+                }
+            }
+        }
+        let order2 = once(order,()=>console.log('Order already placed'));
+        let payment2 = once(payment,()=>console.log('Payment already processed'));
+        order2('id-112');
+        order2('id-112');
+        order2('id-112');
+        order2('id-112');
+
+        payment2();
+        payment2();
+    </script>    
+</html>

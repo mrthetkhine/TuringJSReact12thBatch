@@ -1,0 +1,34 @@
+<html>
+    <script>
+        /*
+            function order()
+            {
+                console.log('Order function called ');
+                console.log('Order busienss logic ');
+                console.log('Order function ended ');
+            }
+        */
+        function order()
+        {
+            console.log('Order busienss logic ');
+        }
+        function payment()
+        {
+            console.log('Processing business logic');
+        }
+        function logging(fn)
+        {
+            return function(...args)
+            {
+                console.log('Function started ',fn.name);
+                let result = fn(...args);
+                console.log('Function ended ',fn.name);
+                return result;
+            }
+        }
+        let loggedOrder = logging(order);
+        let loggedPayment = logging(payment);
+        loggedOrder();
+        loggedPayment();
+    </script>    
+</html>

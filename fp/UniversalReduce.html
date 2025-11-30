@@ -1,0 +1,31 @@
+<html>
+    <script>
+        let arr = [1,2,3,4,5,6];
+
+        function map(arr,fn)
+        {
+            return arr.reduce((result,item)=>{
+                return [...result,fn(item)];
+            } ,[])
+        }
+        let arr2 = map(arr,item=>item*2);
+        console.log('Arr ',arr);
+        console.log('Arr2 ',arr2);
+
+        function filter(arr,fn)
+        {
+            return arr.reduce( (result,item)=>{
+                if(fn(item))
+                {
+                    return [...result,item];
+                }
+                else
+                {
+                    return result;
+                }
+            },[]);
+        }
+        let evenList = filter(arr,item=>item%2===0);
+        console.log('Even List ',evenList);
+    </script>    
+</html>

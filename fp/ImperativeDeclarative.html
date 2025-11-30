@@ -1,0 +1,29 @@
+<html>
+    <script>
+        let arr = [1,2,3,4,5];
+        let arr2 = [];
+
+        for(const item of arr)
+        {
+            arr2.push(item*2);
+        }
+        console.log('Arr ',arr);
+        console.log('Arr2 ',arr2);
+
+        let arr3 = arr.map(item=>item*2);
+        console.log('Arr3 ',arr3);
+
+        let arr4 = [];
+        for(const item of arr)
+        {
+            if(item%2===0)
+            {
+                arr4.push(item);
+            }
+        }
+        console.log('Even List ',arr4);
+
+        let arr5 = arr.filter(item=>item%2===0);
+        console.log('EvenList declarative ',arr5);
+    </script>    
+</html>

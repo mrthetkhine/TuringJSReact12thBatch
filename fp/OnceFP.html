@@ -1,0 +1,32 @@
+<html>
+    <script>
+        function order(oderId)
+        {
+            console.log('Order Placed ',orderId);
+        }
+        function payment()
+        {
+            console.log('Processing Payment');
+        }
+
+        function once(fn)
+        {
+            let done = false;
+            return function(...args)
+            {
+                if(!done)
+                {
+                    done = true;
+                    return fn(...args);
+                }
+            }
+        }
+        let order2 = once(order);
+        let payment2 = once(payment);
+        order2('id-112');
+        order2('id-112');
+
+        payment2();
+        payment2();
+    </script>    
+</html>

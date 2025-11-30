@@ -1,0 +1,130 @@
+<html>
+    <script>
+        let students = [
+            {
+                name:'Mya Mya',
+                gender:'Female',
+                age : 20,
+                city:'YGN',
+            },
+            {
+                name:'Aung Hla',
+                gender:'Male',
+                age : 30,
+                city:'MDY',
+            },
+             {
+                name:'Win Win',
+                gender:'Female',
+                age : 23,
+                city:'NPT',
+            },
+            {
+                name:'Win Maung',
+                gender:'Male',
+                age : 23,
+                city:'YGN',
+            },
+            {
+                name:'Tint Tint',
+                gender:'Female',
+                age : 23,
+                city:'YGN',
+            }
+        ];
+        /*
+        group = {
+            'Female':[{},{}]
+            'Male':[{},{}]    
+            }
+        */
+       let group = {};
+       for(const student of students)
+       {
+            if(!group[student.gender]) 
+            {
+                group[student.gender] = [student];//group[Male]= [student];
+            }
+            else
+            {
+                group[student.gender].push(student);
+            }
+       }
+       console.log('Group ',group);
+
+       let group2 = students.reduce((group,student)=>{
+            if(! group[student.gender])
+            {
+                return {
+                    ...group,
+                    [student.gender]: [student]//group['Male']=[student]
+                }
+            }
+            else
+            {
+                return {
+                    ...group,
+                    //group['Male'].push(student)
+                    [student.gender]: [...group[student.gender],student ]
+                }
+            }
+       },{});
+        console.log('Group2 ',group2);
+
+        
+        function groupBy(arr,property)//arr,city, (arr,gender)
+        {
+            /*
+                group = {
+                    'YGN':[{},{}]
+                    'MDY':[{},{}]    
+                }
+            */
+            return arr.reduce((group,item)=>{
+                    let fieldName = item[property];
+                    if(! group[fieldName]) //group[studnent.gender]
+                    {
+                        return {
+                            ...group,
+                            [fieldName]: [item]//group['Male']=[student]
+                        }
+                    }
+                    else
+                    {
+                        return {
+                            ...group,
+                            //group['Male'].push(student)
+                            [fieldName]: [...group[[fieldName]],item ]
+                        }
+                    }
+            },{});
+        }
+        console.log('Group by City ',groupBy(students,'city'));
+        console.log('Group by gender', groupBy(students,'gender'));
+
+        function groupBy2(arr,property)//arr,city, (arr,gender)
+        {
+            /*
+                group = {
+                    'YGN':[{},{}]
+                    'MDY':[{},{}]    
+                }
+            */
+            return arr.reduce((group,item)=>{
+                    let fieldName = item[property];
+                    if(! group[fieldName]) //group[studnent.gender]
+                    {
+                        group[fieldName] = [item];
+                        return group;
+                    }
+                    else
+                    {
+                        group[fieldName].push(item);
+                        return group;
+                    }
+            },{});
+        }
+         console.log('Group by City ',groupBy2(students,'city'));
+        console.log('Group by gender', groupBy2(students,'gender'));
+    </script>    
+</html>
