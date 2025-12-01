@@ -1,0 +1,30 @@
+<html>
+    <script>
+        console.log('parseInt 10 ',parseInt('10'));
+        console.log('parseInt 10,2 ',parseInt('10',2));
+
+        let arr = ["123", "45", "67"];
+        let numbers = arr.map(parseInt);
+        console.log('Number ',numbers);
+        /*
+        map value,index, array
+        parseInt() string, base
+
+        parseInt(123,0)
+        parseInt(45,1)
+        parseInt(67,1)
+        */
+       console.log('parseInt 45,1 ',parseInt('45',1));
+
+       function unary(fn)
+       {
+            return function(x)
+            {
+                return fn(x);
+            }
+       }
+        let newParseInt = unary(parseInt);
+        numbers = arr.map(newParseInt);
+        console.log('Number ',numbers);
+    </script>    
+</html>

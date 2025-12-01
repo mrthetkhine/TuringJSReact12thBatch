@@ -1,0 +1,38 @@
+<html>
+    <script>
+        function appendHi(str)
+        {
+            return str + ' Hi';
+        }
+        function toUpper(str)
+        {
+            return str.toUpperCase();
+        }
+        function getLength(str)
+        {
+            return str.length;
+        }
+        /*
+            x
+        [funcA,funB,funC]
+        */
+        function pipe(...funs)
+        {
+            return function(x)
+            {
+                return funs.reduce( (x,fun)=>fun(x) ,x);
+            }
+        }
+        let newFunc2 = pipe(appendHi,toUpper);
+        console.log('newFunc2 ',newFunc2('hello'));
+
+        let incOne = (x)=>x+1;
+        let double = (x) => x* 2;
+        let newFunc3 = pipe(incOne,double,console.log);
+        console.log('newFunc3 ',newFunc3(10));
+
+        let newFun4 = pipe(getLength,toUpper);
+        console.log('newFun4 ',newFun4('hello'));
+       
+    </script>    
+</html>

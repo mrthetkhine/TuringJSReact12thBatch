@@ -1,0 +1,31 @@
+<html>
+    <script>
+        function appendHi(str)
+        {
+            return str + ' Hi';
+        }
+        function toUpper(str)
+        {
+            return str.toUpperCase();
+        }
+        /*
+            x
+        [funcA,funB,funC]
+        */
+        function compose(...funs)
+        {
+            return function(x)
+            {
+                return funs.reduceRight( (x,fun)=>fun(x) ,x);
+            }
+        }
+        let newFunc2 = compose(appendHi,toUpper);
+        console.log('newFunc2 ',newFunc2('hello'));
+
+        let incOne = (x)=>x+1;
+        let double = (x) => x* 2;
+        let newFunc3 = compose(console.log,incOne,double);
+        console.log('newFunc3 ',newFunc3(10));
+       
+    </script>    
+</html>

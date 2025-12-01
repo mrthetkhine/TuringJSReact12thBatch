@@ -1,0 +1,40 @@
+
+<html>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/ramda/0.30.1/ramda.js"></script>
+    <script>
+        function inc1(x)
+        {
+            console.log('Inc1 x ',x);
+            return x+1;
+        }
+        /*
+        function add(x,y)
+        {
+            console.log('Add x ',x, ' y ',y);
+            return x+y;
+        }*/ 
+       
+        function add(x)//currying
+        {
+            return function(y)
+            {
+                console.log('Add x ',x, ' y ',y);
+                return x+y;
+            }
+        }
+        let add1 = add(1);//partial application
+        console.log('Add1 ',add1);
+        console.log('Add1 3 ',add1(3));
+        
+        let newFun = R.pipe(inc1,add(10))
+        console.log('newFun ',newFun(2));
+
+        function mult(a,b)
+        {
+            return a*b;
+        }
+        let curriedMul = R.curry(mult);
+        console.log('R.curriedMult ',curriedMul(2));
+        console.log('R curriedMul ',curriedMul(2)(3));
+    </script>    
+</html>    

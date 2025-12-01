@@ -1,0 +1,43 @@
+
+<html>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/ramda/0.30.1/ramda.js"></script>
+    <script>
+        let nums = [1,1,2,2,3,2,3,4,3,3];
+        let k = 2;
+
+        /*
+        frequency = {
+            1: 2,
+            2: 3,
+            3:4,
+            4:1
+        }
+        */
+       let frequency = {};
+       for(const item of nums)
+       {
+            if(frequency[item])
+            {
+                frequency[item]++;
+            }
+            else
+            {
+                frequency[item] = 1;
+            }
+       }
+       console.log('Frequency ',frequency);
+       let arr = Object.entries(frequency);
+       console.log('Arr ',arr);
+
+       arr.sort((a,b)=>{
+            return b[1] - a[1];
+       });
+       console.log('Arr sorted ',arr);
+
+       let arr2 = arr.map(a=>a[0]);
+       console.log('Arr2 ',arr2);
+       arr2.length = k;
+
+       console.log('Frequent k ',arr2);
+    </script>    
+</html>    

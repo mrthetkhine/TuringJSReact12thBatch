@@ -1,0 +1,29 @@
+<html>
+    <script>
+        function appendHi(str)
+        {
+            return str + ' Hi';
+        }
+        function toUpper(str)
+        {
+            return str.toUpperCase();
+        }
+        //input=> appendHi(toUpper(x))
+
+        function newFun(x)
+        {
+            return  appendHi(toUpper(x));
+        }
+        console.log('newFun ',newFun('hello'));
+
+        function compose(funA,funB)
+        {
+            return function(x)
+            {
+                return funA(funB(x));
+            }
+        }
+        let newFunc2 = compose(appendHi,toUpper);
+        console.log('newFunc2 ',newFunc2('hello'));
+    </script>    
+</html>

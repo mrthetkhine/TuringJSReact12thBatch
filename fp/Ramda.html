@@ -1,0 +1,16 @@
+
+<html>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/ramda/0.30.1/ramda.js"></script>
+    <script>
+        function appendHi(str)
+        {
+            return str + ' Hi';
+        }
+        function toUpper(str)
+        {
+            return str.toUpperCase();
+        }
+        let newFun = R.pipe(appendHi,toUpper);
+        console.log('newFun ',newFun('hello'));
+    </script>    
+</html>    

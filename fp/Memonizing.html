@@ -1,0 +1,42 @@
+<html>
+    <script>
+        function factorial(n)
+        {
+            console.log('Factorial ',n);
+            let result = 1;
+            for(let i=1;i<=n;i++)
+            {
+                result = result * i;
+            }
+            return result;
+        }
+        /*
+            {
+                5:120,
+                4:24,
+
+            }
+        */
+        function memonize(fn)
+        {
+            let cache = {};
+            return function(x)
+            {
+                if(cache[x])
+                {
+                    return cache[x];
+                }
+                else
+                {
+                    let result = fn(x);
+                    cache[x] = result;
+                    return result;
+                }
+            }
+        }
+        let cacheFac = memonize(factorial);
+        console.log('Fact 5 ',cacheFac(5));
+        console.log('Fact 5 ',cacheFac(5));
+        console.log('Fact 4 ',cacheFac(4));
+    </script>    
+</html>
