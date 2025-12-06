@@ -1,0 +1,23 @@
+
+<html>
+   
+    <script>
+        let SumMonoid = {
+            binaryOp:(x,y)=>x+y,
+            identity:()=>0
+        };     
+        let MulMonoid = {
+            binaryOp:(x,y)=>x*y,
+            identity:()=>1
+        };
+        function fold(monoid,arr)
+        {
+            return arr.reduce(monoid.binaryOp,monoid.identity());
+        }
+        let total= fold(SumMonoid,[1,2,4]);
+        console.log('Total ',total);
+
+        let product = fold(MulMonoid,[1,2,3]);
+        console.log('Product ',product);
+    </script>    
+</html>    

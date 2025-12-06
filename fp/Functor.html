@@ -1,0 +1,32 @@
+
+<html>
+   
+    <script>
+        let counter = 0;
+        counter ++;
+        console.log('Counter ',counter);
+
+        let arr = [1,2,3];
+        console.log('Map ',arr.map(x=>x*2));
+
+        const Container = (x)=>({
+            map:(fn)=> Container(fn(x)),
+            valueOf:()=>x
+        });
+        Container.of = Container;
+
+        let inc = (x)=> x+1;
+        let counter1 = Container.of(10);
+        console.log('Counter1 ',counter1);
+
+        let counter2 = counter1.map(inc);
+
+        console.log('Counter 1',counter1.valueOf());
+        console.log('Counter2 ',counter2.valueOf());
+
+        let counter3 = Container.of(3)
+                                .map(x=>x*2)
+                                .map(x=> x+1);
+        console.log('Counter3 ',counter3.valueOf());
+    </script>    
+</html>    

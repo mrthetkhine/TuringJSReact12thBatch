@@ -1,0 +1,34 @@
+
+<html>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/ramda/0.30.1/ramda.js"></script>
+    <script>
+        let nums = [1,1,2,2,3,2,3,4,3,3];
+        let k = 2;
+
+        /*
+        let group = R.countBy(R.identity)(nums);
+        console.log('Group ',group);
+
+        let arr = R.toPairs(group);
+        console.log('Arr ',arr);
+
+        let sorted = R.sort((a,b)=>b[1]-a[1])(arr);
+        console.log('Sorted ',sorted);
+
+        let extracted = R.map(a=>a[0])(sorted);
+        console.log('Extracted ',extracted);
+
+        let topK = R.take(k)(extracted);
+        console.log('Top k ',topK);
+        */
+       let topKfun = R.pipe(
+            R.countBy(R.identity),
+            R.toPairs,
+            R.sort((a,b)=>b[1]-a[1]),
+            R.map(a=>a[0]),
+            R.take(k)
+       );
+       let topK = topKfun(nums);
+       console.log('TopK ',topK);
+    </script>    
+</html>    

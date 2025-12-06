@@ -1,0 +1,57 @@
+
+<html>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/ramda/0.30.1/ramda.js"></script>
+    <script>
+        
+        //Either = Left | Right
+        const Left = (x)=>({
+            
+            map(fn)
+            {
+                return Left.of(x);
+            },
+            matchWith({left,right}) //obj = {left(),right()}
+            {
+                return left(x);
+            },
+            valueOf:()=>x
+        });
+        Left.of = Left;
+
+        const Right = (x)=>({
+            
+            map(fn)
+            {
+                return Right.of(fn(x));
+            },
+            matchWith({left,right}) //obj = {left(),right()}
+            {
+                return right(x);
+            },
+            valueOf:()=>x
+        });
+        Right.of = Right;
+        function div(a,b)
+        {
+            if( isNaN(a) || isNaN(b))
+            {
+                return Left.of('a or b is NaN')
+            }
+            else
+            {
+                return Right.of(a / b);
+            }
+        }
+        const inc = (x)=> x+1;
+        div(10,2)
+            .matchWith({
+                left:(x)=>Right.of(11),
+                right:(x)=>Right.of(x)
+            })
+            .map(inc)
+            .matchWith({
+                left:(x)=>console.log('Error ',x),
+                right:(x)=>console.log('Success ',x)
+            });
+    </script>    
+</html>    

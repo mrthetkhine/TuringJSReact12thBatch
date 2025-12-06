@@ -1,0 +1,65 @@
+
+<html>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/ramda/0.30.1/ramda.js"></script>
+    <script>
+        
+        const MayBe = (x)=>({
+            isEmpty(){
+            
+                return (x === null || x === undefined );
+            },
+            map(fn)
+            {
+                //console.log('iS Empty ',this.isEmpty());
+                return this.isEmpty()?MayBe.of(null):MayBe(fn(x));
+            },
+            valueOf:()=>x
+        });
+        MayBe.of = MayBe;
+
+        let employees = {
+            1:{
+                name :"Jhon",  
+            },
+            2:{
+                name : "Aung Aung",
+                supervisor : 1
+            },
+            3:{
+                name : "Win Naing",
+                supervisor : 2
+            }
+        };
+        function getSupervisor(empId)
+        {
+            let emp = employees[empId];
+            if(emp)
+            {
+                let superId = emp.supervisor;
+                if(superId)
+                {
+                    let supervisor = employees[superId];
+                    if(supervisor)
+                    {
+                        return supervisor.name;
+                    }
+                }
+            }
+        }
+        console.log('supName undefine  ',getSupervisor());
+        console.log('supName 1  ',getSupervisor(1));
+        console.log('supName 3 ',getSupervisor(3));
+
+        function getSupName(empId)
+        {
+            return MayBe.of(empId)
+                        .map(id=>employees[id])
+                        .map(employee=>employee.supervisor)
+                        .map(superId=>employees[superId])
+                        .map(supervisor=>supervisor.name);
+        }
+        console.log('getSupName ',getSupName(undefined).valueOf());
+        console.log('getSupName 1 ',getSupName(1).valueOf());
+        console.log('getSupName 3 ',getSupName(3).valueOf());
+    </script>    
+</html>    

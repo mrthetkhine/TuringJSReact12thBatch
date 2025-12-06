@@ -1,0 +1,31 @@
+
+<html>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/ramda/0.30.1/ramda.js"></script>
+    <script>
+        
+        function div(a,b)
+        {
+            if( isNaN(a) || isNaN(b))
+            {
+                throw new Error('A or b is NaN')
+            }
+            else
+            {
+                return a / b;
+            }
+        }
+        const inc = (x)=> x+1;
+
+        let result ;
+        try
+        {
+            result = div(15,NaN);
+        }
+        catch(e)
+        {
+            result = 15;
+        }
+        result = inc(result);
+        console.log('Result ',result);
+    </script>    
+</html>    

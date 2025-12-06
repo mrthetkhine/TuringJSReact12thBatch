@@ -1,0 +1,16 @@
+
+<html>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/ramda/0.30.1/ramda.js"></script>
+    <script>
+        const even = x => x % 2 == 0;
+        let arr = [1, 2, 3, 4, 5];
+        console.log('Count, ',R.count(even, arr));
+
+        const letters = ['a', 'b', 'A', 'a', 'B', 'c'];
+        console.log('Count by',R.countBy(R.toLower)(letters));
+
+        let nums = [1,1,2,2,3,2,3,4,3,3];
+        console.log('R.identity ',R.identity(1));
+
+    </script>    
+</html>    
