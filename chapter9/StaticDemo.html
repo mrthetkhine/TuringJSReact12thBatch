@@ -1,0 +1,22 @@
+<html>
+    <script>
+        
+        class MyMath
+        {
+            static min(...args)
+            {
+                let min = args[0];
+                for(const arg of args)
+                {
+                    if(arg < min)
+                    {
+                        min = arg;
+                    }
+                }
+                return min;
+            }
+        }
+        console.log('Math.min ',Math.min(1,-29));
+        console.log('MyMath.min ',MyMath.min(1,-29));
+    </script>    
+</html>

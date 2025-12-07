@@ -1,0 +1,29 @@
+<html>
+   <body>
+
+   </body>
+   
+    <script>
+        let set = new Set([1,2,3,1,1,2,3]);
+        console.log('set ',set);
+        console.log('set.size ',set.size);
+
+        set.add(4);
+        console.log('set ',set);
+        console.log('set.size ',set.size);
+
+        set.delete(1);
+        console.log('after delete set ',set);
+
+        console.log('has(2) ',set.has(2));
+        console.log('has(1) ',set.has(1));
+
+        for(const item of set)
+        {
+            console.log('Item ',item);
+        }
+        set.clear();
+        console.log('after clear set ',set);
+       
+    </script>  
+</html>

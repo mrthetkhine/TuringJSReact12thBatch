@@ -1,0 +1,49 @@
+<html>
+    <script>
+        class Human
+        {
+            name ='';
+            #age = 0;
+            constructor(name,age)
+            {
+                this.name = name;
+                this.#age = age;
+                console.log('Human constructor');
+            }
+            get age()
+            {
+                return this.#age;
+            }
+            set age(newValue)
+            {
+                if(newValue>0 && newValue <= 120)
+                {
+                    this.#age = newValue;
+                }
+            }
+        }
+        let h1 = new Human('Jhon',30);
+        //h1.#age = 100;
+        h1.age = 200;
+        console.log('h1 ',h1);
+
+        Human.prototype.display = function()
+        {
+            console.log(`Name ${this.name} Age ${this.age}`);
+        }
+        h1.display();
+
+        String.prototype.toUpperCase = function()
+        {
+            return this.toLocaleLowerCase();
+        }
+        console.log('hell.toUpperCase ','HELLO'.toUpperCase()  );
+
+        
+        String.prototype.isEmpty = function()
+        {
+            return this.length == 0;
+        }
+        console.log('"".isEmpty ',''.isEmpty()  );
+    </script>    
+</html>

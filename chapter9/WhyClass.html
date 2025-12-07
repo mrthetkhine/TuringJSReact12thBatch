@@ -1,0 +1,40 @@
+<html>
+    <script>
+        let obj = {
+            name :"Jhon",
+            age : 30,
+            display()
+            {
+                console.log('Name ',this.name, ' Age ',this.age);
+            }
+        };
+        obj.display();
+
+        let shoppingCart = {
+            items: [],
+            addItem(item)
+            {
+                this.items.push(item);
+                console.log('Item added');
+            },
+            displayItems()
+            {
+                for(const item of this.items)
+                {
+                    console.log(`Name ${item.name} Price ${item.price} Quantity ${item.qty}`);
+                }
+            }
+        };
+        shoppingCart.addItem({
+            name : 'Apple',
+            price : 10,
+            qty:2,
+        });
+        shoppingCart.addItem({
+            name : 'Orange',
+            price : 30,
+            qty:2,
+        });
+        shoppingCart.displayItems();
+    </script>    
+</html>

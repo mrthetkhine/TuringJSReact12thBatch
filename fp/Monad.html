@@ -1,0 +1,49 @@
+
+<html>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/ramda/0.30.1/ramda.js"></script>
+    <script>
+        
+        const MayBe = (x)=>({
+            isEmpty(){
+            
+                return (x === null || x === undefined );
+            },
+            map(fn)
+            {
+                //console.log('iS Empty ',this.isEmpty());
+                return this.isEmpty()?MayBe.of(null):MayBe(fn(x));
+            },
+            flatMap(fn)
+            {
+                return this.isEmpty()?MayBe.of(null):fn(x);
+            },
+            flat()
+            {
+                return x;
+            },
+            valueOf:()=>x
+        });
+        MayBe.of = MayBe;
+        
+
+        //monadic function
+        function toUpper(x)
+        {
+            return MayBe.of(x)
+                        .map(x=>x.toUpperCase());
+        }
+
+        console.log('toUpper ',toUpper('hello').valueOf());
+
+        /*
+            normal function 
+            simple value=> simple value
+            x => x+1
+        */
+        let result = MayBe.of('JavaScript')
+                          //.map(toUpper)// MayBe(MayBe('JAVASCRIPT'))
+                          //.flat()
+                          .flatMap(toUpper)
+        console.log('Result ',result.valueOf());    
+    </script>    
+</html>    

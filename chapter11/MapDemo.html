@@ -1,0 +1,39 @@
+<html>
+   <body>
+
+   </body>
+   
+    <script>
+        let map = new Map([
+            ['id-1','Jhon'],
+            ['id-2','Aung Naing'],
+           
+        ]);
+        
+        console.log('size ',map.size);
+        map.set('id-1','Kyaw Kyaw');
+
+        console.log();
+        console.log('map ',map);
+        console.log('size ',map.size);
+
+        console.log('get id-1 ',map.get('id-1'));
+        console.log('get id-3 ',map.get('id-3'));
+
+        console.log('has id-1 ',map.has('id-1'));
+        console.log('has id-3 ',map.has('id-3'));
+
+        map.delete('id-1');
+        console.log('map ',map);
+        console.log('size ',map.size);
+
+        /*
+        map.clear();
+        console.log('map ',map);
+        console.log('size ',map.size);
+        */
+       console.log('Keys ',map.keys());
+       console.log('Values ',map.values());
+       console.log('Entries ',map.entries());
+    </script>  
+</html>

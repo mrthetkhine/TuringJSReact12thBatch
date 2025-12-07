@@ -1,0 +1,47 @@
+<html>
+    <script>
+        class Item 
+        {
+            constructor(name,price,qty)
+            {
+                this.name = name;
+                this.price = price;
+                this.qty = qty;
+                console.log('Constructor');
+            }
+            toString()
+            {
+                return `${this.name.padEnd(20)}  ${this.price+''.padEnd(10)}  ${this.qty+''.padEnd(10)} `
+            }
+        }
+        class ShoppingCart
+        {
+            items = [];
+            constructor()
+            {
+                console.log('ShoppingCart Constructor');
+            }
+            addItem(item)
+            {
+                this.items.push(item);
+                console.log('Item added');
+            }
+            displayItems()
+            {
+                for(const item of this.items)
+                {
+                    console.log(item.toString());
+                }
+            }
+        }
+        let s1 = new ShoppingCart();
+        s1.addItem(new Item('Apple',10,2));
+        s1.addItem(new Item('Orange',30,2));
+        s1.displayItems();
+        console.log('S1 ',s1);
+
+        let s2 = new ShoppingCart();
+        s2.addItem(new Item('Mango',30,2));
+        s2.displayItems();
+    </script>    
+</html>

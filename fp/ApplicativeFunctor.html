@@ -1,0 +1,34 @@
+
+<html>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/ramda/0.30.1/ramda.js"></script>
+    <script>
+        
+        function add(x,y)
+        {
+            return x+y;
+        }
+
+        const Container = (x)=>({
+            map:(fn)=> Container(fn(x)),
+            ap:(another)=> another.map(x),
+            valueOf:()=>x
+        });
+        let curriedAdd = R.curry(add);
+        Container.of = Container;
+
+        /*
+            Container( curriedAdd(10) )//Container value
+            Container ( fn)
+
+        */
+        let cont2 = Container.of(20);
+        let result = Container.of(10)
+                                .map(curriedAdd)//Container ( fn)
+                                .ap(cont2); //Container ( fn(cont2))
+        console.log('Counter1 ',result.valueOf());
+
+        
+
+        
+    </script>    
+</html>    
