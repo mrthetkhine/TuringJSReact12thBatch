@@ -7,6 +7,7 @@
         let map = new Map([
             ['id-1','Jhon'],
             ['id-2','Aung Naing'],
+            ['id-3','Win Naing'],
            
         ]);
         
@@ -35,5 +36,9 @@
        console.log('Keys ',map.keys());
        console.log('Values ',map.values());
        console.log('Entries ',map.entries());
+
+       map.forEach((value,key)=>{
+            console.log('Value ',value, ' Key ',key);
+       });
     </script>  
 </html>

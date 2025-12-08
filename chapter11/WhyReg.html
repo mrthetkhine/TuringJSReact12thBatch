@@ -1,0 +1,54 @@
+<html>
+   <body>
+   
+   </body>
+   
+    <script>
+        //username start with letter, can follow number/letter
+        //a123, a12a
+
+        function isAZ(ch)
+        {
+            let code =ch.charCodeAt(0);
+            return code >=65 && code <=90 ;
+        }
+        function isaz(ch)
+        {
+            let code =ch.charCodeAt(0);
+            return code >=97 && code <=122 ;
+        }
+        function isLetter(str)
+        {
+            
+            return isAZ(str[0]) || isaz(str[0]);
+        }
+        function isDigit(ch)
+        {
+            let code =ch.charCodeAt(0);
+            return code >=48 && code <=57 ;
+        }
+        function isValid(str)
+        {
+            let firstIsLetter = isLetter(str[0]);
+            console.log('firstIsLetter ',firstIsLetter);
+            let letterOrDigit = true;
+            for(let i=1;i< str.length;i++)
+            {
+                let ch = str[i];
+                letterOrDigit &&= (isLetter(ch) || isDigit(ch));
+            }
+            return firstIsLetter && letterOrDigit;
+        }
+        console.log('isValid apple ',isValid('apple'));
+        console.log('isValid Apple ',isValid('Apple'));
+        console.log('isValid A122pple ',isValid('A123pple'));
+        console.log('isValid A122pple@ ',isValid('A123pple@'));
+        /*
+        console.log('isUpper A ',isAZ('A'));
+        console.log('isUpper Z ',isAZ('Z'));
+        console.log('isUpper a ',isAZ('a'));
+        console.log('isLower a ',isaz('a'));
+        console.log('isLower z ',isaz('z'));
+        */
+    </script>  
+</html>

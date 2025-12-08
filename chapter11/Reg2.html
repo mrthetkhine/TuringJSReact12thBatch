@@ -1,0 +1,42 @@
+<html>
+   <body>
+   
+   </body>
+   
+    <script>
+       
+        let pattern = /^\w/;
+        console.log(`${pattern} Aba`,pattern.test('Aba'));
+        console.log(`${pattern} aba`,pattern.test('aba'));
+        console.log(`${pattern} 12a`,pattern.test('12a'));
+        console.log(`${pattern} #12a`,pattern.test('#12a'));
+
+        console.log();
+        pattern = /^\W/;
+        console.log(`${pattern} Aba`,pattern.test('Aba'));
+        console.log(`${pattern} aba`,pattern.test('aba'));
+        console.log(`${pattern} 12a`,pattern.test('12a'));
+        console.log(`${pattern} #12a`,pattern.test('#12a'));
+        
+        pattern = /^[a-zA-Z](\w)*$/;
+        console.log('isValid apple ',pattern.test('apple'));
+        console.log('isValid Apple ',pattern.test('Apple'));
+        console.log('isValid A122 ',pattern.test('A122'));
+        console.log('isValid A122# ',pattern.test('A122#'));
+        console.log('isValid 1A122# ',pattern.test('1A122#'));
+
+        console.log();
+        pattern = /^A\sB/;
+        console.log(`${pattern} A B`,pattern.test('A B'));
+        console.log(`${pattern} A\tB`,pattern.test('A\tB'));
+        console.log(`${pattern} A\nB`,pattern.test('A\nB'));
+        console.log(`${pattern} AeB`,pattern.test('AeB'));
+
+        console.log();
+        pattern = /^A\SB/;
+        console.log(`${pattern} A B`,pattern.test('A B'));
+        console.log(`${pattern} A\tB`,pattern.test('A\tB'));
+        console.log(`${pattern} A\nB`,pattern.test('A\nB'));
+        console.log(`${pattern} AeB`,pattern.test('AeB'));
+    </script>  
+</html>

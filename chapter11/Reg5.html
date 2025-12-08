@@ -1,0 +1,25 @@
+<html>
+   <body>
+   
+   </body>
+   
+    <script>
+       
+        let nums = "123,456,789".split(",");
+        console.log('nums ',nums);
+        
+        let pattern = /Java/g;
+        let text = "JavaScript > Java";
+        let match;
+        while((match = pattern.exec(text)) !== null) {
+            console.log(`Matched ${match[0]} at ${match.index}`);
+            console.log(`Next search begins at ${pattern.lastIndex}`);
+        }
+        pattern = /^(\d{2})\/(\d{2})\/(\d{4})$/;
+
+        console.log('02/01/2025 test ',pattern.test('02/01/2025'));
+        console.log('02/1/2025 test ',pattern.test('02/1/2025'));
+
+        console.log('02/01/2025 match ','02/01/2025'.match(pattern));
+    </script>  
+</html>

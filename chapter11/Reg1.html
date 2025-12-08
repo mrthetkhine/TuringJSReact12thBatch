@@ -1,0 +1,40 @@
+<html>
+   <body>
+   
+   </body>
+   
+    <script>
+       
+        let pattern = /^A/;
+        console.log(`${pattern} Aba`,pattern.test('Aba'));
+        console.log(`${pattern} aba`,pattern.test('aba'));
+
+        console.log();
+        pattern = /^Java/;
+        console.log(`${pattern} JavaScript`,pattern.test('JavaScript'));
+        console.log(`${pattern} Java`,pattern.test('Java'));
+
+        console.log();
+        pattern = /Script$/;
+        console.log(`${pattern} JavaScript`,pattern.test('JavaScript'));
+        console.log(`${pattern} LiveScript`,pattern.test('LiveScript'));
+        console.log(`${pattern} Python`,pattern.test('Python'));
+
+        console.log();
+        pattern = /[abc]$/;
+        console.log(`${pattern} area`,pattern.test('area'));
+        console.log(`${pattern} bac`,pattern.test('bac'));
+        console.log(`${pattern} cat`,pattern.test('cat'));
+
+        pattern = /[^abc]$/;
+        console.log(`${pattern} area`,pattern.test('area'));
+        console.log(`${pattern} bac`,pattern.test('bac'));
+        console.log(`${pattern} cat`,pattern.test('cat'));
+
+        pattern = /.$/;
+        console.log(`${pattern} area`,pattern.test('area'));
+        console.log(`${pattern} bac`,pattern.test('bac'));
+        console.log(`${pattern} cat`,pattern.test('cat'));
+        console.log(`${pattern} cat\n`,pattern.test('cat\n'));
+    </script>  
+</html>

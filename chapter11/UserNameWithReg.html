@@ -1,0 +1,17 @@
+<html>
+   <body>
+   
+   </body>
+   
+    <script>
+        //username start with letter, can follow number/letter
+        //a123, a12a
+
+        let pattern = /^[a-zA-Z]([a-zA-Z]|[0-9])*$/;
+        console.log('isValid apple ',pattern.test('apple'));
+        console.log('isValid Apple ',pattern.test('Apple'));
+        console.log('isValid A122 ',pattern.test('A122'));
+        console.log('isValid A122# ',pattern.test('A122#'));
+        console.log('isValid 1A122# ',pattern.test('1A122#'));
+    </script>  
+</html>

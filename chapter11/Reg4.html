@@ -1,0 +1,38 @@
+<html>
+   <body>
+   
+   </body>
+   
+    <script>
+       
+        let pattern = /^(a|b|c)+$/i;
+        console.log(`${pattern} abc`,pattern.test('abc'));
+        console.log(`${pattern} Abc`,pattern.test('Abc'));
+        
+        console.log('search "JavaScript".search(/script/ui) ',"JavaScript".search(/script/ui));
+        console.log('search "Python".search(/script/ui) ',"Python".search(/script/ui));
+
+        let email = "user@domain.com";
+        console.log('search email ',email.substring( email.search(/@/ui)+1));
+
+        let str = "Java & javascript programming javascript";
+        str = str.replace(/javascript/gi, "JavaScript");
+        console.log('str ',str);
+
+        console.log('"7 plus 8 equals 15".match(/\d+/g) ',"7 plus 8 equals 15".match(/\d+/g));
+
+        let url = /(\w+):\/\/([\w.]+)\/(\S*)/;
+        let text = "Visit my blog at http://www.example.com/~david"; 
+        let match = text.match(url);
+        console.log('match ',match);
+        let fullurl, protocol, host, path;
+        if (match !== null) {
+            fullurl = match[0]; // fullurl == "http://www.example.com/~david"
+            protocol = match[1]; // protocol == "http"
+            host = match[2]; // host == "www.example.com" path = match[3]; // path == "~david"
+            console.log('FullUrl ',fullurl);
+            console.log('Protocol ',protocol);
+            console.log('host ',host);
+        }
+    </script>  
+</html>

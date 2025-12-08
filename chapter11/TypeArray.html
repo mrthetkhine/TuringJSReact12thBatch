@@ -1,0 +1,15 @@
+<html>
+   <body>
+   
+   </body>
+   
+    <script>
+        //let arr = new Array(100_000);       
+        let arr = new Int8Array(100_000);
+        let buffer = new ArrayBuffer(1024*1024);
+        let asints = new Int32Array(buffer); 
+        let asByte = new Uint8Array(buffer); 
+        asints[0]= 100;
+        console.log('AsByte ',asByte[0]);
+    </script>  
+</html>
