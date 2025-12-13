@@ -1,0 +1,44 @@
+<html>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.30.1/moment.min.js"></script>
+    <script>
+        let students = [
+            {
+                name :"Aung Aung",
+                age : 40,
+
+            },
+            {
+                name : "Mya Mya",
+                age : 30
+            },
+            {
+                name :"Aye Lwin",
+                age : 30,
+            },
+            {
+                name: "Khin Khin",
+                age : 18
+            },
+            {
+                name: "Tin Win",
+                age : 31
+            }
+        ];
+        students.sort((a,b)=>{
+            if(a.age == b.age)
+            {
+                return a.name.localeCompare(b.name);
+            }
+            else
+            {
+                return a.age - b.age;
+            }
+        });
+        /*
+            == 0
+            > 1
+            < -1
+        */
+        console.log('Students ',students);    
+    </script>
+</html>

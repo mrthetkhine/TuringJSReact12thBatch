@@ -1,0 +1,29 @@
+<html>
+    <body>
+        <div id="time">
+
+        </div>
+        <button type="button" id="btnStop">
+            Stop
+        </button>
+    </body>
+    <script>
+        let div = document.getElementById('time');
+        let date = new Date();
+        let time = date.toLocaleTimeString();
+        div.innerHTML = time;
+
+        let timer = setInterval(()=>{
+            //console.log('fire');
+            let date = new Date();
+            let time = date.toLocaleTimeString();
+            div.innerHTML = time;
+            console.log('tick');
+        },1000);
+
+        document.getElementById('btnStop')
+                .addEventListener('click',()=>{
+                    clearInterval(timer);
+                });
+    </script>
+</html>

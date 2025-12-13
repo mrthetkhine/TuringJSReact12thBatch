@@ -1,0 +1,36 @@
+<html>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.30.1/moment.min.js"></script>
+    <script>
+        let obj = {
+            name : "Jhon",
+            age : 30,
+            _private: "Secret",
+            username: 'Something',
+            items : [1,2,2],
+            display()
+            {
+                console.log('Name ',this.name);
+                console.log('Age ',this.age);
+            },
+            toJSON()
+            {
+                return{
+                    name:this.name,
+                    age : this.age,
+                    sepcialName : this.username    
+                }
+            }
+        }
+        let str = JSON.stringify(obj);
+        console.log('Str ',str);
+        let obj2 = JSON.parse(str,function(key,value){
+            if(key[0] =='_')
+            {
+                return undefined;
+            }
+            return value;
+        });
+        console.log('Obj2 ',obj2);
+
+    </script>
+</html>

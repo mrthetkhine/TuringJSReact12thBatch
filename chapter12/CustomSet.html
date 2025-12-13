@@ -1,0 +1,107 @@
+<html>
+   <body>
+
+   </body>
+   
+    <script>
+        class MySet
+        {
+            unique =[];
+            constructor(arr)
+            {
+                for(const item of arr)
+                {
+                    if(this.unique.indexOf(item)==-1)
+                    {
+                        this.unique.push(item);
+                    }
+                }
+            }
+            add(item)
+            {
+                if(this.unique.indexOf(item)==-1)
+                {
+                    this.unique.push(item);
+                }
+            }
+            delete(item)
+            {
+                let index = this.unique.indexOf(item);
+                if(index != -1)
+                {
+                    this.unique.splice(index,1);
+                }
+            }
+            has(item)
+            {
+                return this.unique.indexOf(item) != -1;
+            }
+            clear()
+            {
+                this.unique = [];
+            }
+            get size()
+            {
+                return this.unique.length;
+            }
+            toString()
+            {
+                return `{ ${this.unique.join(',')} }`;
+            }
+            [Symbol.iterator]()
+            {
+                let index = 0;
+                let items = this.unique;
+                return {
+                    next()
+                    {
+                       
+                        return{
+                            done : (index == items.length),
+                            value:index < (items.length)? items[index++] : undefined,  
+                            
+                        }
+                    }
+                }
+            }
+        }
+        let set = new MySet([1,2,3,1,1,2,3]);
+        console.log('set ',set+'');
+        console.log('set.size ',set.size);
+        
+        set.add(4);
+        console.log('set ',set);
+        console.log('set.size ',set.size);
+        
+        set.delete(1);
+        console.log('after delete set ',set);
+        
+        console.log('has(2) ',set.has(2));
+        console.log('has(1) ',set.has(1));
+
+        /*
+        for(const item of set)
+        {
+            console.log('Item ',item);
+        }
+       
+        */
+        //set.clear();
+        console.log('after clear set ',set);
+        /*
+        let iterator = set[Symbol.iterator]();
+
+        console.log('Iterator ',iterator.next());
+        console.log('Iterator ',iterator.next());
+        console.log('Iterator ',iterator.next());
+        console.log('Iterator ',iterator.next());
+        console.log('Iterator ',iterator.next());
+        console.log('Iterator ',iterator.next());
+        */
+        
+        for(const item of set)
+        {
+            console.log('Item ',item);
+        }
+    </script>  
+</html>

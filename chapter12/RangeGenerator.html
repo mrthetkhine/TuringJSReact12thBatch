@@ -1,0 +1,25 @@
+<html>
+    
+    <script>
+        function* range(from,to)
+        {
+            for(let i=from;i<=to;i++)
+            {
+                yield i;
+            }
+        }
+        /*
+        let gen = range(1,5);
+        console.log('next ',gen.next());
+        console.log('next ',gen.next());
+        console.log('next ',gen.next());
+        console.log('next ',gen.next());
+        console.log('next ',gen.next());
+        console.log('next ',gen.next());
+        */ 
+       for(const item of range(1,5))
+       {
+           console.log('Item ',item);
+       }
+    </script>
+</html>

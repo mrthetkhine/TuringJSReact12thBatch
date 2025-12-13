@@ -1,0 +1,26 @@
+<html>
+    
+    <script>
+        let arr = [1,2,3,4];
+        for(const item of arr)
+        {
+            console.log('Item ',item);
+        }
+        let m = new Map([["one", 1], ["two", 2]]);
+        for(const [key,value] of m)
+        {
+            console.log('Key ',key, ' value ',value);
+        }
+        let iterator = arr[Symbol.iterator]();
+        /*
+        console.log('next ',iterator.next());
+        console.log('next ',iterator.next());
+        console.log('next ',iterator.next());
+        console.log('next ',iterator.next());
+        console.log('next ',iterator.next());
+        */
+        for(let result = iterator.next(); !result.done; result = iterator.next()) {
+            console.log(result.value) // result.value == 99 
+        }
+    </script>
+</html>

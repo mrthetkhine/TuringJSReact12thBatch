@@ -1,0 +1,49 @@
+<html>
+    
+    <script>
+        console.log('log');
+        console.debug('debug');
+        console.info('info');
+        console.warn('warn');
+        console.error('error');
+
+        function div(a,b)
+        {
+            console.assert(a!=undefined,"a is. empty");
+            console.assert(b!=undefined,"b is empty");
+            return a/b;
+        }
+        console.log('div ',div(10,2));
+        console.log('div ',div(10));
+
+        //console.clear();
+        let items = [10,20,30,40];
+        console.table(items);
+
+        let obj = {
+            name : "Jhon",
+            age : 30,
+            _private: "Secret",
+            username: 'Something',
+            items : [1,2,2],
+        };
+        console.table(obj);
+        console.count('lable1');
+        console.count('lable1');
+        console.countReset('lable1');
+        console.count('lable1');
+
+        console.group();
+        console.log('level1');
+        console.group();
+        console.log('level2');
+        console.groupEnd();
+        console.groupEnd();
+
+        console.log('back to normal');
+        console.time('step1');
+        console.timeLog('step1');
+        console.timeLog('step1');
+        console.timeEnd('step1');
+    </script>
+</html>

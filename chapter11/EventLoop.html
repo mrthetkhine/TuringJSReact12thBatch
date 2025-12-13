@@ -1,0 +1,17 @@
+<html>
+    
+    <script>
+        setTimeout(()=>{
+            console.log('Hello');
+        },0);
+        console.log('World');
+        
+        function delay(ms)
+        {
+            let now = new Date();
+            while( new Date() - now < ms) {}
+        }
+        delay(2000);
+        console.log('Hi');
+    </script>
+</html>

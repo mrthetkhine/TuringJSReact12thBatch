@@ -1,0 +1,13 @@
+<html>
+    
+    <script>
+        let url = new URL("https://example.com:8000/path/name?q=term#fragment");
+        console.log('url ',url);
+
+        let str = encodeURI("https://www.google.com?q=hello world")
+        console.log('str ',str);
+        
+        url = decodeURI(str);
+        console.log('url ',url);
+    </script>
+</html>
