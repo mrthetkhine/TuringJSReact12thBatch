@@ -1,0 +1,28 @@
+<html>
+    <body>
+        <button type="button" id="btnClick">
+            Click me
+        </button>
+    </body>
+    <script>
+        document.getElementById('btnClick')
+                .addEventListener('click',function(){
+                   console.log('button clicked'); 
+                });
+        function asyncDiv(a,b,callback)
+        {
+            setTimeout(function()
+            {
+                console.log('division started');
+                callback(a/b);
+            },1000);
+        }
+        asyncDiv(10,2,process);
+        console.log('end');
+
+        function process(divResult)
+        {
+            console.log('Processing div Result ',divResult);
+        }
+    </script>
+</html>

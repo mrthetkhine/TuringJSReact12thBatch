@@ -1,0 +1,28 @@
+<html>
+    <body>
+        
+    </body>
+    <script>
+       
+        let p = Promise.resolve(100);
+        p.then(data=>console.log('Success ',data),err=>console.log('Error ',err))    
+
+        let p2 = Promise.reject(new Error('Fail case'));
+        p2.then(data=>console.log('Success2 ',data),err=>console.log('Error2 ',err))   
+        
+        Promise.reject(new Error('Something happen'))
+        //Promise.resolve(20)
+            .then(data=>data*2,err=>{
+                //throw new Error('First error')
+                return Promise.reject('First error');
+            })
+            .then(x=>x+1, err=> new Error('Another step'))
+            .then(data=>console.log('Success3 ',data),err=>console.log('Error3 ',err))
+            .catch(err=>{
+                console.log('Global catch');
+            })
+            .finally(()=>{
+                console.log('Clean up');
+            });
+    </script>
+</html>

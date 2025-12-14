@@ -1,0 +1,59 @@
+<html>
+    <body>
+        
+    </body>
+    <script>
+       
+        let url1 = "https://jsonplaceholder.typicode.com/users/1";
+        let url2 = "https://jsonplaceholder.typicode.com/users/2";
+
+        /*
+        console.time('step11');
+        fetch(url1)
+            .then(resp=>resp.json())
+            .then(user1=>{
+                fetch(url2)
+                    .then(resp=>resp.json())
+                    .then(user2=>{
+                        console.timeLog('step11');
+                        console.log('user1 ',user1);
+                        console.log('user2 ',user2);
+                    });
+            });
+        */  
+       /*
+       let result = [];
+       console.time('step1');
+       fetch(url1)
+         .then(resp=>resp.json())
+         .then(user=>{
+            result.push(user);
+            if(result.length == 2)
+            {
+                console.timeLog('step1');
+                console.log('Done two user ',result);
+            }
+         });
+       fetch(url2)
+         .then(resp=>resp.json())
+         .then(user=>{
+            result.push(user);
+            if(result.length == 2)
+            {
+                 console.timeLog('step1');
+                console.log('Done two user ',result);
+            }
+         });
+         */
+        
+        let urls = [url1,url2];
+        let promises = urls.map(url=>fetch(url).then(resp=>resp.json()));
+        console.time('step1');
+        Promise.all(promises)
+            .then(result=>{
+                console.timeLog('step1');
+                console.log('Done two user ',result);
+            });
+            
+    </script>
+</html>
