@@ -1,0 +1,45 @@
+<html>
+    <body>
+        
+    </body>
+    <script>
+        let url1 = "https://jsonplaceholder.typicode.com/users/1";
+        let url2 = "https://jsonplaceholder.typicode.com/users/2";
+        /*
+        console.log('started');
+        fetch(url1)
+            .then(resp=>resp.json())
+            .then(data=>console.log('Success ',data))
+            .catch(err=>console.log('Error ',err));
+        console.log('ended');
+        */ 
+        async function fetchUser()
+        {
+            console.log('started');
+            try
+            {
+                let resp = await fetch(url1);
+                let data = await resp.json();
+                let resp2 =await fetch(url2);
+                let data2 = await resp2.json();
+                console.log('Success1 ',data);
+                console.log('Success2 ',data2);
+            }
+            catch(err)
+            {
+                console.log('error ',err);
+            }
+            
+            console.log('ended');
+        }
+        //fetchUser();
+       async function nonBlockFetch()
+       {
+        let urls = [url1,url2];
+        let promises = urls.map(url=>fetch(url).then(resp=>resp.json()));
+        let [value1,value2] = await Promise.all(promises);  
+        console.log('Success v1 ',value1, ' v2 ',value2);
+       }
+       nonBlockFetch();
+   </script>     
+</html>

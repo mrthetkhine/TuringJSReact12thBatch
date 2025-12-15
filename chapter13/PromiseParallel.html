@@ -4,8 +4,7 @@
     </body>
     <script>
        
-        let url1 = "https://jsonplaceholder.typicode.com/users/1";
-        let url2 = "https://jsonplaceholder.typicode.com/users/2";
+       
 
         /*
         console.time('step11');
@@ -45,15 +44,29 @@
             }
          });
          */
-        
+        let url1 = "https://jsonplaceholder.typicode.com/users/1";
+        let url2 = "https://jsonplaceholder.typicode.com/users/2";
         let urls = [url1,url2];
         let promises = urls.map(url=>fetch(url).then(resp=>resp.json()));
         console.time('step1');
+        /*
         Promise.all(promises)
             .then(result=>{
                 console.timeLog('step1');
                 console.log('Done two user ',result);
             });
-            
+        */    
+       /*
+        Promise.allSettled(promises)
+            .then(result=>{
+                console.timeLog('step1');
+                console.log('Done two user ',result);
+            });
+        */    
+        Promise.race(promises)
+            .then(result=>{
+                console.timeLog('step1');
+                console.log('Done two user ',result);
+            });
     </script>
 </html>

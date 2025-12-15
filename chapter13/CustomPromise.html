@@ -1,0 +1,109 @@
+<html>
+    <body>
+        
+    </body>
+    <script>
+    class CustomPromise
+    {
+        handler = [];
+        constructor(executorFn)// executorFn=>(resolveFn,rejectFn);
+        {
+            
+            //console.log('Executor function ',executorFn);
+            setTimeout(()=>{
+                //console.log('settimeout fired ',this.handler);
+                executorFn((data)=>{
+                    this.handleChain(data,true);
+                },
+                (err)=>{
+                        
+                   this.handleChain(err,false);
+                });
+                
+                
+            },0);
+        }
+        handleChain(data,success)
+        {
+            for(let i=0;i< this.handler.length;i++)
+            {
+                try
+                {
+                    if(success)
+                    {
+                        data = this.handler[i].succes(data);
+                    }
+                    else
+                    {
+                        data = this.handler[i].error(data);
+                    }
+                    success = true;
+                }
+                catch(err)
+                {
+                    data = err
+                    success = false;
+                }
+                
+            }
+        }
+        
+        then(successHandler,errorHandler)
+        {
+            this.handler.push({
+                succes:successHandler,
+                error:errorHandler
+            })
+            //console.log('Succes callback ',successHandler, 'error callback ',errorHandler);
+            //console.log('Handler ',this.handler);
+            return this;
+        }
+
+    }
+    
+    console.log('Started');
+    let promise = new CustomPromise((resolve,reject)=>{
+        console.log('Proimse execute');
+        //resolve(100);
+        reject('Woo');
+        
+    })
+    .then(data=>{
+        console.log('First success',data);
+        return data + 1;
+    },error=>{
+        console.log('First Error ',error);
+        return 20;
+    })
+    .then((data)=>data*2,error=>console.log("Error ",error))
+    .then(data=>console.log('Success ',data),err=>console.log('Error ',err));
+    
+    function asyncDiv(a,b)
+    {
+        return new CustomPromise((resolve,reject)=>{
+                console.log('Execute aysncDiv');
+                setTimeout(function()
+                {
+                    console.log('division started');
+                    if( isNaN(a) || isNaN(b))
+                    {
+                        reject('A or b is NaN')
+                    }
+                    else
+                    {
+                        resolve(a/b);
+                    }
+                    
+                },1000);
+        });
+        
+    }
+    asyncDiv(10,2)
+        .then(x=>{
+            console.log('first then ');
+            return x+1;
+            
+        },error=>0)
+        .then(x=>console.log('Sucess ',x),err=>console.log('Error ',err))   
+   </script>     
+</html>

@@ -1,0 +1,49 @@
+<html>
+    <body>
+        
+    </body>
+    <script>
+        
+        let obj1 = {
+            name :"",
+            age : 21,
+        };
+        let another ={
+            city : "New York",
+            state : "",
+        }
+
+        /*
+        function check(obj)
+        {
+            if(obj.name =="")
+            {
+                console.warn('Name is empty');
+            }
+        }
+        function check2(obj)
+        {
+            if(obj.city =="")
+            {
+                console.warn('City is empty');
+            }
+            if(obj.state=="")
+            {
+                console.warn('State is empty');
+            }
+        }
+        */
+       function checkStringField(obj)
+       {
+           for(let key in obj)
+           {
+               if(typeof obj[key]==="string" && obj[key]==="")
+               {
+                   console.warn(key + " is empty");
+               }
+           } 
+       }
+       checkStringField(obj1);
+       checkStringField(another);
+   </script>     
+</html>

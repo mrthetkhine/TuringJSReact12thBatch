@@ -1,0 +1,24 @@
+<html>
+    <body>
+        
+    </body>
+    <script>
+        async function getFun()
+        {
+            return 10;
+        }
+        getFun()
+            .then(x=>console.log('Data ',x));
+
+        function another()
+        {
+            return Promise.resolve(100);
+        }    
+        async function haveFun()
+        {
+            let data = await another();
+            console.log('have fun data ',data);
+        }
+        haveFun();
+   </script>     
+</html>

@@ -1,0 +1,48 @@
+<html>
+    <body>
+        
+    </body>
+    <script>
+        
+        let obj1 ={
+            name : "Jhon",
+            age :21,
+        }
+        console.log('Obj descriptor ',Object.getOwnPropertyDescriptor(obj1,'name'));
+        console.log('window.top descriptor ',Object.getOwnPropertyDescriptor(window,'top'));
+
+        Object.defineProperty(obj1,'gender',{
+            value :'Male',
+            enumerable: true,
+            configurable : false,
+            writable : false,
+        });
+        obj1.gender = 'nonbinary';
+        console.log('Obj1 ',obj1);
+
+        delete obj1.gender;
+        console.log('Obj1 ',obj1);
+        for(const key in obj1)
+        {
+            console.log(key,' value ',obj1[key]);
+        }
+        console.log('keys ',Object.keys(obj1));
+
+        Object.preventExtensions(obj1);
+
+        obj1.address = "Somewhere on the earth";
+        console.log('Obj1 ',obj1);
+        console.log('isExtensible ',Object.isExtensible(obj1));
+
+        Object.seal(obj1);
+        delete obj1.age;
+        console.log('Obj1 ',obj1);
+
+        console.log('isSealed ',Object.isSealed(obj1));
+
+        Object.freeze(obj1);
+        obj1.age ++;
+        console.log('Obj1 ',obj1);
+        console.log('isFrozen ',Object.isFrozen(obj1));
+   </script>     
+</html>

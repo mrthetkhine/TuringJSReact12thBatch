@@ -1,0 +1,34 @@
+<html>
+    <body>
+        
+    </body>
+    <script>
+        let url1 = "https://jsonplaceholder.typicode.com/users/1";
+        /*
+        console.log('started');
+        fetch(url1)
+            .then(resp=>resp.json())
+            .then(data=>console.log('Success ',data))
+            .catch(err=>console.log('Error ',err));
+        console.log('ended');
+        */ 
+        async function fetchUser()
+        {
+            console.log('started');
+            try
+            {
+                let resp = await fetch(url1);
+                let data = await resp.json();
+                console.log('Success ',data);
+            }
+            catch(err)
+            {
+                console.log('error ',err);
+            }
+            
+            console.log('ended');
+        }
+        fetchUser();
+        console.log('main ended');
+   </script>     
+</html>

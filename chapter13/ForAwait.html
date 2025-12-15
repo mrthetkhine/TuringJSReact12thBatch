@@ -1,0 +1,23 @@
+<html>
+    <body>
+        
+    </body>
+    <script>
+        
+        
+        async function getUsers()
+        {
+            let url1 = "https://jsonplaceholder.typicode.com/users/1";
+            let url2 = "https://jsonplaceholder.typicode.com/users/2";
+            let url3 = "https://jsonplaceholder.typicode.com/users/3";
+
+            let promises = [url1,url2,url3].map(url=>fetch(url).then(resp=>resp.json()));
+            for await (const promise of promises)
+            {
+                //let data = await promise;
+                console.log('Data ',promise);
+            }
+        }
+        getUsers();
+   </script>     
+</html>
