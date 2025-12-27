@@ -1,0 +1,47 @@
+<html>
+    <body>
+
+    </body>
+    <script>
+        let obj = {
+            description:"Real Object",
+            order()
+            {
+                console.log('Order ');
+            },
+            payment()
+            {
+                console.log('Payment ');
+            }
+        }
+        obj.order();
+        obj.payment();
+        let loggingHandler = {
+            get:function(target,propKey,receiver){
+                if(typeof target[propKey] === 'function')
+                {
+                    console.log('Function ',propKey, ' invoked ');
+                }
+                // console.log('Get called for ',propKey, ' target ',target, ' receiver ',receiver );
+                return target[propKey];
+            },
+            set:function(target,propKey,value,receiver){
+                console.log('Set called for ',propKey,' new value ',value);
+                return Reflect.set(target,propKey,value,receiver);
+            },
+        }
+        let proxy = new Proxy(obj,loggingHandler);
+        console.log('proxy.description ',proxy.description);
+        proxy.order();
+        proxy.payment();
+
+        let another = {
+            hello()
+            {
+                console.log('Hello from another object ');
+            }
+        }
+        let proxy2 = new Proxy(another,loggingHandler);
+        proxy2.hello();
+   </script>     
+</html>

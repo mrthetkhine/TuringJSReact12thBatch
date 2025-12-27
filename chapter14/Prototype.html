@@ -1,0 +1,27 @@
+<html>
+    <body>
+        
+    </body>
+    <script>
+        
+        let obj1 ={
+            name : "Jhon",
+            age :21,
+        }
+        console.log('get prototype of obj1 ',Object.getPrototypeOf(obj1));
+
+        let parent = {
+            x: 100,
+        }
+        let obj2 = Object.create(parent);
+        console.log('get prototype of obj2 ',Object.getPrototypeOf(obj2));
+        console.log('Refleft. prototype of obj2 ',Reflect.getPrototypeOf(obj2));
+
+        let name = 'example';
+        let symbol1 = Symbol(name);
+        let symbol2 = Symbol(name);
+        console.log('symbol1 === symbol2 ',symbol1 === symbol2);
+
+        console.log('Iterator  ',Symbol.iterator);
+   </script>     
+</html>

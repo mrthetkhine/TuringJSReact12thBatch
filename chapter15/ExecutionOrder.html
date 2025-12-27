@@ -1,0 +1,32 @@
+<html>
+    <body>
+      
+    </body>
+    <script>
+      console.log('Script 1');
+      let data = "hello";
+      function delay(ms)
+      {
+        let start = Date.now();
+        while(Date.now() - start < ms);
+          
+      }
+      //delay(2000);
+      document.addEventListener('DOMContentLoaded',()=>{
+        console.log('DOM fully loaded and parsed ');
+      });
+    </script>     
+    <script src="./lib2.js" defer>
+
+    </script>
+    <script >
+      console.log('Script 2');
+      console.log('data ',data);
+    </script>   
+    <script src="./lib.js" async>
+
+    </script>
+    <script>
+        console.log('Script 3');
+    </script>
+</html>

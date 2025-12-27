@@ -1,0 +1,48 @@
+<html>
+    <body>
+
+        <div>
+            Name <span id="txtName"></span>
+        </div>
+        <div>
+            Age <span id="txtAge"></span>
+        </div>
+    </body>
+    <script>
+        let model ={
+            name : "Alice",
+            age :30,
+        }
+        function updateView()
+        {
+            document.getElementById('txtName').innerText = model.name;
+            document.getElementById('txtAge').innerText = model.age;
+        }
+        updateView();
+        model.name= "Jhon";
+        
+        function bindModel(obj)
+        {
+            let proxy = {};
+            for(const key in obj)
+            {
+                Object.defineProperty(proxy,key,{
+                    get:function(){
+                        return obj[key];
+                    },
+                    set:function(newValue){
+                        obj[key] = newValue;
+                        console.log('Model updated ',key,' new value ',newValue);
+                        updateView();
+                    },
+                    enumerable:true,
+                    configurable:true,
+                });
+            }
+            return proxy;
+        }
+        let proxy = bindModel(model);
+        proxy.age = 21;
+        proxy.name = "Doe";
+   </script>     
+</html>

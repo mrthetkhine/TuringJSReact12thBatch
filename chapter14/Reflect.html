@@ -1,0 +1,37 @@
+<html>
+    <body>
+        
+    </body>
+    <script>
+        
+        class Human
+        {
+            constructor(name,age)
+            {
+                this.name = name;
+                this.age = age;
+            }
+            speak()
+            {
+                console.log('Human speaking ');
+            }
+        }
+        class Teacher extends Human
+        {
+            constructor(name,age)
+            {
+                super(name,age);
+            }
+            
+        }
+        let obj = new Human('Jhon',21);
+        console.log('obj ',obj);
+
+        let clazz = Teacher;
+        let obj2 = Reflect.construct(clazz, ['Doe', 25]);
+        console.log('obj2 ',obj2);
+        obj2.speak();
+
+        console.log('Own keys of obj2 ',Reflect.ownKeys(obj2));
+   </script>     
+</html>
