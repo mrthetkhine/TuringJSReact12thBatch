@@ -1,0 +1,52 @@
+<html>
+    <style>
+        .highlight{
+            background-color: yellow;
+        }
+    </style>
+    <body>
+        <ol>
+            <li>List One</li>
+            <li>List Two</li>
+            <li>List Three</li>
+        </ol>
+        <div class="highlight">Div One</div>
+        <div >
+            Div Two
+            <div>Div Three</div>
+            <span>Child span of div</span>
+            <p>
+                Paragraph inside div
+                <span>Span inside div</span>
+            </p>
+            
+        </div>
+        <span id="container" class="highlight">Container</span>
+        <p>
+            This is a paragraph
+        </p>
+        <span>
+            Another span after paragraph
+        </span>
+        <form>
+            <input type="text" name="username" value="user1"/>
+            <input type="password" name="password" />
+            <input type="submit" value="Login"/>
+        </form>
+
+    </body>
+    <script>
+        console.log('querySelectorAll div' ,document.querySelectorAll('div'));
+        console.log('querySelector div' ,document.querySelector('div'));
+
+        console.log('querySelectorAll #container' ,document.querySelectorAll('#container'));
+        console.log('querySelectorAll .highlight' ,document.querySelectorAll('.highlight'));
+        console.log('querySelectorAll input[type="text"]' ,document.querySelectorAll('input[type="text"]'));
+
+        console.log('querySelectorAll div span' ,document.querySelectorAll('div span'));
+        console.log('querySelectorAll div>span' ,document.querySelectorAll('div>span'));
+        console.log('querySelectorAll div:first-child' ,document.querySelectorAll('div:first-child'));
+        console.log('querySelectorAll div+span' ,document.querySelectorAll('div+span'));
+        console.log('querySelectorAll div~span' ,document.querySelectorAll('div~span'));
+    </script>
+</html>

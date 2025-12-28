@@ -1,0 +1,28 @@
+<html>
+    <body>
+      <button type="button" id="btnDoAsync">Schedule Async</button>
+      <button type="button" id="btnGo">Go</button>
+    </body>
+    <script>
+        document.getElementById('btnGo')
+                .addEventListener('click',()=>{
+                    console.log('Button Go clicked ');
+                });
+        document.getElementById('btnDoAsync')
+                .addEventListener('click',async ()=>{
+                    setTimeout(()=>{
+                        console.log('Task done');
+                        document.dispatchEvent(new CustomEvent('taskDone',{
+                           detail:{
+                             message: 'Task completed successfully'
+                           }
+                        }));
+                        document.getElementById('btnGo').dispatchEvent(new Event('click'));
+                    },3000);
+                });
+        document.addEventListener('taskDone',(event)=>{
+            console.log('Custom event received ',event);
+            console.log('Custom event message ',event.detail.message);
+        });
+    </script>
+</html>

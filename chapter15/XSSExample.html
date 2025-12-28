@@ -1,0 +1,11 @@
+<html>
+    <body>
+      <div>Welcome </div>
+    </body>
+    <script>
+        //?name=<img src="./error.jpg" onerror="alert('JS code');console.log(window.localStorage)"/>
+      let name = new URL(document.URL).searchParams.get("name"); 
+      //document.querySelector('div').innerHTML = "Hello " + name;
+      document.querySelector('div').innerText = "Hello " + name;
+    </script>
+</html>

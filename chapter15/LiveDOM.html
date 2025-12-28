@@ -1,0 +1,28 @@
+<html>
+    <style>
+       
+    </style>
+    <body>
+        <ol id="container">
+            <li>Item One</li>
+            <li>Item Two</li>
+            <li>Item Three</li>
+        </ol>
+        <button type="button" id="btnDuplicate">Duplicate</button>
+    </body>
+    <script>
+        document.getElementById("btnDuplicate").addEventListener("click", function() {
+            console.log('btn duplicated click');
+            
+
+            
+            for(let i=0,len = document.getElementsByTagName('li').length;i<len;i++){
+                let child = document.createElement('li');
+                child.textContent = 'New Item ';
+                document.getElementById('container').appendChild(child);
+                console.log('Appended child ');
+            }
+            
+        });
+    </script>
+</html>

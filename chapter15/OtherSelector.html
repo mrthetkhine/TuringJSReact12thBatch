@@ -1,0 +1,27 @@
+<html>
+    <style>
+        .highlight{
+            background-color: yellow;
+        }
+    </style>
+    <body>
+        <div class="highlight">
+            Div One
+        </div>
+        <span class="highlight">
+            Container
+        </span>
+        <form>
+            <input type="text" name="username" value="user1"/>
+            <input type="password" name="password" />
+            <input type="submit" value="Login"/>
+        </form>
+
+    </body>
+    <script>
+        console.log('getElementsByName' ,document.getElementsByName('username'));
+        console.log('getElementsByTagName input' ,document.getElementsByTagName('input'));
+        console.log('getElementsByClassName highlight' ,document.getElementsByClassName('highlight'));
+        console.log('form elements' ,document.forms);
+    </script>
+</html>

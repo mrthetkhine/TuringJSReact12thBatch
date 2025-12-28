@@ -1,0 +1,78 @@
+<html>
+    <body>
+      <button type="button" id="btnGreet">Greet</button>
+      <button type="button" onclick="alert('Hello')">Greet2</button>
+
+      <button type="button" id="btnRemove">Remove event </button>
+      <div id="parent">
+        Parent
+        <div id="child">
+            Child
+        </div>
+      </div>
+      <div id="divOnce">
+        Once 
+      </div>
+    </body>
+    <script>
+        /*
+        document.onclick = function(event){
+            console.log('Document clicked 1 ',event);
+        }
+        document.onclick = function(event){
+            console.log('Document clicked 2',event);
+        }
+        document.getElementById('btnGreet')
+                .addEventListener('click',()=>{
+                    console.log('Hello User');
+                });
+        console.log('document ',document);
+        
+        */
+        function handler1(event)
+        {
+            console.log('Parent clicked1 taget ',event.target,' currentTarget ',event.currentTarget );
+            console.log('Parent handler1 sameTarget ',event.currentTarget === event.target );
+            //event.stopPropagation();
+            event.stopImmediatePropagation();
+        }
+        document.getElementById('parent')
+                .addEventListener('click',handler1,{
+                    //capture:true
+                });
+        document.getElementById('parent')
+                .addEventListener('click',(event)=>{
+                    console.log('Parent clicked2 target',event.target,' currentTarget ',event.currentTarget );
+                    console.log('Parent handler2 sameTarget ',event.currentTarget === event.target );
+
+                },{
+                    //capture:true
+                });        
+        document.getElementById('child')
+                .addEventListener('click',(event)=>{
+                    console.log('Child clicked target',event.target,' currentTarget ',event.currentTarget );
+                    console.log('Child  sameTarget ',event.currentTarget === event.target );
+                    event.stopPropagation();
+                });    
+        document.body.addEventListener('click',(event)=>{
+            console.log('Body clicked 1 target',event.target,' currentTarget ',event.currentTarget );
+            console.log('Body handler1 sameTarget ',event.currentTarget === event.target );
+        },{
+                    //capture:true
+                });            
+        document.getElementById('btnRemove')
+                .addEventListener('click',()=>{
+                    document.getElementById('parent')
+                            .removeEventListener('click',handler1);
+                });
+        document.getElementById('divOnce')
+                .addEventListener('click',(event)=>{
+                    console.log('Div once clicked ',event);
+                },{once:true});
+
+        document.addEventListener('contextmenu',(event)=>{
+            console.log('Document right click 1 ',event);
+            event.preventDefault();
+        });
+    </script>
+</html>
