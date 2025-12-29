@@ -1,0 +1,18 @@
+<html>
+    <style>
+      
+    </style>
+    <body>
+        
+    </body>
+    <script>
+        window.addEventListener('storage', function(event){
+            console.log('Storage event fired ');
+            console.log('key ',event.key);
+            console.log('oldValue ',event.oldValue);
+            console.log('newValue ',event.newValue);
+            console.log('url ',event.url);
+            console.log('storageArea ',event.storageArea);
+        });
+    </script>
+</html>

@@ -1,0 +1,45 @@
+<html>
+    <style>
+       .highlight{
+           background-color: yellow;
+       }
+    </style>
+    <body>
+        <ol>
+            <li data-id="1">Apple</li>
+            <li data-id="2">Orange</li>
+            <li data-id="3">Banana</li>
+        </ol>
+        <div id="container">
+            Data
+        </div>
+        <div id="child">
+            Child data
+        </div>
+        <button type="button" id="btnUpdate">Update Data</button>
+        &nbsp;
+       
+    </body>
+    <script>
+        
+      
+        
+        document.getElementById("btnUpdate").addEventListener("click", function() {
+            console.log('btn update click');
+            let container = document.getElementById('container');
+            /*
+            container.style.color = 'red';
+            container.style.background = 'blue';
+            */
+           let cssText = `
+               color: red;
+               background: blue;
+               font-size: 20px;
+               border: 2px solid black;
+               padding: 10px;
+           `;
+           container.style.cssText = cssText;
+        });
+        
+    </script>
+</html>

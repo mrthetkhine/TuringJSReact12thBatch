@@ -1,0 +1,63 @@
+<html>
+    <style>
+       .highlight{
+           background-color: yellow;
+       }
+    </style>
+    <body>
+        <ol>
+            <li data-id="1">Apple</li>
+            <li data-id="2">Orange</li>
+            <li data-id="3">Banana</li>
+        </ol>
+        <div id="container">
+            Data
+        </div>
+        <div id="child">
+            Child data
+        </div>
+        <button type="button" id="btnUpdate">Update Data</button>
+        &nbsp;
+        <button type="button" id="btnAdd">Add Data</button>
+         &nbsp;
+        <button type="button" id="btnRemove">Remove Data</button>
+    </body>
+    <script>
+        
+      
+        document.querySelector("ol").addEventListener("click", function(event) {
+            let li = event.target.closest("li");
+            let id = li.dataset.id;
+            //console.log('li clicked ',li);
+            console.log('id is ',id);
+        });
+        document.getElementById("btnUpdate").addEventListener("click", function() {
+            console.log('btn update click');
+            let container = document.getElementById('container');
+            //container.textContent = 'Updated Data';
+            //container.textContent = '<h1>Updated Data</h1';
+            //container.innerHTML = '<h1>Updated Data</h1>';
+            //container.outerHTML = '<h1>Updated Data</h1>';
+            //container.innerText = '<h1>Updated Data</h1>';
+            //container.outerText = '<h1>Updated Data</h1>';
+            container.insertAdjacentHTML('beforeend','<h1>Appended Data</h1>');
+        });
+        document.getElementById("btnAdd").addEventListener("click", function() {
+            console.log('btn add click');
+            let container = document.getElementById('container');
+            let newDiv = document.createElement('div');
+            newDiv.textContent = 'New Data Div';
+            //container.append(newDiv);
+            //container.prepend(newDiv);
+            //container.before(newDiv);
+            //container.after(newDiv);
+            document.body.appendChild(container.cloneNode(true));
+        });
+        document.getElementById("btnRemove").addEventListener("click", function() {
+            console.log('btn remove click');
+            let child = document.getElementById('child');
+            //child.remove();
+            child?.remove();
+        });
+    </script>
+</html>

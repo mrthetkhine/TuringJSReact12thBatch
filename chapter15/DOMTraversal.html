@@ -1,0 +1,35 @@
+<html>
+    <style>
+       
+    </style>
+    <body>
+        <div id="container">
+            Parent 
+            <div id="child">
+                Child 
+            </div>
+            <div >
+                Child Two
+            </div>
+        </div>
+        <div>
+            Second div
+        </div>
+    </body>
+    <script>
+        let container = document.getElementById('container');
+        console.log('container ',container);
+        console.log('container.parentNode ',container.parentNode);
+        console.log('container.parentElement ',container.parentElement);
+        console.log('container.childNodes ',container.childNodes);
+        console.log('container.children ',container.children);
+        console.log('container.firstChild ',container.firstChild);
+        console.log('container.firstElementChild ',container.firstElementChild);
+        console.log('container.lastChild ',container.lastChild);
+        console.log('container.lastElementChild ',container.lastElementChild);
+        console.log('container.nextSibling ',container.nextSibling);
+        console.log('container.nextElementSibling ',container.nextElementSibling);
+        console.log('container.previousSibling ',container.previousSibling);
+        console.log('container.previousElementSibling ',container.previousElementSibling);
+    </script>
+</html>

@@ -1,0 +1,34 @@
+<html>
+    <style>
+       .highlight{
+           background-color: yellow;
+       }
+    </style>
+    <body>
+        <div id="container" class="highlight">
+            Parent 
+            
+        </div>
+        <button type="button" id="btnRemoveClass">Remove</button>
+        &nbsp;
+        <button type="button" id="btnAddClass">Add</button>
+        &nbsp;
+        <div>
+            Second div
+        </div>
+    </body>
+    <script>
+        let container = document.getElementById('container');
+        console.log('container class ',container.classList);
+        document.getElementById("btnRemoveClass").addEventListener("click", function() {
+            console.log('Removed highlight class');
+            container.classList.remove('highlight');
+            
+        });
+        document.getElementById("btnAddClass").addEventListener("click", function() {
+            console.log('Added highlight class');
+            container.classList.add('highlight');
+            
+        });
+    </script>
+</html>

@@ -1,0 +1,59 @@
+<html>
+    <style>
+       .highlight{
+           background-color: yellow;
+       }
+       .box
+       {
+            border:1px solid gray;
+            width: 200px;
+            height: 1300px;
+       }
+    </style>
+    <body>
+        <ol>
+            <li data-id="1">Apple</li>
+            <li data-id="2">Orange</li>
+            <li data-id="3">Banana</li>
+        </ol>
+        <button type="button" id="btnDown">Go Down</button>
+        &nbsp;
+        <div id="container" class="box">
+            Data
+        </div>
+        <div id="child">
+            Child data
+        </div>
+        <button type="button" id="btnUpdate">Update Data</button>
+        &nbsp;
+       
+    </body>
+    <script>
+        let container = document.getElementById('container');
+        console.log('container ',container.getBoundingClientRect());
+        document.addEventListener("click", function(event) {
+            console.log('Document clicked x ',event.clientX,' y ', event.clientY);
+            let ele = document.elementFromPoint(event.clientX, event.clientY);
+            console.log('Element at point is ',ele);
+        });
+
+        document.getElementById("btnDown").addEventListener("click", function() {
+            console.log('btn down click');
+            let documentHeight = document.documentElement.offsetHeight; 
+            let viewportHeight = window.innerHeight;
+            let height = documentHeight - viewportHeight
+            let timer = setInterval(()=>{
+                window.scrollBy(0,50);
+                height -=50;
+                if(height<=0){
+                
+                    clearInterval(timer);
+                }
+            },50);
+            //window.scrollTo(0, documentHeight - viewportHeight);
+            //container.scrollTo(0,200);
+            //container.scrollIntoView({behavior: 'smooth', block: 'end'});
+        });
+        
+    </script>
+</html>

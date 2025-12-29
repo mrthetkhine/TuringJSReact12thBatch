@@ -1,0 +1,17 @@
+<html>
+    <style>
+      
+    </style>
+    <body>
+        
+    </body>
+    <script>
+        let name = sessionStorage.username;
+        if(!name){
+            name = prompt("Enter your name: ");
+            sessionStorage.username = name;
+            
+        }
+        console.log('name from local storage ',name);
+    </script>
+</html>
