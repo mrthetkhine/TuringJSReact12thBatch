@@ -1,0 +1,21 @@
+<html>
+    <style>
+      
+    </style>
+    <body>
+        
+    </body>
+    <script>
+        setTimeout(()=>{
+            console.log('settimeout executed after 0 ms');
+        },0);
+        function delay(ms)
+        {
+            let start = new Date();
+            while ( (new Date() - start) < ms);
+        }
+        console.log('Starting heavy computation on main thread');
+        delay(2000);
+        console.log('Finished heavy computation on main thread');
+    </script>
+</html>

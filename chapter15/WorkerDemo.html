@@ -1,0 +1,21 @@
+<html>
+    <style>
+      
+    </style>
+    <body>
+        
+    </body>
+    <script>
+       
+        let worker = new Worker('./worker1.js');
+        worker.postMessage({
+            value : 10
+        });
+        setTimeout(()=>{
+            console.log('settimeout executed after 0 ms');
+        },0);
+        worker.onmessage = (event) => {
+            console.log('Message received from worker:', event.data);
+        }
+    </script>
+</html>
