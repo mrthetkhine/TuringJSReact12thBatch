@@ -99,7 +99,7 @@ router.get('/', function(req, res, next) {
     next();
 });
 router.get('/', function(req, res, next) {
-    console.log('second handler');
+    console.log('second handler ',req.time);
     //res.send('Output from second handler from demo router');
     res.json(todos);
 });
