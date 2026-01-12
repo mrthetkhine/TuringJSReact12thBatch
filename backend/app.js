@@ -3,6 +3,8 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+const mongoose = require('mongoose');
+const { db } = require('./config/database');
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
@@ -10,9 +12,13 @@ const demoRouter = require('./routes/demo');
 const customLogger = require('./middleware/customLogger');
 const adminAuth = require('./middleware/adminAuth');
 const adminRouter = require('./routes/admin');
+const todoRouter = require('./routes/todos');
+const movieRouter = require('./routes/movie');
 
 var app = express();
 
+mongoose.connect(db).then(() => console.log('MongoDB connected!'))
+    .catch(err => console.log(err));
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
@@ -30,7 +36,8 @@ app.use('/', indexRouter);
 app.use('/admin', adminRouter);
 app.use('/users', usersRouter);
 app.use('/demo', demoRouter);
-
+app.use('/api/todos',todoRouter);
+app.use('/api/movies',movieRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

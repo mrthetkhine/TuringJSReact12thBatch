@@ -164,13 +164,13 @@ db.inventory.find({},{status:1});
 db.inventory.find({},{status:0});
 
 db.todos.find({
-    _id: ObjectId('688df1af5986ad688842a6aa')
+    _id: ObjectId('69637e3079ec35a87b1a57b3')
 })
 
 db.todos.updateOne(
-  {_id: ObjectId('688df1af5986ad688842a6aa')},
+  {_id: ObjectId('69637f4579ec35a87b1a57b6')},
   [
-     { $set: { "title": "Todo 1 updated"} },
+     { $set: { "title": "Todo 4 updated"} },
      { $unset:["user"]}
  ]
 )
@@ -186,5 +186,5 @@ db.todos.updateMany(
 )
 
 db.todos.deleteOne({
-    _id:ObjectId('688df2115986ad688842a6ac')
+    _id:ObjectId('69637f4579ec35a87b1a57b6')
 })
