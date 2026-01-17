@@ -14,6 +14,7 @@ const adminAuth = require('./middleware/adminAuth');
 const adminRouter = require('./routes/admin');
 const todoRouter = require('./routes/todos');
 const movieRouter = require('./routes/movie');
+const reviewRouter = require('./routes/review');
 
 var app = express();
 
@@ -38,6 +39,7 @@ app.use('/users', usersRouter);
 app.use('/demo', demoRouter);
 app.use('/api/todos',todoRouter);
 app.use('/api/movies',movieRouter);
+app.use('/api/reviews',reviewRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
