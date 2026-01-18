@@ -1,20 +1,8 @@
 var express = require('express');
 var router = express.Router();
+const userController = require("../controllers/userController");
+const auth = require("../middleware/auth");
 
-/* GET users listing. */
-router.get('/', function(req, res, next) {
-  res.send('Hello from users route update');
-});
-router.get('/hello', function(req, res, next) {
-  res.json({
-    name : 'Jhon',
-    age : 25,
-  })
-});
-router.post('/hello', function(req, res, next) {
-  res.json({
-    name : 'Jhon called with post',
-    age : 25,
-  })
-});
+router.post("/register", auth.verifyToken,auth.hasRole("admin"), userController.registerUser);
+router.post("/login", userController.loginUser);
 module.exports = router;
