@@ -8,6 +8,14 @@ import Bordered from "@/app/components/Bordered";
 import Dashboard from "@/app/components/conditional_render/Dashboard";
 import ItemWithFlag from "@/app/components/conditional_render/ItemWithFlag";
 import ItemList from "@/app/components/ItemList";
+import UserList from "@/app/components/UserList";
+import EventDemo from "@/app/components/interactivity/EventDemo";
+import PropagationDemo from "@/app/components/interactivity/PropagationDemo";
+import Counter from "@/app/components/Counter";
+import TimerDemo from "@/app/components/TimerDemo";
+import BatchUpdateDemo from "@/app/components/BatchUpdateDemo";
+import ItemListWithState from "@/app/components/ItemListWithState";
+import ObjectUpdate from "@/app/components/ObjectUpdate";
 
 export default function Home() {
 
@@ -49,7 +57,17 @@ export default function Home() {
           <JsxDemo/>*/}
          {/* <Dashboard role={"admin"} />
           <ItemWithFlag flag={true} name="Apple"/>*/}
-          <ItemList/>
+          {/*<ItemList/>*/}
+         {/* <UserList/>*/}
+          {/*<EventDemo/>*/}
+          {/*<PropagationDemo/>*/}
+         {/* <Counter/>
+          */}
+         {/* <Counter/>*/}
+         {/* <TimerDemo/>*/}
+        {/*  <BatchUpdateDemo/>*/}
+        {/*  <ItemListWithState/>*/}
+          <ObjectUpdate/>
       </main>
     </div>
   );
