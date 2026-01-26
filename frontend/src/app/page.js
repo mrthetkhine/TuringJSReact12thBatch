@@ -16,6 +16,11 @@ import TimerDemo from "@/app/components/TimerDemo";
 import BatchUpdateDemo from "@/app/components/BatchUpdateDemo";
 import ItemListWithState from "@/app/components/ItemListWithState";
 import ObjectUpdate from "@/app/components/ObjectUpdate";
+import FormDemo from "@/app/components/form/FormDemo";
+import LoginForm from "@/app/components/form/LoginForm";
+import Tabs from "@/app/components/Tabs";
+import PosForm from "@/app/components/PosForm";
+import FilterableProductTable from "@/app/components/FilterableProductTable";
 
 export default function Home() {
 
@@ -66,8 +71,25 @@ export default function Home() {
          {/* <Counter/>*/}
          {/* <TimerDemo/>*/}
         {/*  <BatchUpdateDemo/>*/}
-        {/*  <ItemListWithState/>*/}
-          <ObjectUpdate/>
+       {/*   <ItemListWithState/>*/}
+        {/*  <ObjectUpdate/>*/}
+       {/*   <FormDemo/>*/}
+       {/*   <LoginForm/>*/}
+          {/*<Tabs headers={["Tab1","Tab2","Tab3"]}>
+              <div>
+                  Page 1
+              </div>
+              <div>
+                  Page 2
+              </div>
+              <div>
+                  <h3>
+                      Page 3
+                  </h3>
+              </div>
+          </Tabs>*/}
+         {/* <PosForm />*/}
+          <FilterableProductTable/>
       </main>
     </div>
   );

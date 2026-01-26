@@ -1,0 +1,14 @@
+.product-name
+{
+    display: inline-block;
+    width: 150px;
+}
+.product-price
+{
+    display: inline-block;
+    width: 50px;
+}
+.product-category
+{
+    text-align: center;
+}

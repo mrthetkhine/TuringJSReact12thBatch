@@ -11,10 +11,23 @@ export default function ItemListWithState() {
         setItems([...items,itemName]);
         console.log('add items ',items);
     }
+    const deleteItem = (text) => {
+        console.log('Delete item',text);
+        setItems(items.filter(item => item !== text));
+    }
+    const updateItem = (text) => {
+        console.log('Update item',text);
+        setItems(items.map(item => item == text? `${text} updated` : item));
+    }
     return (<div>
         <button type={"button"} onClick={addItem}>Add item</button>
-        {items.map((item, index) => (<div key={index}>
+        {
+            items.map((item, index) => (<div key={index}>
             {item}
-        </div>))}
+                <button type={"button"} onClick={()=>deleteItem(item)}>Delete</button>
+                &nbsp;
+                <button type={"button"} onClick={()=>updateItem(item)}>Update</button>
+            </div>))
+        }
     </div>);
 }
