@@ -1,6 +1,7 @@
 'use client';
 import {useState} from "react";
 import './FilterableProductTable.css';
+import classNames from "classnames";
 function SearchBar({onChange})
 {
     const [filter, setFilter] = useState('');
@@ -30,13 +31,35 @@ function SearchBar({onChange})
         </form>
     </div>);
 }
+function groupByCategory(products)
+{
+    let group = {
+    };
+    for(const product of products){
+        if(group[product.category]){
+            group[product.category].push(product);
+        }
+        else
+        {
+            group[product.category] = [product];
+        }
+    }
+    return group;
+}
 function ProductTable({products}){
+    let group = groupByCategory(products);
+    let category = Object.keys(group);
+
+    console.log('Category ',category);
     return(<div>
         <div className={'product-name'}>Name </div>
         <div className={'product-price'}>Price </div>
-        <ProductCategoryRow products={products}/>
+        {
+            category.map((c,index)=> <ProductCategoryRow products={group[c]} key={index}/>)
+        }
 
-        <ProductCategoryRow products={products}/>
+
+
     </div>);
 }
 function ProductCategoryRow({products}){
@@ -47,12 +70,13 @@ function ProductCategoryRow({products}){
     </div>);
 }
 function ProductRow({products}){
+
     return(<div>
         {
             products.map( (product, index) => (
                 <div  key={index} >
 
-                    <div className={'product-name'}>
+                    <div className={classNames('product-name',{'product-instock':!product.stocked})}>
                         {product.name}
                     </div>
                     <div className={'product-price'}>
@@ -65,10 +89,7 @@ function ProductRow({products}){
 }
 export default function FilterableProductTable()
 {
-    const searchBarChange=(filterData)=>{
-        console.log('Parent search bar change',filterData);
-    }
-    const products = [
+    const initialData = [
         { category: "Fruits", price: "$1", stocked: true, name: "Apple" },
         { category: "Fruits", price: "$1", stocked: true, name: "Dragonfruit" },
         { category: "Fruits", price: "$2", stocked: false, name: "Passionfruit" },
@@ -76,6 +97,20 @@ export default function FilterableProductTable()
         { category: "Vegetables", price: "$4", stocked: false, name: "Pumpkin" },
         { category: "Vegetables", price: "$1", stocked: true, name: "Peas" }
     ];
+    const [products, setProducts] = useState(initialData);
+    const searchBarChange=(filterData)=>{
+        console.log('Parent search bar change',filterData);
+        let data = initialData;
+        if(filterData.filter){
+            data = data.filter(item => item.name.includes(filterData.filter));
+        }
+        if(filterData.inStock){
+            data = data.filter(item=>item.stocked);
+        }
+
+        setProducts(data);
+    }
+
     return(<div>
         <SearchBar onChange = {searchBarChange}/>
         <ProductTable products={products}/>

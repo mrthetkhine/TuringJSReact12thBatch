@@ -21,6 +21,13 @@ import LoginForm from "@/app/components/form/LoginForm";
 import Tabs from "@/app/components/Tabs";
 import PosForm from "@/app/components/PosForm";
 import FilterableProductTable from "@/app/components/FilterableProductTable";
+import StateOnPosition from "@/app/components/reconciliation/StateOnPosition";
+import DestroyComponent from "@/app/components/reconciliation/DestroyComponent";
+import FancyComponent from "@/app/components/reconciliation/FancyComponent";
+import DifferentComponent from "@/app/components/reconciliation/DifferentComponent";
+import DifferentKey from "@/app/components/reconciliation/DifferentKey";
+import TodoList from "@/app/components/TodoList";
+import CounterWithReducer from "@/app/components/reducer/CounterWithReducer";
 
 export default function Home() {
 
@@ -89,7 +96,14 @@ export default function Home() {
               </div>
           </Tabs>*/}
          {/* <PosForm />*/}
-          <FilterableProductTable/>
+       {/*   <FilterableProductTable/>*/}
+       {/*   <StateOnPosition />*/}
+        {/*  <DestroyComponent/>*/}
+         {/* <FancyComponent/>*/}
+         {/* <DifferentComponent/>*/}
+         {/* <DifferentKey/>*/}
+          {/*<TodoList/>*/}
+          <CounterWithReducer/>
       </main>
     </div>
   );
