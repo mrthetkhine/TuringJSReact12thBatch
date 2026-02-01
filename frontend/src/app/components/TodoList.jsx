@@ -17,7 +17,7 @@ const initItem = [
     },
 ]
 
-function TodoItem({todo,updateTodo,deleteTodo}) {
+export function TodoItem({todo,updateTodo,deleteTodo}) {
     const [todoText, setTodoText] = useState(todo.title);
     const [edit, setEdit] = useState(false);
 
@@ -54,7 +54,7 @@ function TodoItem({todo,updateTodo,deleteTodo}) {
         </button>
     </div>;
 }
-function TodoEntry({addTodo})
+export function TodoEntry({addTodo})
 {
     const [todoText, setTodoText] = useState('');
     const onAddTodo = () => {

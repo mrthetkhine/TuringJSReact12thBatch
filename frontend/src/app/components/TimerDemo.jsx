@@ -11,6 +11,7 @@ export default function TimerDemo() {
     const [now,setNow] = useState(new Date());
 
     setInterval(()=>{
+
         setNow(new Date());
     },1000);
     return (<div>

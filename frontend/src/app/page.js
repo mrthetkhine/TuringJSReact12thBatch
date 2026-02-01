@@ -28,6 +28,18 @@ import DifferentComponent from "@/app/components/reconciliation/DifferentCompone
 import DifferentKey from "@/app/components/reconciliation/DifferentKey";
 import TodoList from "@/app/components/TodoList";
 import CounterWithReducer from "@/app/components/reducer/CounterWithReducer";
+import TodoListWithReducer from "@/app/components/reducer/TodoListWithReducer";
+import WhyContext from "@/app/components/context/WhyContext";
+import ContextDemo from "@/app/components/context/ContextDemo";
+import TodoWithContextDemo from "@/app/components/context/TodoWithContextDemo";
+import WhyRef from "@/app/components/ref/WhyRef";
+import FocusInput from "@/app/components/ref/FocusInput";
+import CustomInputDemo from "@/app/components/ref/CustomInputDemo";
+import EffectDemo from "@/app/components/effect/EffectDemo";
+import EffectLifeCycle from "@/app/components/effect/EffectLifeCycle";
+import TimerDemo2 from "@/app/components/effect/TimerDemo2";
+import CleanUpDemo from "@/app/components/effect/CleanUpDemo";
+import TodoWithDataFetch from "@/app/components/effect/TodoWithDataFetch";
 
 export default function Home() {
 
@@ -103,7 +115,19 @@ export default function Home() {
          {/* <DifferentComponent/>*/}
          {/* <DifferentKey/>*/}
           {/*<TodoList/>*/}
-          <CounterWithReducer/>
+          {/*<CounterWithReducer/>*/}
+          {/*<TodoListWithReducer/>*/}
+         {/* <WhyContext/>*/}
+         {/* <ContextDemo/>*/}
+          {/*<TodoWithContextDemo/>*/}
+         {/* <WhyRef/>*/}
+         {/* <FocusInput/>*/}
+          {/*<CustomInputDemo/>*/}
+          {/*<EffectDemo/>*/}
+          {/*<EffectLifeCycle/>*/}
+          {/*<TimerDemo2/>*/}
+          {/*<CleanUpDemo/>*/}
+          <TodoWithDataFetch/>
       </main>
     </div>
   );
