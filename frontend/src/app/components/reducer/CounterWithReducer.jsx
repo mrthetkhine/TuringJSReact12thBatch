@@ -1,6 +1,7 @@
 'use client';
 
 import {useReducer} from "react";
+import useCustomReducer from "@/app/components/hooks/useCustomReducer";
 
 function counterReducer(state, action) {
     switch (action.type) {
@@ -19,7 +20,8 @@ const initState = {
 }
 export default function CounterWithReducer()
 {
-    const [state,dispatch] = useReducer(counterReducer,initState );
+    //const [state,dispatch] = useReducer(counterReducer,initState );
+    const [state,dispatch] = useCustomReducer(counterReducer,initState );
     const inc=()=>{
         dispatch({
             type:'INCREMENT',

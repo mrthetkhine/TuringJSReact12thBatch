@@ -40,6 +40,13 @@ import EffectLifeCycle from "@/app/components/effect/EffectLifeCycle";
 import TimerDemo2 from "@/app/components/effect/TimerDemo2";
 import CleanUpDemo from "@/app/components/effect/CleanUpDemo";
 import TodoWithDataFetch from "@/app/components/effect/TodoWithDataFetch";
+import LoadTodo from "@/app/components/hooks/LoadTodo";
+import LoadUser from "@/app/components/hooks/LoadUser";
+import LoadDataWithHook from "@/app/components/hooks/LoadDataWithHook";
+import FormWithHook from "@/app/components/hooks/FormWithHook";
+import SimpleLoginForm from "@/app/components/form/SimpleLoginForm";
+import MovieForm from "@/app/components/form/MovieForm";
+import SimpleLoginFormWithUseForm from "@/app/components/form/SimpleLoginWithUseForm";
 
 export default function Home() {
 
@@ -115,8 +122,8 @@ export default function Home() {
          {/* <DifferentComponent/>*/}
          {/* <DifferentKey/>*/}
           {/*<TodoList/>*/}
-          {/*<CounterWithReducer/>*/}
-          {/*<TodoListWithReducer/>*/}
+         {/* <CounterWithReducer/>
+          <TodoListWithReducer/>*/}
          {/* <WhyContext/>*/}
          {/* <ContextDemo/>*/}
           {/*<TodoWithContextDemo/>*/}
@@ -127,7 +134,14 @@ export default function Home() {
           {/*<EffectLifeCycle/>*/}
           {/*<TimerDemo2/>*/}
           {/*<CleanUpDemo/>*/}
-          <TodoWithDataFetch/>
+          {/*<TodoWithDataFetch/>*/}
+          {/*<LoadTodo/>*/}
+          {/*<LoadUser/>*/}
+         {/* <LoadDataWithHook/>*/}
+         {/* <FormWithHook/>*/}
+         {/* <SimpleLoginForm/>*/}
+        {/*  <MovieForm/>*/}
+          <SimpleLoginFormWithUseForm/>
       </main>
     </div>
   );

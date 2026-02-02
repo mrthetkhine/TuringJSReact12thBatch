@@ -1,10 +1,12 @@
 'use client';
 
 import {useRef, useState} from "react";
+import useCustomRef from "@/app/components/hooks/useCustomRef";
 
 export default function WhyRef()
 {
-    const clickCount= useRef(0);
+    //const clickCount= useRef(0);
+    const clickCount= useCustomRef(0);
     console.log('Render clickCount ',clickCount.current);
     const [count,setCount] = useState(0);
 
