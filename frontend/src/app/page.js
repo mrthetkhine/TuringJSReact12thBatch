@@ -47,6 +47,14 @@ import FormWithHook from "@/app/components/hooks/FormWithHook";
 import SimpleLoginForm from "@/app/components/form/SimpleLoginForm";
 import MovieForm from "@/app/components/form/MovieForm";
 import SimpleLoginFormWithUseForm from "@/app/components/form/SimpleLoginWithUseForm";
+import WhyRenderProp from "@/app/components/design_pattern/render_property/WhyRenderProp";
+import RenderPropDemo from "@/app/components/design_pattern/render_property/RenderPropDemo";
+import WhyHoc from "@/app/components/design_pattern/hoc/WhyHoc";
+import HocWithLoggerDemo from "@/app/components/design_pattern/hoc/HocWithLoggerDemo";
+import WhyHocAuth from "@/app/components/design_pattern/hoc/WhyHocAuth";
+import AuthDemo from "@/app/components/design_pattern/hoc/AuthDemo";
+import ProtectedDemo from "@/app/components/design_pattern/compound/ProtectedDemo";
+import RouterDemo from "@/app/components/router/RouterDemo";
 
 export default function Home() {
 
@@ -141,7 +149,15 @@ export default function Home() {
          {/* <FormWithHook/>*/}
          {/* <SimpleLoginForm/>*/}
         {/*  <MovieForm/>*/}
-          <SimpleLoginFormWithUseForm/>
+         {/* <SimpleLoginFormWithUseForm/>*/}
+        {/*  <WhyRenderProp/>*/}
+        {/*  <RenderPropDemo/>*/}
+        {/*  <WhyHoc/>*/}
+         {/* <HocWithLoggerDemo/>*/}
+         {/* <WhyHocAuth/>*/}
+         {/* <AuthDemo/>*/}
+        {/*<ProtectedDemo/>*/}
+          <RouterDemo/>
       </main>
     </div>
   );

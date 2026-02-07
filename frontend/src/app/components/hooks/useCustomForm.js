@@ -18,7 +18,7 @@ export default function useCustomForm() {
     function register(name)
     {
         console.log('register');
-        
+
         return {
             value : formData[name],
             onChange : onInputChange(name),
