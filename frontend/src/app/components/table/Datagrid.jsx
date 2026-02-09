@@ -3,7 +3,8 @@
 import Table, {TableBody, TableCell, TableHead, TableRow} from "@/app/components/table/Table";
 import {useState} from "react";
 
-function sortData(column, rowData) {
+function sortData(column, rowData,order) {
+    let asc = order[column.field];
     let type = 'string';
     if (column.type === 'number') {
         type = 'number';
@@ -18,30 +19,65 @@ function sortData(column, rowData) {
             if (!str2) {
                 str2 = '';
             }
-            return str1.localeCompare(str2);
+            if(asc)
+            {
+                return str1.localeCompare(str2);
+            }
+            else
+            {
+                return str2.localeCompare(str1);
+            }
         })
     } else {
         rowData.sort((a, b) => {
-            return a[column.field] - (b[column.field]);
+            if(asc)
+            {
+                return a[column.field] - (b[column.field]);
+            }
+            else
+            {
+                return b[column.field] - (a[column.field]);
+            }
         })
     }
 }
 
+function toOrderObject(columns)
+{
+    let obj = {};
+    columns.forEach(column => {
+        obj[column.field] = true;
+    })
+    return obj;
+}
 export default function Datagrid({columns,rows})
 {
     const fields = columns.map(column => column.field);
 
     const [rowData,setRowData] = useState(rows);
-    
-    console.log('Fields ', fields);
+    const [order,setOrder]=useState(toOrderObject(columns));
+
+    //console.log('Fields ', fields);
+    //console.log('Order ',order);
+    console.log('rowData',rowData);
     const onClickHeader = column => {
         console.log('Click on header ',column.field, ' type ',column.type);
 
-        sortData(column, rowData);
-        setRowData([...rowData]);
-    };
-    return (<Table>
+        sortData(column, rowData,order);
 
+        setRowData([...rowData]);
+        setOrder({
+            ...order,
+            [column.field]: !order[column.field],
+        });
+    };
+    const cellUpdateHandler = (rowIndex,field, cellValue) => {
+        console.log('cell update data Index ',rowIndex, 'field ', field, ' cell ', cellValue);
+        let newData = [...rowData];
+        newData[rowIndex][field] = cellValue;
+        setRowData(newData );
+    }
+    return (<Table>
             <TableHead>
                 <TableRow>
                     <TableCell>
@@ -53,19 +89,22 @@ export default function Datagrid({columns,rows})
                             style={{
                                 width: column.width,
                             }}>
-                            {column.headerName}
+                            {column.headerName } { order[column.field]?'⬇':'⬆' }
                         </TableCell>)
                     }
                 </TableRow>
             </TableHead>
             <TableBody>
                 {
-                    rowData.map((row, index) =><TableRow key={row.id}>
+                    rowData.map((row, rowIndex) =><TableRow key={row.id}>
                         <TableCell>
                             <input type={"checkbox"}/>
                         </TableCell>
                         {
-                            fields.map((field,index)=><TableCell key={index}>
+                            fields.map((field,index)=><TableCell
+                                onUpdate = {(data)=>cellUpdateHandler(rowIndex,field,data)}
+                                key={index}
+                                editable={true}>
                                 {row[field]}
                             </TableCell>)
                         }
