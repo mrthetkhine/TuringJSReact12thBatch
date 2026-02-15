@@ -5,7 +5,9 @@ import Container from "@/app/components/Container";
 import FormDemo from "@/app/components/FormDemo";
 import Header from "@/app/components/Header";
 import Greeting2 from "@/app/components/Greeting2";
-import ListTodo from "@/app/components/ListTodo";
+import ListTodo from "@/app/components/hook/ListTodo";
+import ReduxTodoList from "@/app/components/todo/ReduxTodoList";
+import TodoCount from "@/app/components/hook/TodoCount";
 
 export default function IndexPage() {
 
@@ -23,7 +25,9 @@ export default function IndexPage() {
 
     </Header>*/}
     {/*<Greeting2 message={"Hello world"}/>*/}
-    <ListTodo/>
+   {/* <ListTodo/>*/}
+    <TodoCount/>
+    <ReduxTodoList />
   </div>);
 }
 
