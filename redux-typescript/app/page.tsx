@@ -8,6 +8,7 @@ import Greeting2 from "@/app/components/Greeting2";
 import ListTodo from "@/app/components/hook/ListTodo";
 import ReduxTodoList from "@/app/components/todo/ReduxTodoList";
 import TodoCount from "@/app/components/hook/TodoCount";
+import RtkQueryTodoList from "@/app/components/todoapi/RtkQueryTodoList";
 
 export default function IndexPage() {
 
@@ -26,8 +27,9 @@ export default function IndexPage() {
     </Header>*/}
     {/*<Greeting2 message={"Hello world"}/>*/}
    {/* <ListTodo/>*/}
-    <TodoCount/>
-    <ReduxTodoList />
+   {/* <TodoCount/>
+    <ReduxTodoList />*/}
+    <RtkQueryTodoList/>
   </div>);
 }
 

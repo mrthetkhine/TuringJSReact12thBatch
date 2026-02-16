@@ -1,8 +1,8 @@
 'use client';
 import {useAppDispatch, useAppSelector} from "@/lib/hooks";
 
-import {addTodo, deleteTodo, selectTodo, updateTodo} from "@/lib/features/todo/todoSlice";
-import {useContext, useState} from "react";
+import {addTodo, clearAndLoad, deleteTodo, loadAllTodo, selectTodo, updateTodo} from "@/lib/features/todo/todoSlice";
+import {useContext, useEffect, useState} from "react";
 import TodoContext from "@/app/components/hook/TodoContext";
 import {Todo} from "@/app/components/hook/ListTodo";
 let id = 3;
@@ -57,10 +57,17 @@ export default function ReduxTodoList()
     const dispatch = useAppDispatch();
     const todos = useAppSelector(selectTodo);
 
+    useEffect(() => {
+        dispatch(loadAllTodo());
+    },[]);
+    const btnHandler = ()=>{
+        dispatch(clearAndLoad());
+    }
     return (<div>
+        <button type={"button"} onClick={btnHandler}>Clear and load</button>
         <TodoEntry/>
         {
-            todos.map(todo=><TodoItem
+            todos?.map(todo=><TodoItem
                 key={todo.id}
                 todo={todo}/>)
         }

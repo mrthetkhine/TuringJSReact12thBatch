@@ -1,5 +1,6 @@
 var createError = require('http-errors');
 var express = require('express');
+const cors = require('cors');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
@@ -27,6 +28,7 @@ app.set('view engine', 'jade');
 app.use(customLogger.logger);
 app.use(adminAuth.auth);
 
+app.use(cors());
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
@@ -37,7 +39,7 @@ app.use('/', indexRouter);
 app.use('/admin', adminRouter);
 app.use('/api/users', usersRouter);
 app.use('/demo', demoRouter);
-app.use('/api/todos',auth.verifyToken,todoRouter);
+app.use('/api/todos',/*auth.verifyToken,*/todoRouter);
 app.use('/api/movies',auth.verifyToken,movieRouter);
 app.use('/api/reviews',auth.verifyToken,reviewRouter);
 

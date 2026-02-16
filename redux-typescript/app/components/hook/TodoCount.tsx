@@ -6,6 +6,6 @@ export default function TodoCount()
 {
     const todos = useAppSelector(selectTodo);
     return (<div>
-        Todo count {todos.length}
+        Todo count {todos?.length}
     </div>);
 }
