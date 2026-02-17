@@ -17,6 +17,7 @@ async function getById (req, res) {
 }
 async function saveTodo(req, res) {
     const todo = req.body;
+    await delay(3000);
     console.log('Save todo ',req.body);
 
     try
@@ -33,10 +34,14 @@ async function saveTodo(req, res) {
     }
 
 }
+async function delay(ms)
+{
+    await new Promise(resolve => setTimeout(resolve, ms));
+}
 async function updateTodo(req, res) {
     let id = req.params.id;
     let todo = req.body;
-
+    await delay(3000);
     try
     {
         let updatedTodo = TodoService.updateTodo(id,todo);
