@@ -10,6 +10,7 @@ import ReduxTodoList from "@/app/components/todo/ReduxTodoList";
 import TodoCount from "@/app/components/hook/TodoCount";
 import RtkQueryTodoList from "@/app/components/todoapi/RtkQueryTodoList";
 import RtkQueryTodoCount from "@/app/components/todoapi/RtkQueryTodoCount";
+import ClientTodoList from "@/app/components/ClientTodoList";
 
 export default function IndexPage() {
 
@@ -30,8 +31,9 @@ export default function IndexPage() {
    {/* <ListTodo/>*/}
    {/* <TodoCount/>
     <ReduxTodoList />*/}
-    <RtkQueryTodoCount/>
-    <RtkQueryTodoList/>
+    {/*<RtkQueryTodoCount/>
+    <RtkQueryTodoList/>*/}
+    <ClientTodoList/>
   </div>);
 }
 
