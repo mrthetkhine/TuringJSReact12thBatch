@@ -8,7 +8,5 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="module" module-name="nextjs-rtk-spa" />
-    <orderEntry type="module" module-name="backend" />
   </component>
 </module>
