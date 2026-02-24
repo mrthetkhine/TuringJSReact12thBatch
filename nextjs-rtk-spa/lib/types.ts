@@ -13,3 +13,9 @@ export interface Movie extends BaseModel
     director:Director;
     year:number;
 }
+export interface Review extends BaseModel
+{
+    movie:string;
+    rating:number;
+    review:string;
+}

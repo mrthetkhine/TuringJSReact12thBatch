@@ -7,14 +7,11 @@ import { useRouter } from 'next/navigation';
 
 interface MovieUIProps{
     movie: Movie;
+    render?:(movie : Movie)=> JSX.Element;
 }
-export default function MovieUI({movie}: MovieUIProps)
+export default function MovieUI({movie,render}: MovieUIProps)
 {
-    const router = useRouter();
-    const onDetailHandler = ()=>{
-        console.log('Go to details');
-        router.push(`/movies/${movie._id}`);
-    };
+
     return (
         <div className={styles['movie-ui-container']}>
             <Card sx={{ display: 'flex' }}>
@@ -41,9 +38,9 @@ export default function MovieUI({movie}: MovieUIProps)
                         </Typography>
                     </CardContent>
 
-                    <Box sx={{alignItems:'flex-end'}} >
-                        <Button variant="contained" onClick={onDetailHandler} >Movie Details</Button>
-                    </Box>
+                   {
+                       render?.(movie)
+                   }
                 </Box>
 
             </Card>

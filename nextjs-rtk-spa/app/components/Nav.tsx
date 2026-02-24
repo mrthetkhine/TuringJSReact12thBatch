@@ -38,33 +38,14 @@ export const Nav = () => {
     const handleCloseUserMenu = () => {
         setAnchorElUser(null);
     };
-    const pages = ['Products', 'Pricing', 'Blog'];
-    const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
+    let navLinkStyle = {
+        textDecoration: "none",
+        color: "white",
+        opacity: "1",
+        padding:10,
+    };
     return (
-    /*<nav className={styles.nav}>
-      <Link
-        className={`${styles.link} ${pathname === "/" ? styles.active : ""}`}
-        href="/"
-      >
-        Home
-      </Link>
-      <Link
-        className={`${styles.link} ${
-          pathname === "/verify" ? styles.active : ""
-        }`}
-        href="/verify"
-      >
-        Verify
-      </Link>
-      <Link
-        className={`${styles.link} ${
-          pathname === "/quotes" ? styles.active : ""
-        }`}
-        href="/quotes"
-      >
-        Quotes
-      </Link>
-    </nav>*/
+
         <AppBar position="static">
             <Container maxWidth="xl">
                 <Toolbar disableGutters>
@@ -98,28 +79,7 @@ export const Nav = () => {
                         >
                             <MenuIcon />
                         </IconButton>
-                        <Menu
-                            id="menu-appbar"
-                            anchorEl={anchorElNav}
-                            anchorOrigin={{
-                                vertical: 'bottom',
-                                horizontal: 'left',
-                            }}
-                            keepMounted
-                            transformOrigin={{
-                                vertical: 'top',
-                                horizontal: 'left',
-                            }}
-                            open={Boolean(anchorElNav)}
-                            onClose={handleCloseNavMenu}
-                            sx={{ display: { xs: 'block', md: 'none' } }}
-                        >
-                            {pages.map((page) => (
-                                <MenuItem key={page} onClick={handleCloseNavMenu}>
-                                    <Typography sx={{ textAlign: 'center' }}>{page}</Typography>
-                                </MenuItem>
-                            ))}
-                        </Menu>
+
                     </Box>
                     <AdbIcon sx={{ display: { xs: 'flex', md: 'none' }, mr: 1 }} />
                     <Typography
@@ -140,16 +100,24 @@ export const Nav = () => {
                     </Typography>
                     <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
 
-                        <Button href="/" variant="text" sx={{
-                            color:'white'
-                        }}>
+                        <Link
+                            className={`${styles.link} ${
+                                pathname === "/" ? styles.active : ""
+                            }`}
+                            style={navLinkStyle}
+                            href="/"
+                        >
                             Home
-                        </Button>
-                        <Button href="/movies" variant="text" sx={{
-                            color:'white'
-                        }}>
+                        </Link>
+                        <Link
+                            className={`${styles.link} ${
+                                pathname === "/quotes" ? styles.active : ""
+                            }`}
+                            style={navLinkStyle}
+                            href="/movies"
+                        >
                             Movies
-                        </Button>
+                        </Link>
                     </Box>
 
                 </Toolbar>

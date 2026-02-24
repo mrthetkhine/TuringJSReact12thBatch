@@ -1,6 +1,9 @@
 'use client';
+import  './movies.css';
 import {Movie} from "@/lib/types";
 import MovieList from "@/app/movies/components/MovieList";
+import Button from "@mui/material/Button";
+import NewMovieEntry from "@/app/movies/NewMovieEntry";
 
 const movies: Movie[] = [
     {
@@ -59,7 +62,9 @@ const movies: Movie[] = [
 ];
 export default function MoviePage()
 {
-    return (<div>
+
+    return (<div className={'movies-page-container'}>
+        <NewMovieEntry/>
         <MovieList movies={movies}/>
     </div>);
 }
