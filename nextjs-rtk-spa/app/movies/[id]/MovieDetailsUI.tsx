@@ -1,7 +1,11 @@
 'use client';
 import {Movie, Review} from "@/lib/types";
 import MovieUI from "@/app/movies/components/MovieUI";
-import ReviewUI from "@/app/movies/components/ReviewUI";
+import ReviewUI from "@/app/movies/[id]/components/ReviewUI";
+import Button from "@mui/material/Button";
+import * as React from "react";
+import EditMovie from "@/app/movies/components/EditMovie";
+import ReviewEntry from "@/app/movies/[id]/components/ReviewEntry";
 
 interface MovieDetailsUI {
     movie: Movie;
@@ -10,14 +14,14 @@ const reviews:Review [] = [
     {
         "_id": "696b5b248945b8c39816017a",
         "movie": "69650920f311abe1f015b15b",
-        "rating": 5,
+        "rating": 1,
         "review": "first review for 21 day laters",
 
     },
     {
         "_id": "696b5b298945b8c39816017c",
         "movie": "69650920f311abe1f015b15b",
-        "rating": 5,
+        "rating": 2,
         "review": "second review for 21 day laters",
 
     },
@@ -36,12 +40,18 @@ const reviews:Review [] = [
 
     }
 ]
-
+function renderAction(movie:Movie)
+{
+    return(<div>
+        <EditMovie movie={movie}/>
+    </div>);
+}
 export default function MovieDetailsUI({movie}:MovieDetailsUI)
 {
 
     return(<div>
-        <MovieUI movie={movie}/>
+        <MovieUI movie={movie} render={renderAction}/>
+        <ReviewEntry/>
         {
             reviews.map(review=><ReviewUI key={review._id} review={review}/>)
         }

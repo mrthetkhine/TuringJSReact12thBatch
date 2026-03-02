@@ -1,6 +1,6 @@
 import z from "zod";
 
-export const movieSchema = z.object({
+export const MovieSchema = z.object({
 
     title: z.string({
         error: (iss) => iss.input === undefined || iss.input==='' ? "Field is required." : "Invalid input."
@@ -12,4 +12,5 @@ export const movieSchema = z.object({
     }),
 });
 
-export type movieSchemaForm = z.infer<typeof movieSchema>;
+export type MovieSchemaForm = z.infer<typeof MovieSchema>;
+

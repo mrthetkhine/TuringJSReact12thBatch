@@ -2,8 +2,10 @@
 import  './movies.css';
 import {Movie} from "@/lib/types";
 import MovieList from "@/app/movies/components/MovieList";
-import Button from "@mui/material/Button";
-import NewMovieEntry from "@/app/movies/NewMovieEntry";
+
+import NewMovieEntry from "@/app/movies/components/NewMovieEntry";
+import {useGetQuotesQuery} from "@/lib/features/quotes/quotesApiSlice";
+import {useGetAllMoviesQuery} from "@/lib/features/movie/movieApiSlice";
 
 const movies: Movie[] = [
     {
@@ -63,8 +65,12 @@ const movies: Movie[] = [
 export default function MoviePage()
 {
 
+    const { data, isError, isLoading, isSuccess } = useGetAllMoviesQuery(undefined);
     return (<div className={'movies-page-container'}>
         <NewMovieEntry/>
-        <MovieList movies={movies}/>
+        {
+            isSuccess && <MovieList movies={data}/>
+        }
+
     </div>);
 }
