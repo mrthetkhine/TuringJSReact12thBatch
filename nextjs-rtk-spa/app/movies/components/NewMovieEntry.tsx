@@ -12,7 +12,7 @@ export default function NewMovieEntry()
         setOpen(true);
     }
     return (<div>
-        <Button variant="contained" onClick={handleClickOpen} >New</Button>
+        <Button variant="contained" onClick={handleClickOpen} >New Movie</Button>
         <MovieDialog open={open} setOpen={setOpen}/>
     </div>);
 }

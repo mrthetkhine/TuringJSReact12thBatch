@@ -13,14 +13,19 @@ import DialogActions from "@mui/material/DialogActions";
 import Button from "@mui/material/Button";
 import Rating from "@mui/material/Rating";
 import Stack from "@mui/material/Stack";
+import {useSaveReviewMutation, useUpdateReviewMutation} from "@/lib/features/review/reviewApiSlice";
 
 interface ReviewDialogProps{
+    movieId:string;
     reviewToEdit?: Review;
     open: boolean;
     setOpen: (open: boolean) => void;
 }
-export default function ReviewDialog({reviewToEdit,open,setOpen}: ReviewDialogProps)
+export default function ReviewDialog({movieId,reviewToEdit,open,setOpen}: ReviewDialogProps)
 {
+    const [saveReview,saveReviewResult ] = useSaveReviewMutation();
+    const [updateReview,updateReviewResult] = useUpdateReviewMutation();
+
     const [rating,setRating]=useState(reviewToEdit? reviewToEdit.rating : 0);
     const handleClickOpen = () => {
         setOpen(true);
@@ -28,14 +33,12 @@ export default function ReviewDialog({reviewToEdit,open,setOpen}: ReviewDialogPr
     const handleClose = () => {
         setOpen(false);
     };
-    const onSubmit = (data: ReviewSchemaForm) => {
-        console.log('form  submit ',data); // call api with submitted data
-    };
     const {
         register,
         handleSubmit,
         watch,
         setValue,
+        reset,
         formState: { errors, touchedFields },
     } = useForm<ReviewSchemaForm>({
         resolver: zodResolver(ReviewSchema),
@@ -45,6 +48,42 @@ export default function ReviewDialog({reviewToEdit,open,setOpen}: ReviewDialogPr
             review: reviewToEdit ? reviewToEdit.review : '',
         },
     });
+    const onSubmit = (data: ReviewSchemaForm) => {
+        if(reviewToEdit)
+        {
+            let reviewToUpdate = {
+                ... reviewToEdit,
+                ...data,
+            }
+            console.log('update ',reviewToUpdate);
+            updateReview(reviewToUpdate)
+                .unwrap()
+                .then((result)=>{
+                    console.log('Result ',result);
+                    setOpen(false);
+                });
+
+
+        }
+        else {
+            let reviewToSave:Partial<Review> = {
+                ...data,
+                movie:movieId,
+            }
+            console.log('Save Review  submit ',reviewToSave);
+            saveReview(reviewToSave)
+            .unwrap()
+            .then(()=>{
+                reset();
+                setRating(0);
+                setOpen(false);
+            });
+
+
+        }
+
+    };
+
     const ratingChangeHandler = (value:number|null) => {
         let num = value??0;
         setValue('rating',num);
@@ -65,7 +104,7 @@ export default function ReviewDialog({reviewToEdit,open,setOpen}: ReviewDialogPr
                         </DialogTitle>
                         <DialogContent>
                             <Stack spacing={1}>
-                                <Rating name="half-rating-read" defaultValue={rating}
+                                <Rating name="half-rating-read" value={rating}
                                         onChange={(event, newValue) => {
                                             ratingChangeHandler(newValue);
                                         }}

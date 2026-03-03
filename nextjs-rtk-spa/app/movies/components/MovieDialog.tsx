@@ -12,6 +12,7 @@ import { TextField} from "@mui/material";
 import {useForm} from "react-hook-form";
 import {MovieSchema, MovieSchemaForm} from "@/lib/schema/movieSchema";
 import {zodResolver} from "@hookform/resolvers/zod";
+import {useSaveMovieMutation, useUpdateMovieMutation} from "@/lib/features/movie/movieApiSlice";
 
 
 interface MovieDialogProps
@@ -22,21 +23,14 @@ interface MovieDialogProps
 }
 export default function MovieDialog({open,setOpen,movieToEdit}: MovieDialogProps)
 {
-    console.log('render MovieDialog');
+    const [saveMovie,saveMovieResult] = useSaveMovieMutation();
+    const [updateMovie,updateMovieResult] = useUpdateMovieMutation();
 
-    const handleClickOpen = () => {
-        setOpen(true);
-    };
-    const handleClose = () => {
-        setOpen(false);
-    };
-    const onSubmit = (data: MovieSchemaForm) => {
-        console.log('form  submit ',data); // call api with submitted data
-    };
     const {
         register,
         handleSubmit,
         watch,
+        reset,
         formState: { errors, touchedFields },
     } = useForm<MovieSchemaForm>({
         resolver: zodResolver(MovieSchema),
@@ -50,6 +44,47 @@ export default function MovieDialog({open,setOpen,movieToEdit}: MovieDialogProps
             }
         },
     });
+    console.log('render MovieDialog');
+
+    const handleClickOpen = () => {
+        setOpen(true);
+    };
+    const handleClose = () => {
+        setOpen(false);
+    };
+    const onSubmit = (data: MovieSchemaForm) => {
+        if(movieToEdit)
+        {
+            console.log('Update movie');
+            let movieToUpdate:Movie = {
+                ...movieToEdit,
+                ...data,
+                director:{
+                    ...movieToEdit.director,
+                    ...data.director,
+                }
+            }
+            updateMovie(movieToUpdate)
+                .unwrap()
+                .then((result) => {
+                    console.log('Updated movie ',result);
+                    setOpen(false);
+                    reset();
+                })
+        }
+        else
+        {
+            saveMovie(data as Partial<Movie>)
+                .unwrap()
+                .then((result)=>{
+                    console.log('Saved movie ',result);
+                    setOpen(false);
+                    reset();
+                });
+        }
+
+    };
+
     //console.log('errors ',errors);
     //console.log('TouchFields', touchedFields);
     if(!open)

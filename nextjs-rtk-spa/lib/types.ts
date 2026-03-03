@@ -19,3 +19,8 @@ export interface Review extends BaseModel
     rating:number;
     review:string;
 }
+export interface User extends BaseModel
+{
+    username:string;
+    password:string;
+}

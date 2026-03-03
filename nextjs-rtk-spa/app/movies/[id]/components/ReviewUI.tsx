@@ -9,15 +9,23 @@ import * as React from "react";
 import {useState} from "react";
 import ConfirmDialog from "@/app/components/ConfirmDialog";
 import ReviewDialog from "@/app/movies/[id]/components/ReviewDialog";
+import {useDeleteReviewMutation, useSaveReviewMutation} from "@/lib/features/review/reviewApiSlice";
 
 interface ReviewUI {
     review: Review;
 }
 export default function ReviewUI({review}: ReviewUI)
 {
+    //console.log('ReviewUI',review);
+
     const [openConfirm,setOpenConfirm]=useState(false);
+    const [deleteReview,deleteReviewResult ] = useDeleteReviewMutation();
     const onOkHandler = ()=>{
         console.log('Ok Handler');
+        deleteReview(review)
+            .then(()=>{
+                console.log('Review successfully deleted');
+            });
     }
     const onCancelHandler = ()=>{
         console.log('Cancel Handler');
@@ -38,7 +46,7 @@ export default function ReviewUI({review}: ReviewUI)
                        onCancel={onCancelHandler}
                        setOpen={setOpenConfirm}
         />
-        <ReviewDialog open={open} setOpen={setOpen} reviewToEdit={review} />
+        <ReviewDialog open={open} setOpen={setOpen} reviewToEdit={review} movieId={review.movie} />
         <Card sx={{ display: 'flex' }}>
 
         <Box sx={{ display: 'flex', flexDirection: 'column' }}>
@@ -48,7 +56,7 @@ export default function ReviewUI({review}: ReviewUI)
                     {review.review}
                 </Typography>
                 <Stack spacing={1}>
-                    <Rating name="half-rating-read" defaultValue={review.rating}  readOnly />
+                    <Rating name="half-rating-read" value={review.rating}  readOnly />
                 </Stack>
                 <Box>
                     <Button variant="contained" onClick={handleClickOpen}>Edit</Button>
