@@ -40,8 +40,8 @@ app.use('/admin', adminRouter);
 app.use('/api/users', usersRouter);
 app.use('/demo', demoRouter);
 app.use('/api/todos',/*auth.verifyToken,*/todoRouter);
-app.use('/api/movies',auth.verifyToken,movieRouter);
-app.use('/api/reviews',auth.verifyToken,reviewRouter);
+app.use('/api/movies',/*auth.verifyToken,*/movieRouter);
+app.use('/api/reviews',/*auth.verifyToken,*/reviewRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

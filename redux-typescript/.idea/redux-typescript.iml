@@ -10,5 +10,6 @@
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="module" module-name="nextjs-rtk-spa" />
     <orderEntry type="module" module-name="backend" />
+    <orderEntry type="module" module-name="package" />
   </component>
 </module>

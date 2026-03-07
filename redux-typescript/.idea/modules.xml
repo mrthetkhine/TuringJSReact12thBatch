@@ -4,6 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/../backend/.idea/backend.iml" filepath="$PROJECT_DIR$/../backend/.idea/backend.iml" />
       <module fileurl="file://$PROJECT_DIR$/../nextjs-rtk-spa/.idea/nextjs-rtk-spa.iml" filepath="$PROJECT_DIR$/../nextjs-rtk-spa/.idea/nextjs-rtk-spa.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../nextjs-bff/package/.idea/package.iml" filepath="$PROJECT_DIR$/../nextjs-bff/package/.idea/package.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/redux-typescript.iml" filepath="$PROJECT_DIR$/.idea/redux-typescript.iml" />
     </modules>
   </component>
