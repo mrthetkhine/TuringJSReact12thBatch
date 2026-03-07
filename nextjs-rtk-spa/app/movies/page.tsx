@@ -6,8 +6,9 @@ import MovieList from "@/app/movies/components/MovieList";
 import NewMovieEntry from "@/app/movies/components/NewMovieEntry";
 import {useGetQuotesQuery} from "@/lib/features/quotes/quotesApiSlice";
 import {useGetAllMoviesQuery} from "@/lib/features/movie/movieApiSlice";
+import withAuth from '../components/withAuth';
 
-const movies: Movie[] = [
+/*const movies: Movie[] = [
     {
         "_id": "69650920f311abe1f015b15b",
         "title": "21 days later",
@@ -61,8 +62,8 @@ const movies: Movie[] = [
         "year": 2025,
 
     }
-];
-export default function MoviePage()
+];*/
+function MoviePage()
 {
 
     const { data, isError, isLoading, isSuccess } = useGetAllMoviesQuery(undefined);
@@ -74,3 +75,5 @@ export default function MoviePage()
 
     </div>);
 }
+const MovieWithAuth = withAuth(MoviePage);
+export default MovieWithAuth;

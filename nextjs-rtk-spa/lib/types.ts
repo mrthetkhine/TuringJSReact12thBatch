@@ -24,3 +24,8 @@ export interface User extends BaseModel
     username:string;
     password:string;
 }
+export interface LoginRequest
+{
+    username:string;
+    password:string;
+}

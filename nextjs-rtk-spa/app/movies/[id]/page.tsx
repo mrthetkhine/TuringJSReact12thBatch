@@ -5,6 +5,7 @@ import MovieDetailsUI from "@/app/movies/[id]/MovieDetailsUI";
 import {Movie} from "@/lib/types";
 import Button from "@mui/material/Button";
 import {useGetAllMoviesQuery} from "@/lib/features/movie/movieApiSlice";
+import withAuth from "@/app/components/withAuth";
 
 /*const movie :Movie =  {
     "_id": "69650920f311abe1f015b15b",
@@ -16,7 +17,7 @@ import {useGetAllMoviesQuery} from "@/lib/features/movie/movieApiSlice";
     },
     "year": 2025,
 };*/
-export default function MovieDetailsPage()
+ function MovieDetailsPage()
 {
     const {id}:{id:string} = useParams<{
         id:string;
@@ -49,3 +50,5 @@ export default function MovieDetailsPage()
     }
 
 }
+const MovieDetailsWithAuth = withAuth(MovieDetailsPage);
+export default MovieDetailsWithAuth;

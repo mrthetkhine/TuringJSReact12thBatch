@@ -1,8 +1,20 @@
 import {createApi, fetchBaseQuery} from "@reduxjs/toolkit/query/react";
 import {Movie, Review} from '@/lib/types';
+import {RootState} from "@/lib/store";
 console.log('base URL ', process.env.NEXT_PUBLIC_BASE_URL);
 export const movieApiSlice = createApi({
-    baseQuery: fetchBaseQuery({ baseUrl: process.env.NEXT_PUBLIC_BASE_URL }),
+    baseQuery: fetchBaseQuery({
+        baseUrl: process.env.NEXT_PUBLIC_BASE_URL,
+        prepareHeaders: (headers, { getState }) => {
+            // Get the token from your auth slice in the Redux store
+            const token = (getState() as RootState).auth.token;
+            // If the token exists, set the Authorization header
+            if (token) {
+                headers.set('Authorization', `Bearer ${token}`);
+            }
+            return headers;
+        },
+    }),
     reducerPath: "moviesApi",
     // Tag types are used for caching and invalidation.
     tagTypes: ["Movies"],

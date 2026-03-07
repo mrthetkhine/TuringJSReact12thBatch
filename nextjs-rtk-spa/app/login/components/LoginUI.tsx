@@ -7,8 +7,17 @@ import {Movie} from "@/lib/types";
 import {TextField} from "@mui/material";
 import * as React from "react";
 import Button from "@mui/material/Button";
+import {useAppDispatch, useAppSelector} from "@/lib/hooks";
+import {login, selectAuth} from "@/lib/features/auth/authSlice";
+import {useRouter, useSearchParams} from "next/navigation";
 
 export default function LoginUI() {
+    const router = useRouter();
+    const dispatch = useAppDispatch();
+    const auth = useAppSelector(selectAuth);
+    const searchParams = useSearchParams();
+    const redirectTo = searchParams.get('redirectTo');
+    console.log('Redirect to ',redirectTo);
     const {
         register,
         handleSubmit,
@@ -25,7 +34,25 @@ export default function LoginUI() {
     });
     const onSubmit = (data: AuthSchemaForm) => {
         console.log('Login ',data);
+        dispatch(login(data))
+            .unwrap()
+            .then(response=>{
+                console.log('Login success ',response);
+                if(redirectTo)
+                {
+                    router.push(redirectTo);
+                }
+                else
+                {
+                    router.push('/');
+                }
 
+            },err=>{
+                console.log('Login failed1 ',err);
+            })
+            .catch(error=>{
+                console.log('Login Error ',error);
+            })
     };
     return (<div>
         <form onSubmit={handleSubmit(onSubmit)}>
