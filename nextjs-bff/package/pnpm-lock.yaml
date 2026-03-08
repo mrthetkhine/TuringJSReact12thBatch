@@ -83,6 +83,9 @@ importers:
       typescript:
         specifier: 5.9.3
         version: 5.9.3
+      zod:
+        specifier: ^4.3.6
+        version: 4.3.6
     devDependencies:
       '@types/lodash':
         specifier: 4.17.20

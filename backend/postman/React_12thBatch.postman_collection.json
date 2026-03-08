@@ -19,11 +19,16 @@
                 "key": "Content-Type",
                 "value": "application/json",
                 "type": "text"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFkbWluIiwicm9sZSI6ImFkbWluIiwiaWF0IjoxNzY4NzMzMTU5fQ.91ffdXw_ApL7DT0xBHxoZVv7-t6anWXvelV3R8lxmwk",
+                "type": "text"
               }
             ],
             "body": {
               "mode": "raw",
-              "raw": "{\n    \"username\": \"admin\",\n    \"password\":\"admin\",\n    \"role\":\"admin\"\n}"
+              "raw": "{\n    \"username\": \"user2\",\n    \"password\":\"user2\",\n    \"role\":\"user\"\n}"
             },
             "url": {
               "raw": "{{url}}/api/users/register",
@@ -52,7 +57,7 @@
             ],
             "body": {
               "mode": "raw",
-              "raw": "{\n    \"username\": \"user\",\n    \"password\":\"user\"\n}"
+              "raw": "{\n    \"username\": \"admin\",\n    \"password\":\"admin\"\n}"
             },
             "url": {
               "raw": "{{url}}/api/users/login",
@@ -547,11 +552,16 @@
                 "key": "Content-Type",
                 "value": "application/json",
                 "type": "text"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFkbWluIiwicm9sZSI6ImFkbWluIiwiaWF0IjoxNzY4NzMxNDg2fQ.cStjhyoMter_U6xLiCypxLn8-2MUByrYYmO3ZbR7sv8",
+                "type": "text"
               }
             ],
             "body": {
               "mode": "raw",
-              "raw": "{\n\n    \"title\": \"Test\",\n    \"director\": {\n        \"name\": \"Christopher Nolan\",\n        \"phoneNo\": \"09993\"\n    },\n    \"year\": 2025\n}"
+              "raw": "{\n\n    \"title\": \"Matrix 3\",\n    \"director\": {\n        \"name\": \"Christopher Nolan\",\n        \"phoneNo\": \"09993\"\n    },\n    \"year\": 2025\n}"
             },
             "url": {
               "raw": "{{url}}/api/movies",
@@ -771,7 +781,7 @@
             ],
             "body": {
               "mode": "raw",
-              "raw": "{\n    \"movie\":\"69650920f311abe1f015b15c\",\n    \"rating\":5,\n    \"review\":\"second review for 21 day laters\"\n}"
+              "raw": "{\n    \"movie\":\"69650920f311abe1f015b15b\",\n    \"rating\":5,\n    \"review\":\"last review for 21 day laters\"\n}"
             },
             "url": {
               "raw": "{{url}}/api/reviews",

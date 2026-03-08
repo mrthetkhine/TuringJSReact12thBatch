@@ -79,7 +79,7 @@ const Menuitems = [
      */
   {
     id: uniqueId(),
-    title: "Movies Page",
+    title: "Movies",
     icon: IconMovie,
     href: "/movies",
   },

@@ -1,12 +1,17 @@
 import { getAllMovies } from "@/app/lib/api/movieApi";
 import {Box, Chip, Table, TableBody, TableCell, TableHead, TableRow, Typography} from "@mui/material";
+import MovieRow from "@/app/(DashboardLayout)/movies/components/MovieRow";
+import NavButton from "../../components/shared/NavButton";
+import NewMovieEntry from "./NewMovieEntry";
 
 export default async function MovieList()
 {
     console.log('Movies list Page');
     const movies = await getAllMovies();
-    console.log('Movies list Page ',movies);
+    //console.log('Movies list Page ',movies);
     return(<Box sx={{ overflow: 'auto', width: { xs: '280px', sm: 'auto' } }}>
+        {/*<NavButton href={'/movies/new'} label="New Movie" />*/}
+        <NewMovieEntry/>
         <Table
             aria-label="simple table"
             sx={{
@@ -41,48 +46,7 @@ export default async function MovieList()
             </TableHead>
             <TableBody>
                 {
-                    movies.map(movie => (<TableRow key={movie._id}>
-                        <TableCell>
-                            <Typography
-                                sx={{
-                                    fontSize: "15px",
-                                    fontWeight: "500",
-                                }}
-                            >
-                                {movie.title}
-                            </Typography>
-                        </TableCell>
-                        <TableCell>
-                            <Typography
-                                sx={{
-                                    fontSize: "15px",
-                                    fontWeight: "500",
-                                }}
-                            >
-                                {movie.year}
-                            </Typography>
-                        </TableCell>
-                        <TableCell>
-                            <Typography
-                                sx={{
-                                    fontSize: "15px",
-                                    fontWeight: "500",
-                                }}
-                            >
-                                {movie.director.name}
-                            </Typography>
-                        </TableCell>
-                        <TableCell>
-                            <Typography
-                                sx={{
-                                    fontSize: "15px",
-                                    fontWeight: "500",
-                                }}
-                            >
-                                Actions
-                            </Typography>
-                        </TableCell>
-                    </TableRow>))
+                    movies.map(movie => <MovieRow movie={movie} key={movie._id}/>)
                 }
             </TableBody>
         </Table>

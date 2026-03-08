@@ -34,7 +34,8 @@
     "react-hook-form": "^7.71.2",
     "react-mui-sidebar": "^1.6.10",
     "react-syntax-highlighter": "^16.1.0",
-    "typescript": "5.9.3"
+    "typescript": "5.9.3",
+    "zod": "^4.3.6"
   },
   "devDependencies": {
     "@types/lodash": "4.17.20",
