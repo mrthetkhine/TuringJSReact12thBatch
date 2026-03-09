@@ -2,6 +2,8 @@ import z from "zod";
 
 
 export const ReviewSchema = z.object({
+    _id:z.string().optional(),
+    movie:z.string(),
     rating:z.number().min(1, "Rating is required."),
     review: z.string({
         error: (iss) => iss.input === undefined || iss.input==='' ? "Field is required." : "Invalid input."

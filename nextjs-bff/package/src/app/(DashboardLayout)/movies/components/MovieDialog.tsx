@@ -24,7 +24,7 @@ interface MovieDialogProps
 }
 export default function MovieDialog({open,setOpen,movieToEdit}: MovieDialogProps)
 {
-
+    const [pending,setPending] = useState(false);
 
     const {
         register,
@@ -36,6 +36,7 @@ export default function MovieDialog({open,setOpen,movieToEdit}: MovieDialogProps
         resolver: zodResolver(MovieSchema),
         // defaultValues: specify default values for form inputs
         defaultValues: {
+            _id:movieToEdit? movieToEdit?._id:'',
             title: movieToEdit? movieToEdit?.title:'',
             year: movieToEdit?movieToEdit?.year:0,
             director:{
@@ -52,16 +53,10 @@ export default function MovieDialog({open,setOpen,movieToEdit}: MovieDialogProps
     const handleClose = () => {
         setOpen(false);
     };
+
     const onSubmit = (data: MovieSchemaForm) => {
         console.log('onSubmit', data);
-       /* const formData = new FormData();
-        Object.entries(data).forEach(([key, v]) => {
-            formData.append(key, v as any);
-        });*/
-        saveOrUpdateMovie(data)
-        .then(() => {
-            console.log('saveOrUpdateMovie done');
-        })
+
         if(movieToEdit)
         {
             console.log('Update movie');
@@ -73,23 +68,31 @@ export default function MovieDialog({open,setOpen,movieToEdit}: MovieDialogProps
                     ...data.director,
                 }
             }
-            /*updateMovie(movieToUpdate)
-                .unwrap()
-                .then((result) => {
-                    console.log('Updated movie ',result);
-                    setOpen(false);
+            setPending(true);
+            saveOrUpdateMovie(movieToUpdate)
+                .then((response) => {
+                    console.log('update done ',response)
+                })
+                .finally(()=>{
+                    setPending(false);
+                    handleClose();
                     reset();
-                })*/
+                })
         }
         else
         {
-            /*saveMovie(data as Partial<Movie>)
-                .unwrap()
-                .then((result)=>{
-                    console.log('Saved movie ',result);
-                    setOpen(false);
+            setPending(true);
+            let newMovie = data;
+            delete newMovie['_id'];
+            saveOrUpdateMovie(newMovie)
+                .then((response) => {
+                    console.log('saveOrUpdateMovie done ',response)
+                })
+                .finally(()=>{
+                    setPending(false);
+                    handleClose();
                     reset();
-                });*/
+                })
         }
 
     };
@@ -110,7 +113,15 @@ export default function MovieDialog({open,setOpen,movieToEdit}: MovieDialogProps
                             {movieToEdit?'Edit Movie':'New Movie'}
                         </DialogTitle>
                         <DialogContent>
-
+                            <TextField
+                                fullWidth
+                                margin="normal"
+                                type={"hidden"}
+                                {...register("_id")}
+                                error={!!errors._id}
+                                helperText={errors._id?.message}
+                                sx={{ display: 'none' }}
+                            />
                             <TextField
                                 label="Title"
                                 fullWidth
@@ -146,7 +157,7 @@ export default function MovieDialog({open,setOpen,movieToEdit}: MovieDialogProps
                         </DialogContent>
                         <DialogActions>
                             <Button onClick={handleClose}>Cancel</Button>
-                            <Button type="submit" >
+                            <Button type="submit" disabled={pending}>
                                 {movieToEdit?'Update':'Save'}
                             </Button>
                         </DialogActions>

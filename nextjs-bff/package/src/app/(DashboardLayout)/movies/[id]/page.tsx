@@ -3,6 +3,7 @@ import MovieDetails from "@/app/(DashboardLayout)/movies/[id]/components/MovieDe
 import { Movie } from "@/app/lib/types";
 import ReviewList from "./components/ReviewList";
 import NavButton from "@/app/(DashboardLayout)/components/shared/NavButton";
+import ReviewEntry from "@/app/(DashboardLayout)/movies/[id]/components/ReviewEntry";
 
 export default async function MovieDetailsPage({ params }: { params:Promise< { id: string }> })
 {
@@ -12,6 +13,7 @@ export default async function MovieDetailsPage({ params }: { params:Promise< { i
     return (<div>
        <NavButton label={"Back"} href='/movies'/>
        <MovieDetails movie={movie} />
+       <ReviewEntry movieId={id}/>
        <ReviewList movie={id} />
     </div>);
 }

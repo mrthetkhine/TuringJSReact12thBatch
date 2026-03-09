@@ -1,6 +1,7 @@
 import { Movie } from "@/app/lib/types";
 import styles from './MovieDetails.module.css';
 import {Box, Card, CardContent, CardMedia, IconButton, Typography} from "@mui/material";
+import EditMovie from "../../components/EditMovie";
 interface MovieDetailsProps {
     movie: Movie;
 }
@@ -30,7 +31,7 @@ export default function MovieDetails({movie}:MovieDetailsProps)
                         {movie.director.name}
                     </Typography>
                 </CardContent>
-
+                <EditMovie movie={movie}/>
 
             </Box>
 

@@ -11,7 +11,7 @@ interface MovieUIProps{
 }
 export default function MovieUI({movie,render}: MovieUIProps)
 {
-
+    console.log('MovieUI Render ',render);
     return (
         <div className={styles['movie-ui-container']}>
             <Card sx={{ display: 'flex' }}>

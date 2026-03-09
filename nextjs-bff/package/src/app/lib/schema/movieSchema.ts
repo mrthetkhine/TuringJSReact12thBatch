@@ -2,6 +2,7 @@ import z from "zod";
 
 export const MovieSchema = z.object({
 
+    _id:z.string().optional(),
     title: z.string({
         error: (iss) => iss.input === undefined || iss.input==='' ? "Field is required." : "Invalid input."
     }).min(2, "Title is required."),

@@ -4,7 +4,7 @@ import MovieUI from "@/app/movies/components/MovieUI";
 import ReviewUI from "@/app/movies/[id]/components/ReviewUI";
 import Button from "@mui/material/Button";
 import * as React from "react";
-import EditMovie from "@/app/movies/components/EditMovie";
+import EditMovie from "@/app/movies/[id]/components/EditMovie";
 import ReviewEntry from "@/app/movies/[id]/components/ReviewEntry";
 import {useGetAllMoviesQuery} from "@/lib/features/movie/movieApiSlice";
 import {useGetAllReviewByMovieIdQuery} from "@/lib/features/review/reviewApiSlice";
@@ -44,6 +44,7 @@ const reviews:Review [] = [
 ]
 function renderAction(movie:Movie)
 {
+
     return(<div>
         <EditMovie movie={movie}/>
     </div>);
@@ -53,6 +54,7 @@ export default function MovieDetailsUI({movie}:MovieDetailsUI)
 
     const { data:reviews, isError, isLoading, isSuccess } = useGetAllReviewByMovieIdQuery(movie._id);
     return(<div>
+
         <MovieUI movie={movie} render={renderAction}/>
         <ReviewEntry movieId={movie._id}/>
         {

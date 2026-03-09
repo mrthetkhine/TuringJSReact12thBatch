@@ -9,6 +9,7 @@ interface EditMovieProps {
 }
 export default function EditMovie({movie}: EditMovieProps)
 {
+    console.log('EditMovie render');
     const [open, setOpen] = useState(false);
     const handleClickOpen = ()=>{
         setOpen(true);
