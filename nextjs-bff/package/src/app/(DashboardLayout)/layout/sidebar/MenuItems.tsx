@@ -7,6 +7,7 @@ import {
   IconTypography,
   IconUserPlus,
   IconMovie,
+  IconLogout,
 } from "@tabler/icons-react";
 
 import { uniqueId } from "lodash";
@@ -57,6 +58,12 @@ const Menuitems = [
     title: "Register",
     icon: IconUserPlus,
     href: "/authentication/register",
+  },
+  {
+    id: uniqueId(),
+    title: "Logout",
+    icon: IconLogout,
+    href: "/authentication/logout",
   },
     /*
   {

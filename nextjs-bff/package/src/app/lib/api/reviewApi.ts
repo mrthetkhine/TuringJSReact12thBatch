@@ -13,3 +13,7 @@ export async function updateReview(review:Partial<Review>):Promise<Review> {
     let response = await axiosClient.put<Review>(`/reviews/${review._id}`,review);
     return response.data;
 }
+export async function deleteReviewById(id:string):Promise<Review> {
+    let response = await axiosClient.delete<Review>(`/reviews/${id}`);
+    return response.data;
+}

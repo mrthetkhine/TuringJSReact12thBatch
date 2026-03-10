@@ -1,4 +1,5 @@
-import React from "react";
+
+import React, {useContext} from "react";
 import Menuitems from "./MenuItems";
 import { Box, Typography } from "@mui/material";
 import {
@@ -12,6 +13,7 @@ import { IconPoint } from '@tabler/icons-react';
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Upgrade } from "./Updrade";
+import {AuthContext} from "@/app/util/AuthContext";
 
 
 const renderMenuItems = (items: any, pathDirect: any) => {
@@ -70,7 +72,9 @@ const renderMenuItems = (items: any, pathDirect: any) => {
 const SidebarItems = () => {
   const pathname = usePathname();
   const pathDirect = pathname;
-
+  console.log('SidebarItems');
+  const authContext = useContext(AuthContext);
+  console.log('Authenticated ',authContext.authenticated);
   return (
     < >
       <MUI_Sidebar width={"100%"} showProfile={false} themeColor={"#5D87FF"} themeSecondaryColor={'#49beff'} >

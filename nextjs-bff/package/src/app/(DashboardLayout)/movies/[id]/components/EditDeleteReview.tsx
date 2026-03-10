@@ -7,6 +7,7 @@ import ReviewDialog from "./ReviewDialog";
 import { Review } from "@/app/lib/types";
 import {deleteMovieByIdAction} from "@/app/lib/actions/movieAction";
 import ConfirmDialog from "@/app/(DashboardLayout)/components/shared/ConfirmDialog";
+import {deleteReviewAction} from "@/app/lib/actions/reviewAction";
 
 
 interface EditDeleteReviewProps {
@@ -21,8 +22,14 @@ export default function EditDeleteReview({review}: EditDeleteReviewProps)
     const [openConfirm,setOpenConfirm]=useState(false);
     const onOkHandler = ()=>{
         console.log('Ok Handler');
-        //deleteMovieByIdAction(movieId);
-        setOpenConfirm(false);
+        deleteReviewAction(review)
+        .then((response)=>{
+            console.log(response);
+        })
+       .finally(()=>{
+           setOpenConfirm(false);
+       })
+
     }
     const onCancelHandler = ()=>{
         console.log('Cancel Handler');

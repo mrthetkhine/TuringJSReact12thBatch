@@ -1,7 +1,6 @@
 'use server';
 import {ReviewSchema, ReviewSchemaForm} from "@/app/lib/schema/reviewSchema";
-import {MovieSchema} from "@/app/lib/schema/movieSchema";
-import {saveReview, updateReview} from "../api/reviewApi";
+import {deleteReviewById, saveReview, updateReview} from "../api/reviewApi";
 import { Review } from "../types";
 import {revalidatePath} from "next/cache";
 
@@ -41,5 +40,15 @@ export async function saveOrUpdateReview(reviewFormData:ReviewSchemaForm)
     else
     {
         return validation.error;
+    }
+}
+export async function deleteReviewAction(review:Review):Promise<Review> {
+    try {
+        let response = await deleteReviewById(review._id);
+        revalidatePath(`/movies/${review.movie}`);
+        return response;
+    }
+    catch(err){
+        throw err;
     }
 }
