@@ -1,23 +1,24 @@
-"use client";
-import { baselightTheme } from "@/utils/theme/DefaultColors";
-import { ThemeProvider } from "@mui/material/styles";
-import CssBaseline from "@mui/material/CssBaseline";
-import './global.css'
+import RootLayout from "@/app/components/RootLayout";
+import {cookies} from "next/headers";
 
-
-export default function RootLayout({
+export default async function Layout({
   children,
 }: {
   children: React.ReactNode;
 }) {
+    console.log('Root layout');
+    let auth = false;
+    const cookieStore = await cookies();
+    const token = cookieStore.get('token');
+    if(token){
+        auth = true;
+    }
   return (
     <html lang="en">
       <body>
-        <ThemeProvider theme={baselightTheme}>
-          {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
-          <CssBaseline />
-          {children}
-        </ThemeProvider>
+        <RootLayout auth={auth}>
+            {children}
+        </RootLayout>
       </body>
     </html>
   );

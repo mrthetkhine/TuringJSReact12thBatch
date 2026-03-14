@@ -1,0 +1,29 @@
+{
+  "name": "nextjs-zustand-transactquery",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next -p 8080",
+    "build": "next build",
+    "start": "next start",
+    "lint": "eslint",
+    "type-check": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@redux-devtools/extension": "^4.0.0",
+    "immer": "^11.1.4",
+    "next": "16.1.6",
+    "react": "19.2.3",
+    "react-dom": "19.2.3",
+    "zustand": "^5.0.11"
+  },
+  "devDependencies": {
+    "@types/node": "^20",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "babel-plugin-react-compiler": "1.0.0",
+    "eslint": "^9",
+    "eslint-config-next": "16.1.6",
+    "typescript": "^5"
+  }
+}

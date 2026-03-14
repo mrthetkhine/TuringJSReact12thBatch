@@ -10,16 +10,12 @@ import Blog from "@/app/(DashboardLayout)/components/dashboard/Blog";
 import PageContainer from "@/app/(DashboardLayout)/components/container/PageContainer";
 import {AuthContext} from "@/app/util/AuthContext";
 
-interface DashboardPageUIProps {
-    auth:boolean;
-}
-export default function DashboardPageUI({auth}: DashboardPageUIProps)
+
+export default function DashboardPageUI()
 {
-    console.log('DashboardPageUI auth ',auth);
+
    return( <PageContainer title="Dashboard" description="this is Dashboard">
-       <AuthContext.Provider value={{
-           authenticated:auth
-       }}>
+
            <Box>
                <Grid container spacing={3}>
                    <Grid
@@ -62,7 +58,6 @@ export default function DashboardPageUI({auth}: DashboardPageUIProps)
                    </Grid>
                </Grid>
            </Box>
-       </AuthContext.Provider>
 
     </PageContainer>);
 }

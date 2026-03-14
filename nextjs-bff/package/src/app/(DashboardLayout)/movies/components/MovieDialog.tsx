@@ -14,8 +14,6 @@ import {MovieSchema, MovieSchemaForm} from "@/app/lib/schema/movieSchema";
 import {zodResolver} from "@hookform/resolvers/zod";
 import {saveOrUpdateMovie} from "@/app/lib/actions/movieAction";
 
-
-
 interface MovieDialogProps
 {
     movieToEdit?:Movie;

@@ -16,8 +16,9 @@ import { Upgrade } from "./Updrade";
 import {AuthContext} from "@/app/util/AuthContext";
 
 
-const renderMenuItems = (items: any, pathDirect: any) => {
+const renderMenuItems = (items: any, pathDirect: any,auth :boolean) => {
 
+  console.log('Items ',items);
   return items.map((item: any) => {
 
     const Icon = item.icon ? item.icon : IconPoint;
@@ -43,28 +44,36 @@ const renderMenuItems = (items: any, pathDirect: any) => {
           icon={itemIcon}
           borderRadius='7px'
         >
-          {renderMenuItems(item.children, pathDirect)}
+          {renderMenuItems(item.children, pathDirect,auth)}
         </Submenu>
       );
     }
 
     // If the item has no children, render a MenuItem
 
-    return (
-      <Box px={3} key={item.id}>
-        <MenuItem
-          key={item.id}
-          isSelected={pathDirect === item?.href}
-          borderRadius='8px'
-          icon={itemIcon}
-          link={item.href}
-          component={Link}
-        >
-          {item.title}
-        </MenuItem >
-      </Box>
+    if(item.show(auth))
+    {
+      return (
+          <Box px={3} key={item.id}>
+            <MenuItem
+                key={item.id}
+                isSelected={pathDirect === item?.href}
+                borderRadius='8px'
+                icon={itemIcon}
+                link={item.href}
+                component={Link}
+            >
+              {item.title}
+            </MenuItem >
+          </Box>
 
-    );
+      );
+    }
+    else
+    {
+      return null;
+    }
+
   });
 };
 
@@ -81,7 +90,7 @@ const SidebarItems = () => {
 
         <Logo img='/images/logos/dark-logo.svg' component={Link} to="/" >Modernize</Logo>
 
-        {renderMenuItems(Menuitems, pathDirect)}
+        {renderMenuItems(Menuitems, pathDirect,authContext.authenticated)}
         {/*<Box px={2}>
           <Upgrade />
         </Box>*/}
