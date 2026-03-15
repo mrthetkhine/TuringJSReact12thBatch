@@ -1,9 +1,9 @@
 'use client';
-import {useCounterStore} from "@/stores/counter/counter-slice";
+import {useBoundStore} from "@/stores/useBoundStore";
 
 export default function Counter()
 {
-    const {count,inc,dec} = useCounterStore();
+    const {count,inc,dec} = useBoundStore();
 
     return (<div>
         <button onClick={()=>dec()}>-</button>
