@@ -1,3 +1,4 @@
+
 import {CounterSlice} from "@/stores/counter/counter-slice";
 import {create} from 'zustand'
 import {devtools} from "zustand/middleware";
@@ -17,5 +18,5 @@ export const useBoundStore = create<MyState>()(
             ...createAuthSlice(...a),*/
 
             })
-        )
-    ))
+        )));
+

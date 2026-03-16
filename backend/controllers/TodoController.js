@@ -57,6 +57,7 @@ async function updateTodo(req, res) {
 }
 async function deleteTodo(req, res) {
     let id = req.params.id;
+    await delay(3000);
     try
     {
         let deletedTodo = TodoService.deleteTodo(id);

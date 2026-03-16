@@ -1,16 +1,34 @@
 'use client';
 
-import {useQuery} from "@tanstack/react-query";
-import {apiLoadAllTodos} from "@/lib/hooks/api/todoApi";
+import { useIsFetching } from '@tanstack/react-query'
 import TodoUI from "@/app/todos/components/TodoUI";
+import {useLoadAllTodos} from "@/lib/hooks/todoHook";
+import Button from "@mui/material/Button";
+import TodoEntryTwo from "@/app/components/TodoEntryTwo";
+
 
 export default function TodoListWithTanstackQuery()
 {
-    const query = useQuery({ queryKey: ['todos'], queryFn: apiLoadAllTodos })
-    return (<div>
-        Todo list with tansact query
-        {
-            query.data?.map((todo) => <TodoUI todo={todo} key={todo.id}/>)
-        }
-    </div>);
+    const isFetching = useIsFetching();
+    const { isPending, refetch, data, error,isSuccess } = useLoadAllTodos();
+    //console.log('query ', data);
+    const btnRefetchHandler =()=>{
+        refetch();
+    };
+    if (isFetching )
+    {
+        return <div>Queries are fetching in the background...</div>;
+    }
+    else
+    {
+        return (<div>
+            Todo list with tansact query
+            <Button type={"button"} variant={"contained"} onClick={btnRefetchHandler}>Refetch</Button>
+            <TodoEntryTwo/>
+            {
+                isSuccess && data?.map((todo) => <TodoUI todo={todo} key={todo._id}/>)
+            }
+        </div>);
+    }
+
 }

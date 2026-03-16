@@ -3,6 +3,7 @@
 import {Todo} from "@/lib/types";
 import Button from "@mui/material/Button";
 import {useBoundStore} from "@/stores/useBoundStore";
+import {useMutationDeleteTodo} from "@/lib/hooks/todoHook";
 
 interface TodoUIProps
 {
@@ -10,6 +11,7 @@ interface TodoUIProps
 }
 export default function TodoUI({todo}:TodoUIProps)
 {
+    const {mutate:deleteTodoById} = useMutationDeleteTodo();
     const {updateTodo,deleteTodo} = useBoundStore();
     const updateHandler = ()=>{
         console.log('updateHandler ',todo);
@@ -20,7 +22,9 @@ export default function TodoUI({todo}:TodoUIProps)
     };
     const deleteHandler = ()=>{
         console.log('Delete ',todo);
-        deleteTodo(todo);
+        //deleteTodo(todo);
+        deleteTodoById(todo?._id as string);
+
     }
     return(<div>
         {todo.title}
