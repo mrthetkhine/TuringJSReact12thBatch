@@ -9,8 +9,8 @@ export default function Home() {
       <main className={styles.main}>
 
         <div className={styles.intro}>
-          {/*<Counter/>*/}
-            <TodoListWithTanstackQuery/>
+          <Counter/>
+           {/* <TodoListWithTanstackQuery/>*/}
         </div>
       </main>
     </div>

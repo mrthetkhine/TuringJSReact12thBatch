@@ -12,6 +12,7 @@ import { TextField} from "@mui/material";
 import {useForm} from "react-hook-form";
 import {MovieSchema, MovieSchemaForm} from "@/lib/schema/movieSchema";
 import {zodResolver} from "@hookform/resolvers/zod";
+import {useMutationSaveMovie, useMutationUpdateMovie} from "@/lib/hooks/movieHook";
 
 
 interface MovieDialogProps
@@ -22,8 +23,8 @@ interface MovieDialogProps
 }
 export default function MovieDialog({open,setOpen,movieToEdit}: MovieDialogProps)
 {
-
-
+    const {mutateAsync:saveMovie}= useMutationSaveMovie();
+    const {mutateAsync:updateMovie}= useMutationUpdateMovie();
     const {
         register,
         handleSubmit,
@@ -42,7 +43,7 @@ export default function MovieDialog({open,setOpen,movieToEdit}: MovieDialogProps
             }
         },
     });
-    console.log('render MovieDialog');
+    //console.log('render MovieDialog');
 
     const handleClickOpen = () => {
         setOpen(true);
@@ -53,7 +54,7 @@ export default function MovieDialog({open,setOpen,movieToEdit}: MovieDialogProps
     const onSubmit = (data: MovieSchemaForm) => {
         if(movieToEdit)
         {
-            console.log('Update movie');
+
             let movieToUpdate:Movie = {
                 ...movieToEdit,
                 ...data,
@@ -62,23 +63,23 @@ export default function MovieDialog({open,setOpen,movieToEdit}: MovieDialogProps
                     ...data.director,
                 }
             }
-           /* updateMovie(movieToUpdate)
-                .unwrap()
+            console.log('Update movie ',movieToUpdate);
+            updateMovie(movieToUpdate)
                 .then((result) => {
                     console.log('Updated movie ',result);
                     setOpen(false);
                     reset();
-                })*/
+                });
         }
         else
         {
-            /*saveMovie(data as Partial<Movie>)
-                .unwrap()
+            console.log('Save Movie ',data);
+            saveMovie(data as Partial<Movie>)
                 .then((result)=>{
                     console.log('Saved movie ',result);
                     setOpen(false);
                     reset();
-                });*/
+                });
         }
 
     };

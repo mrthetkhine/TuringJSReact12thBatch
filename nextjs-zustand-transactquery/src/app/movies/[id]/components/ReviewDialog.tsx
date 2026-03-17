@@ -13,6 +13,7 @@ import DialogActions from "@mui/material/DialogActions";
 import Button from "@mui/material/Button";
 import Rating from "@mui/material/Rating";
 import Stack from "@mui/material/Stack";
+import {useMutationSaveReview, useMutationUpdateReview} from "@/lib/hooks/reviewHook";
 
 
 interface ReviewDialogProps{
@@ -24,6 +25,8 @@ interface ReviewDialogProps{
 export default function ReviewDialog({movieId,reviewToEdit,open,setOpen}: ReviewDialogProps)
 {
 
+    const {mutateAsync:saveReview} = useMutationSaveReview();
+    const {mutateAsync:updateReview} = useMutationUpdateReview();
 
     const [rating,setRating]=useState(reviewToEdit? reviewToEdit.rating : 0);
     const handleClickOpen = () => {
@@ -55,12 +58,11 @@ export default function ReviewDialog({movieId,reviewToEdit,open,setOpen}: Review
                 ...data,
             }
             console.log('update ',reviewToUpdate);
-            /*updateReview(reviewToUpdate)
-                .unwrap()
+                updateReview(reviewToUpdate)
                 .then((result)=>{
                     console.log('Result ',result);
                     setOpen(false);
-                });*/
+                });
 
 
         }
@@ -70,14 +72,12 @@ export default function ReviewDialog({movieId,reviewToEdit,open,setOpen}: Review
                 movie:movieId,
             }
             console.log('Save Review  submit ',reviewToSave);
-            /*saveReview(reviewToSave)
-            .unwrap()
+            saveReview(reviewToSave)
             .then(()=>{
                 reset();
                 setRating(0);
                 setOpen(false);
-            });*/
-
+            });
 
         }
 

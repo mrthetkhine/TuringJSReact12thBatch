@@ -7,6 +7,7 @@ import { Box } from "@mui/material";
 import {useRouter} from "next/navigation";
 import Button from "@mui/material/Button";
 import ConfirmDialog from "@/app/components/ConfirmDialog";
+import {useMutationDeleteMovie} from "@/lib/hooks/movieHook";
 
 
 interface MovieListProps{
@@ -15,17 +16,18 @@ interface MovieListProps{
 function renderAction(movie:Movie)
 {
 
+    const {mutateAsync:deleteMovie} = useMutationDeleteMovie();
     //console.log('Render ActionMovie ');
     const router = useRouter();
     const [openConfirm,setOpenConfirm]=useState(false);
 
     const onOkHandler = ()=>{
         console.log('Ok delete');
-       /* deleteMovie(movie)
-            .unwrap()
+       deleteMovie(movie?._id)
+
             .then((result)=>{
                 console.log('Movie successfully deleted');
-            });*/
+            });
     }
     const onCancelHandler = ()=>{
         console.log('Cancel Handler');

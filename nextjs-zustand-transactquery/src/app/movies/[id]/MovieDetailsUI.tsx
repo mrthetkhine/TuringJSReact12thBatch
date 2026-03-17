@@ -6,12 +6,14 @@ import Button from "@mui/material/Button";
 import * as React from "react";
 import EditMovie from "@/app/movies/[id]/components/EditMovie";
 import ReviewEntry from "@/app/movies/[id]/components/ReviewEntry";
+import {useLoadAllMovies} from "@/lib/hooks/movieHook";
+import {useLoadAllReviewsByMovieId} from "@/lib/hooks/reviewHook";
 
 
 interface MovieDetailsUI {
     movie: Movie;
 }
-const reviews:Review [] = [
+/*const reviews:Review [] = [
     {
         "_id": "696b5b248945b8c39816017a",
         "movie": "69650920f311abe1f015b15b",
@@ -40,7 +42,7 @@ const reviews:Review [] = [
         "review": "last review for 21 day laters",
 
     }
-]
+]*/
 function renderAction(movie:Movie)
 {
 
@@ -50,14 +52,13 @@ function renderAction(movie:Movie)
 }
 export default function MovieDetailsUI({movie}:MovieDetailsUI)
 {
-
-
+    const { isPending, refetch, data:reviews, error,isSuccess } = useLoadAllReviewsByMovieId(movie?._id);
     return(<div>
 
         <MovieUI movie={movie} render={renderAction}/>
         <ReviewEntry movieId={movie._id}/>
         {
-            reviews.length >0 && reviews.map(review=><ReviewUI key={review._id} review={review}/>)
+            isSuccess && reviews.map(review=><ReviewUI key={review._id} review={review}/>)
         }
     </div>);
 }

@@ -9,6 +9,7 @@ import * as React from "react";
 import {useState} from "react";
 import ConfirmDialog from "@/app/components/ConfirmDialog";
 import ReviewDialog from "@/app/movies/[id]/components/ReviewDialog";
+import {useMutationDeleteReview} from "@/lib/hooks/reviewHook";
 
 interface ReviewUI {
     review: Review;
@@ -16,15 +17,15 @@ interface ReviewUI {
 export default function ReviewUI({review}: ReviewUI)
 {
     //console.log('ReviewUI',review);
-
+    const {mutateAsync:deleteReview} = useMutationDeleteReview();
     const [openConfirm,setOpenConfirm]=useState(false);
 
     const onOkHandler = ()=>{
         console.log('Ok Handler');
-       /* deleteReview(review)
+            deleteReview(review)
             .then(()=>{
                 console.log('Review successfully deleted');
-            });*/
+            });
     }
     const onCancelHandler = ()=>{
         console.log('Cancel Handler');
