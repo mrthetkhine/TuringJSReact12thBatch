@@ -2,10 +2,9 @@
 
 import {useParams, useRouter} from "next/navigation";
 import MovieDetailsUI from "@/app/movies/[id]/MovieDetailsUI";
-import {Movie} from "@/lib/types";
 import Button from "@mui/material/Button";
 import {prefetchMovies, useGetMovieById} from "@/lib/hooks/movieHook";
-import {useEffect, useState} from "react";
+import withAuth from "@/app/components/withAuth";
 
 /*const movie :Movie =  {
     "_id": "69650920f311abe1f015b15b",
@@ -38,5 +37,5 @@ import {useEffect, useState} from "react";
     </div>);
 
 }
-
-export default MovieDetailsPage;
+const MovieDetailsWithAuth = withAuth(MovieDetailsPage);
+export default MovieDetailsWithAuth;

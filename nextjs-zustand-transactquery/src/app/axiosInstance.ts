@@ -8,12 +8,12 @@ const axiosInstance = axios.create({
     /*timeout: 10000,*/
 });
 
-/*axiosInstance.interceptors.request.use(
+axiosInstance.interceptors.request.use(
     async (config) => {
         //console.log('Axios interceptor enter');
-        const {auth} = useBoundStore.getState();
+        const {token} = useBoundStore.getState();
         //console.log('Axios interceptor',auth);
-        const token = auth.token;
+
 
         if(token)
         {
@@ -27,6 +27,6 @@ const axiosInstance = axios.create({
         console.log('Axios interceptor error', error);
         return Promise.reject(error);
     }
-);*/
+);
 
 export default axiosInstance;

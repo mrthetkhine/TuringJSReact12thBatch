@@ -13,15 +13,13 @@ import Typography from '@mui/material/Typography';
 import Menu from '@mui/material/Menu';
 import MenuIcon from '@mui/icons-material/Menu';
 import Container from '@mui/material/Container';
-import Avatar from '@mui/material/Avatar';
-import Button from '@mui/material/Button';
-import Tooltip from '@mui/material/Tooltip';
-import MenuItem from '@mui/material/MenuItem';
+
 import AdbIcon from '@mui/icons-material/Adb';
+import useAuth from "@/app/hooks/useAuth";
 //import useAuth from "@/app/hooks/useAuth";
 
 export  const Nav = () => {
-  //  const auth = useAuth();
+    const auth = useAuth();
   const pathname = usePathname();
     const [anchorElNav, setAnchorElNav] = useState<null | HTMLElement>(null);
     const [anchorElUser, setAnchorElUser] = useState<null | HTMLElement>(null);
@@ -111,42 +109,52 @@ export  const Nav = () => {
                         >
                             Home
                         </Link>
-                        <Link
-                            className={`${styles.link} ${
-                                pathname === "/todos" ? styles.active : ""
-                            }`}
-                            style={navLinkStyle}
-                            href="/todos"
-                        >
-                            Todos
-                        </Link>
-                        <Link
-                            className={`${styles.link} ${
-                                pathname === "/movies" ? styles.active : ""
-                            }`}
-                            style={navLinkStyle}
-                            href="/movies"
-                        >
-                            Movies
-                        </Link>
-                        <Link
-                            className={`${styles.link} ${
-                                pathname === "/login" ? styles.active : ""
-                            }`}
-                            style={navLinkStyle}
-                            href="/login"
-                        >
-                            Login
-                        </Link>
-                        <Link
-                            className={`${styles.link} ${
-                                pathname === "/logout" ? styles.active : ""
-                            }`}
-                            style={navLinkStyle}
-                            href="/logout"
-                        >
-                            Logout
-                        </Link>
+
+                        {
+                            auth && <Link
+                                className={`${styles.link} ${
+                                    pathname === "/todos" ? styles.active : ""
+                                }`}
+                                style={navLinkStyle}
+                                href="/todos"
+                            >
+                                Todos
+                            </Link>
+                        }
+                        {
+                            auth && <Link
+                                className={`${styles.link} ${
+                                    pathname === "/movies" ? styles.active : ""
+                                }`}
+                                style={navLinkStyle}
+                                href="/movies"
+                            >
+                                Movies
+                            </Link>
+                        }
+                        {
+                            !auth && <Link
+                                className={`${styles.link} ${
+                                    pathname === "/login" ? styles.active : ""
+                                }`}
+                                style={navLinkStyle}
+                                href="/login"
+                            >
+                                Login
+                            </Link>
+                        }
+                        {
+                            auth && <Link
+                                className={`${styles.link} ${
+                                    pathname === "/logout" ? styles.active : ""
+                                }`}
+                                style={navLinkStyle}
+                                href="/logout"
+                            >
+                                Logout
+                            </Link>
+                        }
+
 
                     </Box>
 

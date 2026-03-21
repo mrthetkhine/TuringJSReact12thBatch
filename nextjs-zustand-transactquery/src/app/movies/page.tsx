@@ -5,8 +5,9 @@ import NewMovieEntry from "./components/NewMovieEntry";
 import MovieList from "@/app/movies/components/MovieList";
 import {useLoadAllTodos} from "@/lib/hooks/todoHook";
 import {useLoadAllMovies} from "@/lib/hooks/movieHook";
+import withAuth from "@/app/components/withAuth";
 
-const movies: Movie[] = [
+/*const movies: Movie[] = [
     {
         "_id": "69650920f311abe1f015b15b",
         "title": "21 days later",
@@ -60,8 +61,8 @@ const movies: Movie[] = [
         "year": 2025,
 
     }
-]
-export default function MoviePage()
+]*/
+function MoviePage()
 {
     const { isPending, refetch, data, error,isSuccess } = useLoadAllMovies();
     return (<div className={'movies-page-container'}>
@@ -72,3 +73,5 @@ export default function MoviePage()
 
     </div>);
 }
+const MoviePageWithAuth = withAuth(MoviePage);
+export default MoviePageWithAuth;
